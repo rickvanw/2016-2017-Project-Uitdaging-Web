@@ -28,7 +28,7 @@ nav.sidebar, .main{
 }
 
 .main{
-    padding: 10px 10px 0 10px;
+    padding: 0px 10px 0 10px;
     padding-right: 100px;
 }
 
@@ -99,7 +99,8 @@ nav.sidebar .navbar-nav > li:hover {
 
     nav.sidebar a{
         padding-right: 11px;
-        padding-bottom: 18px;
+        padding-bottom: 9px;
+        padding-top: 9px;
     }
 
 
