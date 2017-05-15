@@ -1,0 +1,47 @@
+
+header {
+    background-color: #4990e2;
+    padding: 10px 15px 15px 70px!important;
+    z-index: 200!important;
+    height: 130px;
+}
+header img.main-logo {
+    width: 320px;
+}
+
+
+/* SUB HEADER */
+.sub-header {
+    background-color: #304670;
+    height: 40px;
+    padding: 7px 35px 7px 35px;
+}
+.sub-header p {
+    color: #FFF;
+    float: left;
+    padding-top: 3px;
+}
+.sub-header .right {
+    float: right;
+}
+.sub-header .right button {
+    border: 0;
+    padding: 3px;
+    width: 120px;
+    border-radius: 6px;
+    background-color: #252525;
+    color: #FFF;
+    margin-left: 15px;
+}
+
+#flag-button {
+    padding-right: 13px;
+    padding-left: 13px;
+}
+
+a{  color: white;
+}
+
+.sub-header-button:hover {
+    color: deepskyblue;
+}
