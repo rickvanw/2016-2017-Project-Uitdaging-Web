@@ -33,6 +33,15 @@
     background-color: #DFE8FF;
 }
 
+.button:hover {
+    color: white;
+}
+
+.button:focus {
+    color:white;
+    outline: none;
+}
+
 .button.negative:hover {
     text-decoration: none;
     color: white;
@@ -44,8 +53,11 @@
     background-color : rgb(84,120,219);
 }
 
+.button.negative:active {
+    color:white;
+}
+
 .button.negative:focus {
-    color: white;
     background-color: rgb(84,120,219);
 }
 .darkblue {
