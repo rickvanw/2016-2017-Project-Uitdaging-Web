@@ -1,6 +1,6 @@
 .button {
-    background-color: #DCDCDC; /* grey */
-    border: 3px solid #DCDCDC;
+    background-color: rgb(210,210,210); /* grey */
+    border: 3px solid rgb(210,210,210);
     color: white;
     text-align: center;
     display: inline-block;
@@ -14,12 +14,9 @@
     border-radius: 8px;
 }
 
-body {
-    overflow-y: scroll;
-}
 
 .buttonok {
-    background-color: #5478DB;
+    background-color: rgb(84,120,219);
     color: white;
     text-align: center;
     display: inline-block;
@@ -35,4 +32,28 @@ body {
 }
 .blue {
     background-color: #DFE8FF;
+}
+
+.button:active{
+    background-color: rgb(84,120,219);
+    color: white;
+}
+
+.button:hover {
+    background-color: rgb(84,120,219);
+    color: white;
+}
+.button:focus {
+    background-color: rgb(84,120,219);
+    color: white;
+}
+.darkblue {
+    background-color:rgb(84,120,219);
+}
+.grey {
+    background-color: rgb(210,210,210);
+}
+
+#kaas {
+    overflow-y:scroll;
 }
