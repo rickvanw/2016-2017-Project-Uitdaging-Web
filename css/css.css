@@ -14,7 +14,6 @@
     border-radius: 8px;
 }
 
-
 .buttonok {
     background-color: rgb(84,120,219);
     color: white;
@@ -34,24 +33,30 @@
     background-color: #DFE8FF;
 }
 
-.button:active{
-    background-color: rgb(84,120,219);
+.button.negative:hover {
+    text-decoration: none;
     color: white;
+    background-color : rgb(84,120,219);
 }
 
-.button:hover {
-    background-color: rgb(84,120,219);
-    color: white;
+.button:active {
+    color:white;
+    background-color : rgb(84,120,219);
 }
-.button:focus {
-    background-color: rgb(84,120,219);
+
+.button.negative:focus {
     color: white;
+    background-color: rgb(84,120,219);
 }
 .darkblue {
     background-color:rgb(84,120,219);
 }
 .grey {
     background-color: rgb(210,210,210);
+}
+.negative {
+    color: white;
+    background-color: rgb(84,120,219);
 }
 
 #kaas {

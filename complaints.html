@@ -61,15 +61,9 @@
 </div>
 
 <script>
-    function setColor(btn){
-        var property = document.getElementById(btn);
-        if (property.style.backgroundColor==rgb(84,120,219)) {
-            property.style.backgroundColor = rgb(210,210,210);
-        } else {
-            property.style.backgroundColor=rgb(84,120,219);
-
-        }
-    }
+    $('button').click(function(){
+        $(this).toggleClass('negative');
+    });
 </script>
 
 
