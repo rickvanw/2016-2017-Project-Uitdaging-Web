@@ -29,7 +29,8 @@
 
 </head>
 
-<body ng-app="">
+<body style="height:4000px;" ng-app="">
+
 
 <div ng-include="'includes/header.html'"></div>
 
@@ -48,16 +49,32 @@
 <script src="https://use.fontawesome.com/684f6ba679.js"></script>
 <div class="blue">
 <div class="text-center">
-    <button type="button" id="nekbutton"  class="btn btn-default button">Nek</button>
-    <button type="button" id="elleboogbutton" class="btn btn-default button">Elleboog</button>
-    <button type="button" id="schoudersbutton" class="btn btn-default button">Schouders</button>
+    <button type="button" id="nekbutton"  class="btn btn-default button" onclick="setColor('nekbutton', '#5478DB')";>Nek</button>
+    <button type="button" id="elleboogbutton" class="btn btn-default button" onclick="setColor('elleboogbutton', '#5478DB')";>Elleboog</button>
+    <button type="button" id="schoudersbutton" class="btn btn-default button" onclick="setColor('schoudersbutton', '#5478DB')";>Schouders</button>
 </div>
 <div class="text-center">
-    <button type="button" id="polshandbutton" class="btn btn-default button">Pols/Hand</button>
-    <button type="button" id="rugbutton" class="btn btn-default button">Rug</button>
-    <button type="button" id="preventiefbutton"class="btn btn-default button">Preventief</button>
+    <button type="button" id="polshandbutton" class="btn btn-default button" onclick="setColor('polshandbutton', '#5478DB')";>Pols/Hand</button>
+    <button type="button" id="rugbutton" class="btn btn-default button" onclick="setColor('rugbutton', '#5478DB')";>Rug</button>
+    <button type="button" id="preventiefbutton"class="btn btn-default button" onclick="setColor('preventiefbutton', '#5478DB')";>Preventief</button>
 </div>
 </div>
+<script>
+    function setColor(btn, color) {
+        var property = document.getElementById(btn);
+        var color = property.style.backgroundColor;
+        color = color.substring(
+                color.indexOf('(') + 1,
+                color.lastIndexOf(color[3] == 'a' ? ',' : ')')
+                );
+        if (color == '220,220,220') {
+            property.style.backgroundColor = "#5478DB";
+        }
+        else {
+            property.style.backgroundColor = "rgb(220,220,220)";
+        }
+    }
+</script>
 
 <footer class="text-center">
     <button type="button" class="btn btn-default buttonok">OK</button>

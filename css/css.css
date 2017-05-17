@@ -14,22 +14,7 @@
     border-radius: 8px;
 }
 
-.button:focus,
-.button:active,
-.button.active {
-    background-color: #5478DB;
-    border-color: #3610E0;
-}
-.button:active{
-    background-color: #DFE8FF;
-}
 
-.active{
-    background:#5478DB;
-}
-button.btn:active{
-    background:#5478DB;
-}
 .buttonok {
     background-color: #5478DB;
     color: white;
