@@ -47,16 +47,18 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="https://use.fontawesome.com/684f6ba679.js"></script>
+<script src="javascript/ajax/user/post-complaints.js"></script>
+
 <div class="blue">
 <div class="text-center">
-    <button type="button" id="nekbutton"  class="btn btn-default button" onclick="setColor('nekbutton')";>Nek</button>
-    <button type="button" id="elleboogbutton" class="btn btn-default button" onclick="setColor('elleboogbutton')";>Elleboog</button>
-    <button type="button" id="schoudersbutton" class="btn btn-default button" onclick="setColor('schoudersbutton')";>Schouders</button>
+    <button type="button" id="nekbutton"  class="btn btn-default button" onclick="setColor('nekbutton');passThroughId(1);">Nek</button>
+    <button type="button" id="elleboogbutton" class="btn btn-default button" onclick="setColor('elleboogbutton');passThroughId(2);">Elleboog</button>
+    <button type="button" id="schoudersbutton" class="btn btn-default button" onclick="setColor('schoudersbutton');passThroughId(3);">Schouders</button>
 </div>
 <div class="text-center">
-    <button type="button" id="polshandbutton" class="btn btn-default button" onclick="setColor('polshandbutton')";>Pols/Hand</button>
-    <button type="button" id="rugbutton" class="btn btn-default button" onclick="setColor('rugbutton')";>Rug</button>
-    <button type="button" id="preventiefbutton"class="btn btn-default button" onclick="setColor('preventiefbutton')";>Preventief</button>
+    <button type="button" id="polshandbutton" class="btn btn-default button" onclick="setColor('polshandbutton');passThroughId(4);">Pols/Hand</button>
+    <button type="button" id="rugbutton" class="btn btn-default button" onclick="setColor('rugbutton');passThroughId(5);">Rug</button>
+    <button type="button" id="preventiefbutton"class="btn btn-default button" onclick="setColor('preventiefbutton');passThroughId(6);">Preventief</button>
 </div>
 </div>
 
@@ -66,11 +68,10 @@
     });
 </script>
 
-
-
 <footer class="text-center">
     <button type="button" id="complaint-ok" class="btn btn-default buttonok">OK</button>
 </footer>
+
 
 </body>
 </html>

@@ -6,7 +6,6 @@
 $(document).ready(function(){
 
     $("#complaint-ok").submit(function(){
-        // TODO var complaints[] = ;
         var start_date = getCurrentDate();
         var end_date = getEndDate();
 
