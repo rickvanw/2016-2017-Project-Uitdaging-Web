@@ -2,26 +2,32 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <link href="css/treatment.css" rel="stylesheet">
 
     <div class="treatment title_text">
-        <p> Op deze pagina staan de oefeningen van de dag.
+        <p style="white-space:normal;width:100%; height:100%;"> Op deze pagina staan de oefeningen van de dag.
             <br>Hier kan je teruggaan naar vorige dagen om likes/dislikes aan te passen van vorige oefeningen.
         </p>
     </div>
+    <div class="treatment date_section">
+    <div class="treatment left_arrow"><</div>
+    <div class="treatment day_text">
+        <p>
+            Maandag, 08-05-2017
+        </p>
+    </div>
+    <div class="treatment right_arrow">></div>
+    </div>
 
-    <div class="container treatment exercise_box_container">
-        <a class="treatment link_collapse" data-toggle="collapse" href="#collapse1">
-
+    <div class="container treatment exercise_container">
         <div class="panel-group">
             <div class="panel panel-default">
                 <a class="treatment link_collapse" data-toggle="collapse" href="#collapse1">
-                    <div class="panel-heading treatment exercise_heading">
+                    <div class="panel-heading treatment exercise_quickview_container">
                         <div class="treatment exercise_quickview_image_box">
                             <img src="img/exercise.jpg" class="img-responsive">
                         </div>
-                        <p class="treatment exercise_quickview_text">
+                        <p class="treatment exercise_quickview_title">
                             Planken
                         </p>
                         <div class="treatment exercise_quickview_repeats">
@@ -34,25 +40,241 @@
                         </div>
                     </div>
                 </a>
-                <a class="treatment link_collapse" data-toggle="collapse" href="#collapse1">
-                <div id="collapse1" class="panel-collapse treatment collapse">
-                    <div class="panel-body treatment exercise_collapse">
-                        <div class="treatment image_box">
+                <div id="collapse1" class="panel-collapse collapse">
+                    <a class="treatment link_collapse" data-toggle="collapse" href="#collapse1">
+
+                        <div class="panel-body treatment exercise_collapse_container">
+
+                            <div class="treatment container_in_collapse">
+                                <div class="treatment exercise_collapse_image_box">
+                                    <img src="img/exercise.jpg" class="img-responsive">
+                                </div>
+                                <div class="treatment description_in_collapse">
+                                    <p style="white-space:normal;width:100%; height:100%;">
+                                        Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen.
+                                        Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je
+                                        bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind je
+                                        het lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op
+                                        je knieën.
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="treatment exercise_buttons">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button id="doneButton" type="button"
+                                            class="btn btn-default treatment exercise_button">
+                                        <img src="img/checkmark.png" class="img-responsive">
+                                    </button>
+                                    <button id="notdoneButton" type="button"
+                                            class="btn btn-default treatment exercise_button">
+                                        <img src="img/close.png" class="img-responsive">
+                                    </button>
+                                </div>
+                                <div class="treatment button_stripe"></div>
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button id="likeButton" type="button"
+                                            class="btn btn-default treatment exercise_button">
+                                        <img src="img/like.png" class="img-responsive">
+                                    </button>
+                                    <button id="dislikeButton" type="button"
+                                            class="btn btn-default treatment exercise_button">
+                                        <img src="img/dislike.png" class="img-responsive">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container treatment exercise_container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <a class="treatment link_collapse" data-toggle="collapse" href="#collapse2">
+                    <div class="panel-heading treatment exercise_quickview_container">
+                        <div class="treatment exercise_quickview_image_box">
                             <img src="img/exercise.jpg" class="img-responsive">
                         </div>
-                        <div class="treatment box_in_collapse">
-                            <div class="treatment text_in_collapse">
-                                <p class="treatment exercise_description">
-                                    Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen. Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind je het lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op je knieën.
-                                </p>
+                        <p class="treatment exercise_quickview_title">
+                            Planken
+                        </p>
+                        <div class="treatment exercise_quickview_repeats">
+                            <p class="treatment exercise_quickview_text_repeats">
+                                Herhalingen
+                            </p>
+                            <p class="treatment exercise_quickview_amount_repeats">
+                                6
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a class="treatment link_collapse" data-toggle="collapse" href="#collapse2">
+                    <div id="collapse2" class="panel-collapse treatment collapse">
+                        <div class="panel-body treatment exercise_collapse">
+                            <div class="treatment image_box">
+                                <img src="img/exercise.jpg" class="img-responsive">
                             </div>
-                            <div class="treatment buttons_in_collapse">
+                            <div class="treatment box_in_collapse">
+                                <div class="treatment text_in_collapse">
+                                    <p class="treatment exercise_description">
+                                        Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen.
+                                        Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je
+                                        bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind je
+                                        het lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op
+                                        je knieën.
+                                    </p>
+                                </div>
+                                <div class="treatment buttons_in_collapse">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </a>
             </div>
         </div>
     </div>
+    <div class="container treatment exercise_container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <a class="treatment link_collapse" data-toggle="collapse" href="#collapse3">
+                    <div class="panel-heading treatment exercise_quickview_container">
+                        <div class="treatment exercise_quickview_image_box">
+                            <img src="img/exercise.jpg" class="img-responsive">
+                        </div>
+                        <p class="treatment exercise_quickview_title">
+                            Planken
+                        </p>
+                        <div class="treatment exercise_quickview_repeats">
+                            <p class="treatment exercise_quickview_text_repeats">
+                                Herhalingen
+                            </p>
+                            <p class="treatment exercise_quickview_amount_repeats">
+                                6
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a class="treatment link_collapse" data-toggle="collapse" href="#collapse3">
+                    <div id="collapse3" class="panel-collapse treatment collapse">
+                        <div class="panel-body treatment exercise_collapse">
+                            <div class="treatment image_box">
+                                <img src="img/exercise.jpg" class="img-responsive">
+                            </div>
+                            <div class="treatment box_in_collapse">
+                                <div class="treatment text_in_collapse">
+                                    <p class="treatment exercise_description">
+                                        Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen.
+                                        Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je
+                                        bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind je
+                                        het lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op
+                                        je knieën.
+                                    </p>
+                                </div>
+                                <div class="treatment buttons_in_collapse">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container treatment exercise_container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <a class="treatment link_collapse" data-toggle="collapse" href="#collapse4">
+                    <div class="panel-heading treatment exercise_quickview_container">
+                        <div class="treatment exercise_quickview_image_box">
+                            <img src="img/exercise.jpg" class="img-responsive">
+                        </div>
+                        <p class="treatment exercise_quickview_title">
+                            Planken
+                        </p>
+                        <div class="treatment exercise_quickview_repeats">
+                            <p class="treatment exercise_quickview_text_repeats">
+                                Herhalingen
+                            </p>
+                            <p class="treatment exercise_quickview_amount_repeats">
+                                6
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a class="treatment link_collapse" data-toggle="collapse" href="#collapse4">
+                    <div id="collapse4" class="panel-collapse treatment collapse">
+                        <div class="panel-body treatment exercise_collapse">
+                            <div class="treatment image_box">
+                                <img src="img/exercise.jpg" class="img-responsive">
+                            </div>
+                            <div class="treatment box_in_collapse">
+                                <div class="treatment text_in_collapse">
+                                    <p class="treatment exercise_description">
+                                        Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen.
+                                        Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je
+                                        bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind je
+                                        het lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op
+                                        je knieën.
+                                    </p>
+                                </div>
+                                <div class="treatment buttons_in_collapse">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container treatment exercise_container">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <a class="treatment link_collapse" data-toggle="collapse" href="#collapse5">
+                    <div class="panel-heading treatment exercise_quickview_container">
+                        <div class="treatment exercise_quickview_image_box">
+                            <img src="img/exercise.jpg" class="img-responsive">
+                        </div>
+                        <p class="treatment exercise_quickview_title">
+                            Planken
+                        </p>
+                        <div class="treatment exercise_quickview_repeats">
+                            <p class="treatment exercise_quickview_text_repeats">
+                                Herhalingen
+                            </p>
+                            <p class="treatment exercise_quickview_amount_repeats">
+                                6
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a class="treatment link_collapse" data-toggle="collapse" href="#collapse5">
+                    <div id="collapse5" class="panel-collapse treatment collapse">
+                        <div class="panel-body treatment exercise_collapse">
+                            <div class="treatment image_box">
+                                <img src="img/exercise.jpg" class="img-responsive">
+                            </div>
+                            <div class="treatment box_in_collapse">
+                                <div class="treatment text_in_collapse">
+                                    <p class="treatment exercise_description">
+                                        Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen.
+                                        Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je
+                                        bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind je
+                                        het lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op
+                                        je knieën.
+                                    </p>
+                                </div>
+                                <div class="treatment buttons_in_collapse">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="javascript/treatment.js"></script>
 </div>
