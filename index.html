@@ -10,8 +10,15 @@
 
     <!-- Bootstrap  & Styling-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="sass/sidemenu.css" rel="stylesheet">
+
     <link href="sass/header.css" rel="stylesheet">
+    <link href="sass/sidemenu.css" rel="stylesheet">
+
+    <!--CSS pages-->
+    <link href="css/contact_page.css" rel="stylesheet">
+    <link href="css/profiel.css" rel="stylesheet">
+
+    <link href="css/checkbox.css" rel="stylesheet">
 
 
 
@@ -28,17 +35,20 @@
 
 </head>
 
-<body ng-app="">
+<body ng-app="kibClient" ng-controller="partialController">
+
+<script src="javascript/partial_controller.js"></script>
 
 <div ng-include="'includes/header.html'"></div>
-
 <div ng-include="'includes/side_menu.html'"></div>
 
+<!--</div>-->
+<div class="main" ng-model="template" ng-include="template.url" >
+</div>
 
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
 <script src="https://use.fontawesome.com/684f6ba679.js"></script>
 
 
