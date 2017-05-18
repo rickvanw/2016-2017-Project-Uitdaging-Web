@@ -1,17 +1,17 @@
-.treatment .link_collapse{
+.treatment.link_collapse{
     text-decoration: none;
 
 }
 
 .treatment.title_text{
-    max-width: 700px;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: left;
     margin-top:50px;
 }
 
 .treatment.exercise_box{
-    max-width: 700px;
+    max-width: 1000px;
     height:200px;
     margin: 0 auto;
     text-align: left;
@@ -24,7 +24,7 @@
 
 .treatment.exercise_box_container{
     text-decoration: none;
-    max-width:700px;
+    max-width:1000px;
     padding:0;
     margin:0 auto;
 }
@@ -40,9 +40,10 @@
 }
 
 .treatment.exercise_quickview_repeats{
-    width:auto;
-    margin-left:150px;
-    margin-top:15px;
+    width:100px;
+    margin-left:auto;
+    margin-right: 0;
+    margin-top:10px;
     background-color: #efeaea;
     color: #4990e2;
     text-align:center;
@@ -54,6 +55,7 @@
     font-size:20px;
     float: top;
     text-decoration: none;
+    margin:0;
 }
 
 .treatment.exercise_quickview_amount_repeats{
@@ -62,6 +64,8 @@
     float: bottom;
     text-align:center;
     text-decoration: none;
+    margin:0;
+
 }
 
 .treatment.exercise_quickview_box{
