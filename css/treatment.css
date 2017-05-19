@@ -27,7 +27,6 @@
     font-size:25px;
     color: rgb(48, 70, 112);
     display:inline-block;
-
 }
 
 .treatment.left_arrow{
@@ -53,10 +52,8 @@
     font-weight: bold;
     font-size:25px;
     color: rgb(48, 70, 112);
-    /*TODO inline-block if there is a next day, remove display:none;*/
-    /*display:inline-block;*/
+    display:inline-block;
     cursor: pointer;
-    display:none;
 }
 
 .treatment.exercise_container{
