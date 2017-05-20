@@ -1,11 +1,14 @@
 /**
  * Created by rickv on 18-5-2017.
  */
-
-
 $(document).ready(function() {
-
     getExercises();
+
+});
+
+$(document).ajaxComplete(function () {
+    var disabled = 0;
+
     $('.left_arrow').click(function(event){
         alert("previous");
     });
@@ -13,12 +16,13 @@ $(document).ready(function() {
         alert("next");
     });
 
-    var disabled = 0;
-
     $('.doneButton').click(function(event){
         //TODO fix buttons
-        alert(this.id.split("doneButton"));
-        disabled=this.id.split("doneButton");
+        alert(this.id.split("doneButton")[1]);
+
+        var buttonExerciseId=this.id.split("doneButton")[1];
+
+        disabled=buttonExerciseId;
         return false;
     });
 
@@ -27,23 +31,26 @@ $(document).ready(function() {
     });
 
     $('.likeButton').click(function(event){
-        if (disabled != this.id.split("likeButton")) {
+        var buttonExerciseID=this.id.split("likeButton")[1];
+
+        if (disabled != buttonExerciseID) {
             alert("Geef eerst aan dat je de oefening gedaan hebt");
             return false;
         }else{
-
+            rateExercise(1, buttonExerciseID);
         }
     });
 
     $('.dislikeButton').click(function(event){
-        if (disabled != this.id.split("dislikeButton")) {
+        var buttonExerciseId=this.id.split("dislikeButton")[1];
+
+        if (disabled != buttonExerciseId) {
             alert("Geef eerst aan dat je de oefening gedaan hebt");
             return false;
         }else{
-
+            rateExercise(-1, buttonExerciseId);
         }
     });
-
 });
 
 function getExercises(){
@@ -132,3 +139,65 @@ function placeExercises(data) {
     });
 }
 
+function doneExercise() {
+    var request = $.ajax({
+        type: 'POST',
+        url: "http://localhost:8000" + "/exercise/rate",
+        data: {"exerciseId": exerciseId, "rating":rating},
+        dataType: 'json',
+        statusCode: {
+            200:function(){
+                console.log(200, "succes!");
+            },
+            401:function(error) {
+                console.log(401);
+            },
+            404: function(error){
+                console.log(404, error)
+            }
+        }
+    });
+
+    request.done(function (data) {
+        placeExercises(data);
+    });
+
+    request.error(function (jqXHR, textStatus, errorThrown){
+        console.log("ERROR: " + textStatus + " CODE: " + errorThrown);
+    });
+}
+
+/**
+ *
+ * @param rating        rating (1 or -1)
+ * @param exerciseId    id of exercise to be changed
+ */
+function rateExercise(rating, exerciseId) {
+    console.log("rating");
+    var request = $.ajax({
+        type: 'PUT',
+        url: "http://localhost:8000" + "/exercise/rate",
+        data: {"exerciseId": exerciseId, "rating":rating},
+        dataType: 'json',
+        statusCode: {
+            200:function(){
+                console.log(200, "succes!");
+            },
+            401:function(error) {
+                console.log(401);
+            },
+            404: function(error){
+                console.log(404, error)
+            }
+        }
+        ,
+        error: function (err) {
+            alert("Error: " + err);
+        }
+    });
+
+    request.done(function (data) {
+        console.log("DONE")
+    });
+
+}
