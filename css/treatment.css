@@ -18,7 +18,9 @@
 }
 
 .treatment.day_text{
-    width:auto;
+    cursor:default;
+    user-select: none;
+    width:300px;
     margin: 0 auto;
     text-align: center;
     margin-top:40px;
@@ -30,6 +32,7 @@
 }
 
 .treatment.left_arrow{
+    user-select: none;
     width:40px;
     margin: 0 auto;
     text-align: center;
@@ -44,6 +47,7 @@
 }
 
 .treatment.right_arrow{
+    user-select: none;
     width:40px;
     margin: 0 auto;
     text-align: center;
