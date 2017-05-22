@@ -160,7 +160,13 @@
     float:left;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.65);
+}
 
+.treatment.video_in_collapse{
+    max-width:720px;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:20px;
 }
 
 .treatment.exercise_buttons{
@@ -206,6 +212,10 @@
         width:700px;
     }
 
+    .treatment.video_in_collapse{
+        max-width:420px;
+    }
+
 }
 
 @media screen and (max-width: 1200px)and (min-width: 992px){
@@ -221,6 +231,11 @@
     .treatment.title_text{
         width:900px;
     }
+
+    .treatment.video_in_collapse{
+        max-width:620px;
+    }
+
 }
 
 @media screen and (min-width: 1200px){
@@ -236,4 +251,9 @@
     .treatment.title_text{
         width:1000px;
     }
+
+    .treatment.video_in_collapse{
+        max-width:720px;
+    }
+
 }

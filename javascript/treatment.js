@@ -8,10 +8,10 @@ var done_exercises =[];
 var daysFromCurrentDate = 0;
 getExercises(getCurrentDate());
 
-
 $(document).ready(function() {
     userInteraction();
     $('.day_text').text(getDateString(getCurrentDate()));
+    $('.right_arrow').css('visibility', 'hidden');
 
 });
 
@@ -24,6 +24,9 @@ function userInteraction () {
         daysFromCurrentDate--;
         getExercises(daysFromDate(daysFromCurrentDate));
         $('.day_text').text(getDateString(daysFromDate(daysFromCurrentDate)));
+        if(daysFromCurrentDate<0){
+            $('.right_arrow').css('visibility', 'visible');
+        }
     });
     $('.right_arrow').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
@@ -32,6 +35,10 @@ function userInteraction () {
         daysFromCurrentDate++;
         getExercises(daysFromDate(daysFromCurrentDate));
         $('.day_text').text(getDateString(daysFromDate(daysFromCurrentDate)));
+
+        if(daysFromCurrentDate==0){
+            $('.right_arrow').css('visibility', 'hidden');
+        }
     });
 
     $('.doneButton').off("click").on("click", function (e) {
