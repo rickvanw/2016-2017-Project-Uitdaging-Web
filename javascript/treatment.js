@@ -13,9 +13,18 @@ $(document).ready(function() {
     $('.day_text').text(getDateString(getCurrentDate()));
     $('.right_arrow').css('visibility', 'hidden');
 
+    $('.link_collapse').css('visibility', 'hidden');
+
 });
 
 function userInteraction () {
+
+    // Pause video if expansion collapses
+    $('.link_collapse').off("click").on("click", function (e) {
+        var buttonExerciseId=$(this).attr("href").split("#collapse")[1];
+        document.getElementById('video'+buttonExerciseId).contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+
+    });
 
     $('.left_arrow').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
@@ -159,6 +168,8 @@ function placeExercises(data) {
         $("#likeButton0").attr("id", "likeButton" + exercise.exercise_id);
         $("#dislikeButton0").attr("id", "dislikeButton" + exercise.exercise_id);
         $("#exercise0").attr("id", "exercise" + exercise.exercise_id);
+        $("#video0").attr("id", "video" + exercise.exercise_id);
+
 
         // Fill the exercises
 
@@ -167,6 +178,9 @@ function placeExercises(data) {
 
         //Expanded image
         $('#' + "exercise" + exercise.exercise_id).find('.collapse_image').attr("src", "img/" + exercise.image_url + ".jpg");
+
+        //Expanded video
+        $('#' + "exercise" + exercise.exercise_id).find('.collapse_video').attr("src", exercise.media_url + "?enablejsapi=1");
 
         // Title
         $('#' + "exercise" + exercise.exercise_id).find('.exercise_quickview_title').text(exercise.name);
