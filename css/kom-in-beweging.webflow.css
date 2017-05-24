@@ -356,3 +356,15 @@
   margin-top: -96px;
 }
 
+.modal-body p{
+  color: #5e5e5e;
+}
+
+.modal-body {
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+#registerModal {
+  margin-top: 10%;
+}
