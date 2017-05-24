@@ -118,7 +118,7 @@
   right: 0px;
   bottom: 0px;
   display: block;
-  margin-top: 150px;
+  margin-top: 15%;
   margin-right: auto;
   margin-left: auto;
   padding-bottom: 28px;
@@ -355,3 +355,4 @@
 .container {
   margin-top: -96px;
 }
+

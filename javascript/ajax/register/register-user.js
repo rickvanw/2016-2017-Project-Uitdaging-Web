@@ -41,7 +41,7 @@ $(document).on('click', '#register-button', function(){
 });
 
 /**
- * Checkes if fields are filled.
+ * Checkes if fields are filled and if the filled in passwords are equal.
  * @returns {boolean}
  */
 function validateFields() {
@@ -52,7 +52,7 @@ function validateFields() {
         isValid = false;
         showEmptyFieldAlert();
     }
-    if(passwordField2.val() != passwordField3.val()) {
+    if(!passwordField2.val().equals(passwordField3.val())) {
         showPasswordMismatchAlert();
         isValid = false;
     }
