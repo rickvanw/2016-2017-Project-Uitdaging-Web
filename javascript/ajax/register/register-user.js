@@ -1,22 +1,27 @@
-/**
- * Ajax call for registering as user
- *
- * Created by maurice_2 on 17-5-2017.
- */
-$(document).ready(function(){
 
-    $('#register').submit(function () {
+var emailField;
+var firstNameField;
+var lastNameField;
+var passwordField;
 
-        var email = $('#email').val();
-        var first_name = $('#first-name').val();
-        var last_name = $('#last-name').val();
-        var password = $('#password').val();
+
+$(document).on('click', '#register-button', function(){
+
+        emailField = $('#email_field');
+        firstNameField = $('#surname_field');
+        lastNameField = $('#lastname_field');
+        passwordField = $('#password_field-3');
+
+        var first_name = firstNameField.val();
+        var last_name = lastNameField.val();
+        var email = emailField.val();
+        var password = passwordField.val();
 
         $.ajax({
             type: 'POST',
-            url: "http://localhost:8000/user/register",
+            url: "http://localhost:8000/user/add",
             dataType: 'json',
-            data: {'email': email, 'first-name': first_name, 'last-name': last_name, 'password': password},
+            data: {'email': email, 'first_name': first_name, 'last_name': last_name, 'password': password},
             success: function () {
 
             },
@@ -27,5 +32,4 @@ $(document).ready(function(){
 
             }
         });
-    });
 });
