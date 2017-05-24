@@ -1,3 +1,5 @@
+
+
 body,html{
     height: 100%;
     overflow-y: hidden;
@@ -18,6 +20,7 @@ a, a:focus, a:hover, button, button:hover, button:focus, input, input:focus {
 
 nav.sidebar.navbar {
     border-radius: 0;
+    z-index: 1;
 }
 
 nav.sidebar, .main{
@@ -29,11 +32,16 @@ nav.sidebar, .main{
 
 .main{
     padding: 0px 10px 0 10px;
-    padding-right: 100px;
+    overflow-y: auto;
+    max-height: calc(100% - 200px);
+    margin-top: 180px;
+
 }
 
-
-
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
 
 
 /* NAV */
@@ -81,6 +89,7 @@ nav.sidebar .navbar-nav > li:hover {
         width: calc(100% - 40px);
         margin-left: 40px;
         float: right;
+
     }
 
     nav.sidebar:hover + .main{
@@ -94,7 +103,6 @@ nav.sidebar .navbar-nav > li:hover {
     nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
         text-align: center;
         width: 100%;
-        margin-left: 0px;
     }
 
     nav.sidebar a{
@@ -152,7 +160,6 @@ nav.sidebar .navbar-nav > li:hover {
 
 nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
     color: #4990E2;
-    background-color: transparent;
 }
 
 nav:hover .forAnimate{
@@ -161,3 +168,6 @@ nav:hover .forAnimate{
 section{
     padding-left: 15px;
 }
+
+
+
