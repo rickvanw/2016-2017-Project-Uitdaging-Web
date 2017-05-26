@@ -19,24 +19,25 @@ $(document).on('click', '#register-button', function(){
         var password = passwordField3.val();
 
     // Executes ajax call only when fields are filled, and checkbox is checked.
-    if(validateFields() && $('#Checkbox-2').is(':checked')) {
-        $.ajax({
-            type: 'POST',
-            url: "http://localhost:8000/user/add",
-            dataType: 'json',
-            data: {'email': email, 'first_name': first_name, 'last_name': last_name, 'password': password},
-            success: function (data) {
-
-            },
-            statusCode: {
-                201: function(data) {
-                    window.location.href = "login.html";
+    if(validateFields()) {
+        if (checkUserAgreement()) {
+            $.ajax({
+                type: 'POST',
+                url: "http://localhost:8000/user/add",
+                dataType: 'json',
+                data: {'email': email, 'first_name': first_name, 'last_name': last_name, 'password': password},
+                success: function (data) {
+                },
+                statusCode: {
+                    201: function (data) {
+                        window.location.href = "login.html";
+                    }
+                },
+                error: function (err) {
+                    console.error(err);
                 }
-            },
-            error: function (err) {
-                console.error(err);
-            }
-        });
+            });
+        }
     }
 });
 
@@ -52,12 +53,20 @@ function validateFields() {
         isValid = false;
         showEmptyFieldAlert();
     }
-    if(!passwordField2.val().equals(passwordField3.val())) {
-        showPasswordMismatchAlert();
-        isValid = false;
-    }
-
     return isValid;
+}
+
+function checkUserAgreement() {
+
+    var agreed = false
+
+    if($('#Checkbox-2').is(':checked')) {
+        agreed = true;
+    }
+    else {
+        showAgreementAlert()
+    }
+    return agreed;
 }
 
 /**
@@ -73,4 +82,10 @@ function showPasswordMismatchAlert() {
 
     $("#register-alert-container").append('<div class="alert alert-danger" id="register-alert" role="alert">' +
         '<strong>Oops! </strong> Wachtwoorden komen niet overeen. </div>');
+}
+
+function showAgreementAlert() {
+
+    $("#register-alert-container").append('<div class="alert alert-danger" id="register-alert" role="alert">' +
+        '<strong>Oops! </strong> U dient de gebruiksvoorwaarden te accepteren. </div>');
 }
