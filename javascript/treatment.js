@@ -160,53 +160,53 @@ function placeExercises(data) {
 
         //Set all the right unique id's
         $("#all_exercises_container").append(text);
-        $("#collapse0").attr("id", "collapse" + exercise.exercise_id);
-        $("#link01").attr({href: "#collapse" + exercise.exercise_id, id: ""});
-        $("#link02").attr({href: "#collapse" + exercise.exercise_id, id: ""});
-        $("#doneButton0").attr("id", "doneButton" + exercise.exercise_id);
-        $("#notDoneButton0").attr("id", "notDoneButton" + exercise.exercise_id);
-        $("#likeButton0").attr("id", "likeButton" + exercise.exercise_id);
-        $("#dislikeButton0").attr("id", "dislikeButton" + exercise.exercise_id);
-        $("#exercise0").attr("id", "exercise" + exercise.exercise_id);
-        $("#video0").attr("id", "video" + exercise.exercise_id);
+        $("#collapse0").attr("id", "collapse" + exercise.treatment_exercise_id);
+        $("#link01").attr({href: "#collapse" + exercise.treatment_exercise_id, id: ""});
+        $("#link02").attr({href: "#collapse" + exercise.treatment_exercise_id, id: ""});
+        $("#doneButton0").attr("id", "doneButton" + exercise.treatment_exercise_id);
+        $("#notDoneButton0").attr("id", "notDoneButton" + exercise.treatment_exercise_id);
+        $("#likeButton0").attr("id", "likeButton" + exercise.treatment_exercise_id);
+        $("#dislikeButton0").attr("id", "dislikeButton" + exercise.treatment_exercise_id);
+        $("#exercise0").attr("id", "exercise" + exercise.treatment_exercise_id);
+        $("#video0").attr("id", "video" + exercise.treatment_exercise_id);
 
 
         // Fill the exercises
 
         //Quickview image
-        $('#' + "exercise" + exercise.exercise_id).find('.quickview_image').attr("src", "img/" + exercise.image_url + ".jpg");
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.quickview_image').attr("src", "img/" + exercise.image_url + ".jpg");
 
         //Expanded image
-        $('#' + "exercise" + exercise.exercise_id).find('.collapse_image').attr("src", "img/" + exercise.image_url + ".jpg");
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.collapse_image').attr("src", "img/" + exercise.image_url + ".jpg");
 
         //Expanded video
-        $('#' + "exercise" + exercise.exercise_id).find('.collapse_video').attr("src", exercise.media_url + "?enablejsapi=1");
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.collapse_video').attr("src", exercise.media_url + "?enablejsapi=1&autoplay=0&showinfo=0&controls=1&rel=0&iv_load_policy=3");
 
         // Title
-        $('#' + "exercise" + exercise.exercise_id).find('.exercise_quickview_title').text(exercise.name);
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.exercise_quickview_title').text(exercise.name);
 
         //Repeats amount
-        $('#' + "exercise" + exercise.exercise_id).find('.exercise_quickview_amount_repeats').text(exercise.repetitions);
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.exercise_quickview_amount_repeats').text(exercise.repetitions);
 
         //Repeats amount
-        $('#' + "exercise" + exercise.exercise_id).find('.description_text').text(exercise.description);
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.description_text').text(exercise.description);
 
         //Set previous like/dislike
         if(exercise.rating_user == 1) {
-            $('#' + "exercise" + exercise.exercise_id).find('.likeButton').css('background-color', '#BFE5BF');
+            $('#' + "exercise" + exercise.treatment_exercise_id).find('.likeButton').css('background-color', '#BFE5BF');
         }else if(exercise.rating_user == -1){
-            $('#' + "exercise" + exercise.exercise_id).find('.dislikeButton').css('background-color', '#F99C9C');
+            $('#' + "exercise" + exercise.treatment_exercise_id).find('.dislikeButton').css('background-color', '#F99C9C');
         }
 
         //Set previous done/not done
         if(exercise.done == 1) {
-            $('#' + "exercise" + exercise.exercise_id).find('.doneButton').css('background-color', '#BFE5BF');
+            $('#' + "exercise" + exercise.treatment_exercise_id).find('.doneButton').css('background-color', '#BFE5BF');
         }else if(exercise.done == -1){
-            $('#' + "exercise" + exercise.exercise_id).find('.notDoneButton').css('background-color', '#F99C9C');
+            $('#' + "exercise" + exercise.treatment_exercise_id).find('.notDoneButton').css('background-color', '#F99C9C');
         }
         if (exercise.done == 1) {
-            console.log("ID - " + exercise.exercise_id);
-            addToDoneExercises(exercise.exercise_id)
+            console.log("ID - " + exercise.treatment_exercise_id);
+            addToDoneExercises(exercise.treatment_exercise_id)
         }
         console.info(done_exercises);
     });
@@ -214,14 +214,14 @@ function placeExercises(data) {
     userInteraction();
 }
 
-function doneExercise(done, exerciseId) {
+function doneExercise(done, treatment_exercise_id) {
     var request = $.ajax({
         type: 'PUT',
         headers: {
             'authorization':jwt
         },
         url: "http://localhost:8000" + "/treatment/exercise-done",
-        data: {"exerciseId": exerciseId, "done":done},
+        data: {"treatment_exercise_id": treatment_exercise_id, "done":done},
         dataType: 'json',
         statusCode: {
             200:function(){
@@ -249,7 +249,7 @@ function doneExercise(done, exerciseId) {
  * @param rating        rating (1 or -1)
  * @param exerciseId    id of exercise to be changed
  */
-function rateExercise(rating, exerciseId) {
+function rateExercise(rating, treatment_exercise_id) {
     console.log("rating");
     var request = $.ajax({
         type: 'PUT',
@@ -257,7 +257,7 @@ function rateExercise(rating, exerciseId) {
             'authorization':jwt
         },
         url: "http://localhost:8000" + "/exercise/rate",
-        data: {"exerciseId": exerciseId, "rating":rating},
+        data: {"treatment_exercise_id": treatment_exercise_id, "rating":rating},
         dataType: 'json',
         statusCode: {
             200:function(){
