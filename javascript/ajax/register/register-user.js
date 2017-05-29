@@ -34,7 +34,6 @@ $(document).on('click', '#register-button', function(){
                     201: function (data) {
                         window.location.href = "login.html";
                     }
-
                 },
                 error: function (err) {
                     console.error(err);
@@ -43,6 +42,7 @@ $(document).on('click', '#register-button', function(){
         }
     }
 });
+
 
 /**
  * Checkes if fields are filled and if the filled in passwords are equal.
@@ -58,7 +58,8 @@ function validateFields() {
     }
     else if(passwordField2.val() != passwordField3.val()) {
         isValid = false;
-        showPasswordMismatchAlert()}
+        showPasswordMismatchAlert();
+    }
 
     return isValid;
 }
@@ -71,7 +72,7 @@ function checkUserAgreement() {
         agreed = true;
     }
     else {
-        showAgreementAlert()
+        showAgreementAlert();
     }
     return agreed;
 }
