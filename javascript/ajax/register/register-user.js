@@ -32,6 +32,7 @@ $(document).on('click', '#register-button', function(){
                     201: function (data) {
                         window.location.href = "login.html";
                     }
+
                 },
                 error: function (err) {
                     console.error(err);
@@ -72,8 +73,6 @@ function checkUserAgreement() {
     }
     return agreed;
 }
-
-
 
 /**
  * Adds the alert div into the alert-container.
