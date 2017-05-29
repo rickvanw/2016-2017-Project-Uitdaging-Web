@@ -47,8 +47,8 @@ $(document).on('click', '#login-button', function(){
             '<strong>Oops! </strong> Inloggegevens incorrect! </div>');
     }
 
-function showUnreachableServerAlert() {
-    $("#login-alert-container").append('<div class="alert alert-danger" id="register-alert" role="alert">' +
-        '<strong>Oops! </strong> Server onbereikbaar! </div>');
-}
+    function showUnreachableServerAlert() {
+        $("#login-alert-container").append('<div class="alert alert-danger" id="register-alert" role="alert">' +
+            '<strong>Oops! </strong> Server onbereikbaar! </div>');
+    }
 
