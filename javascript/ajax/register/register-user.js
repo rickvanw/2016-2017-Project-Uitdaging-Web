@@ -53,6 +53,10 @@ function validateFields() {
         isValid = false;
         showEmptyFieldAlert();
     }
+    else if(passwordField2.val() != passwordField3.val()) {
+        isValid = false;
+        showPasswordMismatchAlert()}
+
     return isValid;
 }
 
@@ -68,6 +72,8 @@ function checkUserAgreement() {
     }
     return agreed;
 }
+
+
 
 /**
  * Adds the alert div into the alert-container.
