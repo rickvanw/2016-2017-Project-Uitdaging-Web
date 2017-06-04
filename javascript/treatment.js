@@ -6,6 +6,7 @@
 var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
 var done_exercises =[];
 var daysFromCurrentDate = 0;
+var hostAdress = "http://178.21.112.250:8080";
 getExercises(getCurrentDate());
 
 $(document).ready(function() {
@@ -126,7 +127,7 @@ function getExercises(date){
             'authorization':jwt,
             'day':date
         },
-        url: "http://localhost:8000" + "/treatment/exercises-day",
+        url: hostAdress + "/treatment/exercises-day",
         dataType: 'json',
         statusCode: {
             200:function(){
@@ -221,7 +222,7 @@ function doneExercise(done, treatment_exercise_id) {
         headers: {
             'authorization':jwt
         },
-        url: "http://localhost:8000" + "/treatment/exercise-done",
+        url: hostAdress + "/treatment/exercise-done",
         data: {"treatment_exercise_id": treatment_exercise_id, "done":done},
         dataType: 'json',
         statusCode: {
@@ -258,7 +259,7 @@ function rateExercise(rating, treatment_exercise_id) {
         headers: {
             'authorization':jwt
         },
-        url: "http://localhost:8000" + "/exercise/rate",
+        url: hostAdress + "/exercise/rate",
         data: {"treatment_exercise_id": treatment_exercise_id, "rating":rating},
         dataType: 'json',
         statusCode: {
