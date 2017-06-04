@@ -3,13 +3,15 @@
  *
  * Created by maurice_2 on 17-5-2017.
  */
+var hostAdress = "http://178.21.112.250:8000";
+
 $("#rate-exercise").submit(function () {
     var exerciseId = $('#exercise').val();
     // TODO var rating = "";
 
     $.ajax({
         type: 'PUT',
-        url: "http://localhost:8000/treatment/exercise-done",
+        url: hostAdress + "/treatment/exercise-done",
         dataType: 'text',
         data: {
             "exerciseId": exerciseId, // TODO "rating": rating},

@@ -3,6 +3,8 @@
  *
  * Created by maurice_2 on 18-5-2017.
  */
+var hostAdress = "http://178.21.112.250:8000";
+
 $(document).ready(function() {
     var complaint_ids = [];
 
@@ -15,7 +17,7 @@ $(document).ready(function() {
         for(i = 0; i < complaint_ids; i++) {
             $.ajax({
                 type: 'POST',
-                url: "http://localhost:8000" + "/complaint/add",
+                url: hostAdress + "/complaint/add",
                 data: {
                     "user_id": user_id,
                     "complaint_id": complaint_ids[i]

@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: "http://localhost:8000/admin/login",
+            url: hostAdress + "/admin/login",
             dataType: 'json',
             data: {'userName': username, 'password': password},
             crossdomain: true,

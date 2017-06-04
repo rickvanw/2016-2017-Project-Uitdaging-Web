@@ -6,7 +6,7 @@ $(document).on('click', '#login-button', function(){
 
         $.ajax({
             type: 'POST',
-            url: "http://localhost:8000/user/login",
+            url: hostAdress + "/user/login",
             dataType: 'json',
             data: {'email': username,
                    'password': password},
