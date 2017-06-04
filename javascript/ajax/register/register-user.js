@@ -2,6 +2,7 @@ var emailField;
 var firstNameField;
 var lastNameField;
 var passwordField3;
+var hostAdress = "http://178.21.112.250:8000";
 
 
 $(document).on('click', '#register-button', function(){

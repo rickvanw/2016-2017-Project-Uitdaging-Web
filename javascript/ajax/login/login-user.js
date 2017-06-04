@@ -1,3 +1,5 @@
+var hostAdress = "http://178.21.112.250:8000";
+
 $(document).on('click', '#login-button', function(){
 
         // Get username and password
