@@ -40,7 +40,6 @@ function userInteraction () {
     $('.right_arrow').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
         clearExercises();
-        console.log("CLLICk");
         daysFromCurrentDate++;
         getExercises(daysFromDate(daysFromCurrentDate));
         $('.day_text').text(getDateString(daysFromDate(daysFromCurrentDate)));
@@ -119,6 +118,7 @@ function userInteraction () {
     });
 }
 
+// TODO, afhandelen wanneer geen oefening beschikbaar
 function getExercises(date){
     var request = $.ajax({
         type: 'GET',
@@ -140,7 +140,8 @@ function getExercises(date){
             }
         },
         error: function (err) {
-            alert("Error: " + err);
+            notifyUser("Kon geen oefeningen ophalen, neem contact op met uw systeembeheerder");
+            console.log("Error getting exercises: " + err.message);
         }
     });
 
@@ -234,7 +235,8 @@ function doneExercise(done, treatment_exercise_id) {
                 console.log(404, error)
             },
             error: function (err) {
-                alert("Error: " + err);
+                notifyUser("Kon de wijziging niet doorvoeren, neem contact op met uw systeembeheerder");
+                console.log("Error marking exercise done: " + err.message);
             }
         }
     });
@@ -271,7 +273,8 @@ function rateExercise(rating, treatment_exercise_id) {
             }
         },
         error: function (err) {
-            alert("Error: " + err);
+            notifyUser("Kon de rating niet doorvoeren, neem contact op met uw systeembeheerder");
+            console.log("Error rating the exercise: " + err.message);
         }
     });
 
@@ -351,6 +354,7 @@ function clearExercises() {
     //$("#all_exercises_container").find("*").off();
     $("#all_exercises_container").off();
     $("#all_exercises_container").html("");
+    $("#notify_container").html("");
 }
 
 function isInDoneExercises(value) {
@@ -370,4 +374,8 @@ function removeFromDoneExercises(value) {
             done_exercises.splice(index, 1);
         }
     }
+}
+
+function notifyUser(message) {
+    $("#notify_container").html("<div class='treatment notify_text'>"+message+"</div>");
 }

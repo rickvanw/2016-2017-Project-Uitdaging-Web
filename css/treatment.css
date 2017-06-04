@@ -17,6 +17,15 @@
     color: rgb(48, 70, 112);
 }
 
+.treatment.notify_text{
+    text-align:center;
+    margin:0 auto;
+    margin-top:50px;
+    font-size:25px;
+    color: #ff3333;
+    font-weight: bold;
+}
+
 .treatment.day_text{
     cursor:default;
     user-select: none;
@@ -43,7 +52,6 @@
     color: rgb(48, 70, 112);
     display:inline-block;
     cursor: pointer;
-
 }
 
 .treatment.right_arrow{
