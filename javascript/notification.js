@@ -1,6 +1,8 @@
 /**
  * Created by rickv on 1-6-2017.
  */
+var hostAdress = "http://localhost:8000";
+
 $(document).ready(function() {
 
     getTreatment();
