@@ -3,22 +3,22 @@
  */
 var hostAdress = "http://localhost:8000";
 
+//TODO remove temporary jwt token, replace with logged in user
+var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
+
 $(document).ready(function() {
 
+    initializeNotification();
     getTreatment();
-
-    $('.header.notify_icon').css('color', 'red');
-
 });
 
-function getTreatment(date){
+function getTreatment(){
     var request = $.ajax({
         type: 'GET',
         headers: {
-            'authorization':jwt,
-            'day':date
+            'authorization':jwt
         },
-        url: hostAdress + "/treatment/exercises-day",
+        url: hostAdress + "/treatment/",
         dataType: 'json',
         statusCode: {
             200:function(){
@@ -32,35 +32,48 @@ function getTreatment(date){
             }
         },
         error: function (err) {
-            notifyUser("Kon geen oefeningen ophalen, neem contact op met uw systeembeheerder");
-            console.log("Error getting exercises: " + err.message);
+            console.log("Error getting treatment: " + err.message);
         }
     });
 
     request.done(function (data) {
-        placeExercises(data)
+        if(data == ""){
+            console.log("No treatment to be evaluated");
+        }else{
+            console.log("Treatment to be evaluated");
+            enableNotifcation();
+        }
     });
 }
 
-/**
- * Function for returning the current date.
- * @returns {Date}
- */
-function getCurrentDate(){
-    var currentDate = new Date();
-    var dd = currentDate.getDate();
-    var mm = currentDate.getMonth() + 1; // January is zero, so + 1
-    var yyyy = currentDate.getFullYear();
-
-    // If the days / months are smaller than 10, we want to put a 0 before it. So for example 2017-09-09 instead of 2017-9-9
-    if(dd < 10) {
-        dd = '0' + dd
-    }
-
-    if(mm < 10) {
-        mm = '0' + mm
-    }
-
-    currentDate = yyyy + '-' + mm + '-' + dd;
-    return currentDate;
+function enableNotifcation(){
+    $('.header.notify_icon').mouseover(function() {
+        $(this).css("color","darkred");
+    }).mouseout(function() {
+        $(this).css("color","red");
+    }).css('color', 'red').attr(
+        "data-content", "<div class='cursor_pointer' onclick='notifyPopupClick()'>U heeft een behandelplan voltooid!<br />Klik hier om de evaluatie in te vullen</div>"
+    );
 }
+
+function initializeNotification(){
+    $('.header.notify_icon').mouseover(function() {
+        $(this).css("color","deepskyblue");
+        $(this).popover({
+            trigger: 'focus'
+        });
+    }).mouseout(function() {
+        $(this).css("color","white");
+    }).css('color', 'white').attr(
+        "data-content", "<div class='cursor_default'> U heeft momenteel geen notificaties </div>"
+    ).attr(
+        "title", "<div class='cursor_default'>Notificaties</div>"
+    );
+}
+
+function notifyPopupClick() {
+    // Go to evaluations
+    alert("test");
+}
+
+

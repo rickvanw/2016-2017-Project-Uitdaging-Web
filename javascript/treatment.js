@@ -2,7 +2,7 @@
  * Created by rickv on 18-5-2017.
  */
 
-//TODO get logged in user auth code
+//TODO remove temporary jwt token, replace with logged in user
 var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
 var done_exercises =[];
 var daysFromCurrentDate = 0;
