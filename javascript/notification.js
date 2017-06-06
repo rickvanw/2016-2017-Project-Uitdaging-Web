@@ -18,7 +18,7 @@ function getTreatment(){
         headers: {
             'authorization':jwt
         },
-        url: hostAdress + "/treatment/",
+        url: hostAdress + "/treatment/to-evaluate",
         dataType: 'json',
         statusCode: {
             200:function(){
