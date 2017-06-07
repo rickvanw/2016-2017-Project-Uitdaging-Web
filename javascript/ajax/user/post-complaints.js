@@ -3,7 +3,8 @@
  *
  * Created by maurice_2 on 18-5-2017.
  */
-var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
+var jwt = sessionStorage.token;
+var hostAdress = "http://localhost:8000";
 
 $(document).ready(function() {
     // alert("test1");
@@ -158,7 +159,7 @@ function userInteraction () {
             headers: {
                 'authorization':jwt
             },
-            url: "http://localhost:8000" + "/user/complaint/add",
+            url: hostAdress + "/user/complaint/add",
             async: false,
             data: {
                 "complaint_ids": JSON.stringify(complaint_ids)
@@ -195,7 +196,7 @@ function userInteraction () {
             headers: {
                 'authorization':jwt
             },
-            url: "http://localhost:8000" + "/treatment/add",
+            url: hostAdress + "/treatment/add",
             success: function(){
                 alert("A new treatment has been created");
                 return true;

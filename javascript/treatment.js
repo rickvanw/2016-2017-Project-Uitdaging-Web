@@ -3,7 +3,7 @@
  */
 
 //TODO get logged in user auth code
-var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
+var jwt = sessionStorage.token;
 var done_exercises =[];
 var daysFromCurrentDate = 0;
 var hostAdress = "http://localhost:8000";
@@ -190,7 +190,8 @@ function placeExercises(data) {
         $('#' + "exercise" + exercise.treatment_exercise_id).find('.exercise_quickview_amount_repeats').text(exercise.repetitions);
 
         //Repeats amount
-        $('#' + "exercise" + exercise.treatment_exercise_id).find('.description_text').text(exercise.description);
+        //TODO verander naar description uit database
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.description_text').text("Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen.Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind jehet lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op je knieën.");
 
         //Set previous like/dislike
         if(exercise.rating_user == 1) {
