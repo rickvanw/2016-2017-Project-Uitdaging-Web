@@ -29,9 +29,8 @@ function getEvaluation() {
         headers: {
             'authorization': jwt
         },
-        data: JSON.stringify(exercises),
-        url: "http://localhost:8000" + "/treatment/add",
-        dataType: 'text',
+        url: "http://localhost:8000" + "/evaluation/",
+        dataType: 'json',
         statusCode: {
             201: function () {
                 console.log(201, "succes!");
