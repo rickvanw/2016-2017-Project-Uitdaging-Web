@@ -2,9 +2,9 @@ var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhv
 var evaluations= [];
 
 $(document).ready(function() {
-    for(i = 0; i<evaluations.length; i++){
-        getEvaluation();
-    }
+    // for(i = 0; i<evaluations.length; i++){
+    //     getEvaluation();
+    // }
     showEvaluations();
 
     $(".evaluationitem").click(function() {
