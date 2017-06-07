@@ -20,12 +20,14 @@
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     <script type="text/javascript" src="html2canvas/html2canvas.js"></script>
     <script type="text/javascript" src="html2canvas/jquery.plugin.html2canvas.js"></script>
 </head>
 
 <body ng-app="">
+
 
 <div ng-include="'includes/header.html'"></div>
 
@@ -39,7 +41,7 @@
     </p>
 </div>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+<script src="javascript/evaluation.js"></script>
 <script src="https://use.fontawesome.com/684f6ba679.js"></script>
 <div class="container" align="center">
     <div class="content-blue">
@@ -149,29 +151,10 @@
 </div>
 
 <script>
-    $(document).ready(function(){
-        $("#improvementno").click(function() {
-            $('#pain').css("display","inline");
-            $('#paincount').css("display","inline");
-        });
-        $("#improvementyes").click(function() {
-            if($('#pain').css('display') == 'inline')
-            {
-                $('#pain').css("display","none");
-                $('#paincount').css("display","none");
-            }
-        });
-        $("#nocomplaints").click(function() {
-            if($('#pain').css('display') == 'inline')
-            {
-                $('#pain').css("display","none");
-                $('#paincount').css("display","none");
-            }
-        });
-    });
 </script>
 
 <footer class="text-center">
+    <button type="button" class="btn btn-primary" id="verstuurButton" disabled="disabled">Verstuur</button>
 </footer>
 
 <script src="javascript/ajax/evaluation/submit-evaluation.js"></script>
