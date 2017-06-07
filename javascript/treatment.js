@@ -6,7 +6,7 @@
 var jwt = sessionStorage.token;
 var done_exercises =[];
 var daysFromCurrentDate = 0;
-var hostAdress = "http://localhost:8000";
+var hostAdress = "http://178.21.112.250:8000";
 getExercises(getCurrentDate());
 
 $(document).ready(function() {

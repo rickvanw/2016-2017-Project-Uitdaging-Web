@@ -1,4 +1,4 @@
-var hostAdress = "http://localhost:8000";
+var hostAdress = "http://178.21.112.250:8000";
 
 $(document).on('click', '#login-button', function(){
 
