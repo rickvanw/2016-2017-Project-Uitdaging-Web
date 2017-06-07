@@ -3,7 +3,7 @@
  */
 
 //TODO get logged in user auth code
-var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
+var loggedInToken = sessionStorage.token;
 var done_exercises =[];
 var daysFromCurrentDate = 0;
 getExercises(getCurrentDate());
@@ -123,7 +123,7 @@ function getExercises(date){
     var request = $.ajax({
         type: 'GET',
         headers: {
-            'authorization':jwt,
+            'authorization':loggedInToken,
             'day':date
         },
         url: "http://localhost:8000" + "/treatment/exercises-day",
@@ -219,7 +219,7 @@ function doneExercise(done, treatment_exercise_id) {
     var request = $.ajax({
         type: 'PUT',
         headers: {
-            'authorization':jwt
+            'authorization':loggedInToken
         },
         url: "http://localhost:8000" + "/treatment/exercise-done",
         data: {"treatment_exercise_id": treatment_exercise_id, "done":done},
@@ -256,7 +256,7 @@ function rateExercise(rating, treatment_exercise_id) {
     var request = $.ajax({
         type: 'PUT',
         headers: {
-            'authorization':jwt
+            'authorization':loggedInToken
         },
         url: "http://localhost:8000" + "/exercise/rate",
         data: {"treatment_exercise_id": treatment_exercise_id, "rating":rating},
