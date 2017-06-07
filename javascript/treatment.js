@@ -6,7 +6,7 @@
 var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
 var done_exercises =[];
 var daysFromCurrentDate = 0;
-var hostAdress = "http://178.21.112.250:8000";
+var hostAdress = "http://localhost:8000";
 getExercises(getCurrentDate());
 
 $(document).ready(function() {
@@ -172,7 +172,6 @@ function placeExercises(data) {
         $("#exercise0").attr("id", "exercise" + exercise.treatment_exercise_id);
         $("#video0").attr("id", "video" + exercise.treatment_exercise_id);
 
-
         // Fill the exercises
 
         //Quickview image
@@ -182,7 +181,7 @@ function placeExercises(data) {
         $('#' + "exercise" + exercise.treatment_exercise_id).find('.collapse_image').attr("src", "img/" + exercise.image_url + ".jpg");
 
         //Expanded video
-        $('#' + "exercise" + exercise.treatment_exercise_id).find('.collapse_video').attr("src", exercise.media_url + "?enablejsapi=1&autoplay=0&showinfo=0&controls=1&rel=0&iv_load_policy=3");
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.collapse_video').attr("src", getEmbedUrl(exercise.media_url) + "?enablejsapi=1&autoplay=0&showinfo=0&controls=0&rel=0&iv_load_policy=3");
 
         // Title
         $('#' + "exercise" + exercise.treatment_exercise_id).find('.exercise_quickview_title').text(exercise.name);
@@ -376,6 +375,20 @@ function removeFromDoneExercises(value) {
         }
     }
 }
+
+// Create embed url for youtube link
+function getEmbedUrl(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        console.log("URL after: " + "www.youtube.com/embed/" + match[2]);
+        return "https://www.youtube.com/embed/" + match[2];
+    } else {
+        return 'error';
+    }
+}
+
 
 function notifyUser(message) {
     $("#notify_container").html("<div class='treatment notify_text'>"+message+"</div>");
