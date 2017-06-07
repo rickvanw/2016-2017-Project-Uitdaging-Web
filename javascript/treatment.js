@@ -3,7 +3,7 @@
  */
 
 //TODO remove temporary jwt token, replace with logged in user
-var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
+var jwt = sessionStorage.token;
 var done_exercises =[];
 var daysFromCurrentDate = 0;
 var hostAdress = "http://178.21.112.250:8000";

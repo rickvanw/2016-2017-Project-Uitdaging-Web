@@ -40,6 +40,7 @@ function getTreatment(){
         if(data == ""){
             console.log("No treatment to be evaluated");
         }else{
+            //TODO niet als error terugkomt
             console.log("Treatment to be evaluated");
             enableNotifcation();
         }
