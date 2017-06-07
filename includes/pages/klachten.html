@@ -1,46 +1,39 @@
 <div style="overflow: auto; height:100%;" class="col-md-12 col-xs-12">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="../../css/css.css" rel="stylesheet">
+<div style="text-align: center">
+    <p>Kies hier de klachten die je hebt. Als je geen klachten hebt kies dan voor preventief.
+        <br>Na het kiezen van de klachten kun je op "OK" klikken om je behandelplan te starten.
+    </p>
+</div>
 
-    <div style="text-align: center">
-        <p>Kies hier de klachten die je hebt. Als je geen klachten hebt kies dan voor preventief.
-            <br>Na het kiezen van de klachten kun je op "OK" klikken om je behandelplan te starten.
-        </p>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="https://use.fontawesome.com/684f6ba679.js"></script>
+
+<form id="complaint-ok">
+    <div class="blue">
+        <div class="text-center">
+            <button type="button" id="neckbutton"  class="btn btn-default button" onclick="passThroughId(1);setColor('nekbutton');">Nek</button>
+            <button type="button" id="elbowbutton" class="btn btn-default button" onclick="passThroughId('2');setColor('elleboogbutton');">Elleboog</button>
+            <button type="button" id="shoulderbutton" class="btn btn-default button" onclick="setColor('schoudersbutton');passThroughId(3);">Schouders</button>
+        </div>
+        <div class="text-center">
+            <button type="button" id="wristhandbutton" class="btn btn-default button" onclick="setColor('polshandbutton');passThroughId(4);">Pols/Hand</button>
+            <button type="button" id="backbutton" class="btn btn-default button" onclick="setColor('rugbutton');passThroughId(5);">Rug</button>
+            <button type="button" id="preventionbutton"class="btn btn-default button" onclick="setColor('preventiefbutton');passThroughId(6);">Preventief</button>
+        </div>
     </div>
 
-    <!--&lt;!&ndash; Include all compiled plugins (below), or include individual files as needed &ndash;&gt;-->
-    <!--<script src="js/bootstrap.min.js"></script>-->
-    <!--<script src="js/main.js"></script>-->
-    <!--<script src="https://use.fontawesome.com/684f6ba679.js"></script>-->
+    <footer class="text-center">
+        <input type="submit" class="btn btn-default buttonok" value="submit">
+    </footer>
+</form>
 
-    <form id="complaint-ok">
-        <div class="blue">
-            <div class="text-center">
-                <button type="button" id="neckbutton"  class="btn btn-default button" onclick="passThroughId(1);setColor('nekbutton');">Nek</button>
-                <button type="button" id="elbowbutton" class="btn btn-default button" onclick="passThroughId('2');setColor('elleboogbutton');">Elleboog</button>
-                <button type="button" id="shoulderbutton" class="btn btn-default button" onclick="setColor('schoudersbutton');passThroughId(3);">Schouders</button>
-            </div>
-            <div class="text-center">
-                <button type="button" id="wristhandbutton" class="btn btn-default button" onclick="setColor('polshandbutton');passThroughId(4);">Pols/Hand</button>
-                <button type="button" id="backbutton" class="btn btn-default button" onclick="setColor('rugbutton');passThroughId(5);">Rug</button>
-                <button type="button" id="preventionbutton"class="btn btn-default button" onclick="setColor('preventiefbutton');passThroughId(6);">Preventief</button>
-            </div>
-        </div>
-
-        <footer class="text-center">
-            <input type="submit" class="btn btn-default buttonok" value="submit">
-        </footer>
-    </form>
-
-    <script>
-        $('button').click(function(){
-            $(this).toggleClass('negative');
-        });
-    </script>
-
-    <script src="../../javascript/ajax/user/post-complaints.js"></script>
-    <script src="../../javascript/ajax/treatment/create-treatment.js"></script>
+<script>
+    $('button').click(function(){
+        $(this).toggleClass('negative');
+    });
+</script>
 
 </div>
