@@ -1,3 +1,5 @@
+<link href="css/css.css" rel="stylesheet">
+
 <div style="overflow: auto; height:100%;" class="col-md-12 col-xs-12">
 
 <div style="text-align: center">
@@ -5,11 +7,6 @@
         <br>Na het kiezen van de klachten kun je op "OK" klikken om je behandelplan te starten.
     </p>
 </div>
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
-<script src="https://use.fontawesome.com/684f6ba679.js"></script>
 
 <form id="complaint-ok">
     <div class="blue">
@@ -35,5 +32,8 @@
         $(this).toggleClass('negative');
     });
 </script>
+
+    <script src="javascript/ajax/user/post-complaints.js"></script>
+    <script src="javascript/ajax/treatment/create-treatment.js"></script>
 
 </div>
