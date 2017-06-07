@@ -72,16 +72,16 @@
         <br>Op een schaal van een tot tien, hoe erg is de pijn?<br>
     </p>
     <select class="paincount" id="paincount" style="display: none">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
     </select>
     <br><br>Wilt u doorgaan met een behandelplan voor zes weken?<br>
     <div class="radio">
@@ -92,7 +92,7 @@
     </div>
     <div class="radio">
         <label>
-            <input type="radio" name="improvement" id="dontcontinue" value="option2">
+            <input type="radio" name="continue" id="dontcontinue" value="option2">
             Nee
         </label>
     </div>
@@ -106,26 +106,6 @@
 </form>
 
 <script>
-    $(document).ready(function(){
-        $("#improvementno").click(function() {
-            $('#pain').css("display","inline");
-            $('#paincount').css("display","inline");
-        });
-        $("#improvementyes").click(function() {
-            if($('#pain').css('display') == 'inline')
-            {
-                $('#pain').css("display","none");
-                $('#paincount').css("display","none");
-            }
-        });
-        $("#nocomplaints").click(function() {
-            if($('#pain').css('display') == 'inline')
-            {
-                $('#pain').css("display","none");
-                $('#paincount').css("display","none");
-            }
-        });
-    });
 </script>
 
 <footer class="text-center">
