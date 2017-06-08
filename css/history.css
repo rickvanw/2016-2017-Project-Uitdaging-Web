@@ -1,13 +1,21 @@
 .evaluationitem{
     position: absolute;
-    margin-left: 20px;
-    margin-bottom: 20px;
+    /*margin-left: 20px;*/
+    /*margin-bottom: 20px;*/
     padding: 10px;
     width: 80%;
     height: 100px;
     background-color: #EFEAEA;
     border-radius: 10px;
     /*display: none;*/
+}
+
+li.evaluationitem2 {
+    padding-top: 3cm;
+}
+
+#list{
+
 }
 
 .begin{
@@ -42,3 +50,12 @@
     width: 70%;
     margin: 0 auto;
 }
+.hover{
+
+}
+
+/*.panel-default{*/
+    /*height: 100px;*/
+    /*background-color: #EFEAEA;*/
+    /*border-radius: 10px;*/
+/*}*/

@@ -39,15 +39,28 @@
 <script src="https://use.fontawesome.com/684f6ba679.js"></script>
 <div id="page">
     <p id="historydes">Welkom op de geschiedenis pagina, hier zijn uw evaluatieformulieren te zien en uit te printen.<br>
-        blajekljrfewjfweoifjewhfewfjweafhewilahfeuifhiuhdsaifhenjjehfeuiwhfkjhdkjsfeuifnwienfewunfiew</p>
-    <a href="evaluation-content.html" target="_blank" id="printableArea" class="evaluationitem">
-        <p class="begin">Begindatum</p>
-        <p class="begindatum">Testdatum</p>
-        <button id="printbutton" type="button" onclick="printDiv('printableArea')" class="btn btn-secondary btn-lg"style="color:#6CABE7"><span class="glyphicon glyphicon-envelope"></span></button>
-    </a>
+        Klik op een evaluatieformulier om deze te bekijken en uit te kunnen printen door vervolgens op de printknop te klikken.</p>
+    <div id="evaluationlist">
+        <ul style="list-style-type:none">
+            <li>
+                <a href="evaluation-content.html" target="_blank" class="evaluationitem">
+                    <p class="begin">Begindatum</p>
+                    <p class="begindatum">Testdatum</p>
+                    <!--<button id="printbutton" type="button" onclick="printDiv('printableArea')" class="btn btn-secondary btn-lg"style="color:#6CABE7"><span class="glyphicon glyphicon-envelope"></span></button>-->
+                </a>
+            </li>
+            <li class="evaluationitem2">
+                <a href="evaluation-content.html" target="_blank" class="evaluationitem">
+                    <p class="begin">Begindatum</p>
+                    <p class="begindatum">Testdatum</p>
+                    <!--<button id="printbutton" type="button" onclick="printDiv('printableArea')" class="btn btn-secondary btn-lg"style="color:#6CABE7"><span class="glyphicon glyphicon-envelope"></span></button>-->
+                </a>
+            </li>
+        </ul>
+    </div>
     <iframe src="complaints.html" style="display:none;" name="frame"></iframe>
 
-    <input type="button" onclick="frames['frame'].print()" value="printletter">
+    <!--<input type="button" onclick="frames['frame'].print()" value="printletter">-->
 </div>
 
 <script>
