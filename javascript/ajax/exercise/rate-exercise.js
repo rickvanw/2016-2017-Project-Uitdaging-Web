@@ -3,7 +3,7 @@
  *
  * Created by maurice_2 on 17-5-2017.
  */
-var hostAdress = "http://178.21.112.250:8000";
+var hostAdress = "http://localhost:8000";
 
 $("#rate-exercise").submit(function () {
     var exerciseId = $('#exercise').val();
