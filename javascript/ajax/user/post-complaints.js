@@ -159,7 +159,7 @@ function userInteraction () {
             headers: {
                 'authorization':jwt
             },
-            url: hostAdress + "/user/complaint/add",
+            url: "http://localhost:8000" + "/user/complaint/add",
             async: false,
             data: {
                 "complaint_ids": JSON.stringify(complaint_ids)
@@ -196,7 +196,7 @@ function userInteraction () {
             headers: {
                 'authorization':jwt
             },
-            url: hostAdress + "/treatment/add",
+            url: "http://localhost:8000" + "/treatment/add",
             success: function(){
                 alert("A new treatment has been created");
                 return true;

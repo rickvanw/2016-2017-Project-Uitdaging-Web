@@ -16,6 +16,8 @@ $(document).on('click', '#login-button', function(){
             statusCode: {
                 200: function(data) {
                     setToken(data.token);
+
+                    console.log()
                     // Redirect to index page
                     window.location.href = "index.html";
                 },
