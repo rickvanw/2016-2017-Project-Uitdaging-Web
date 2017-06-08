@@ -1,4 +1,4 @@
-var hostAdress = "http://178.21.112.250:8000";
+var hostAdress = "http://localhost:8000";
 
 $(document).on('click', '#login-button', function(){
 
@@ -16,6 +16,8 @@ $(document).on('click', '#login-button', function(){
             statusCode: {
                 200: function(data) {
                     setToken(data.token);
+
+                    console.log()
                     // Redirect to index page
                     window.location.href = "index.html";
                 },
