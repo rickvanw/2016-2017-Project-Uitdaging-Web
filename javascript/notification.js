@@ -58,11 +58,13 @@ function enableNotifcation(){
 }
 
 function initializeNotification(){
+    $('.header.notify_icon').popover({
+        trigger: 'focus'
+    });
+
     $('.header.notify_icon').mouseover(function() {
         $(this).css("color","deepskyblue");
-        $(this).popover({
-            trigger: 'focus'
-        });
+
     }).mouseout(function() {
         $(this).css("color","white");
     }).css('color', 'white').attr(

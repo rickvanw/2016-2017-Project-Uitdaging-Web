@@ -133,7 +133,7 @@ function userInteraction () {
      */
     function removeFromComplaints(value) {
         if(isInComplaints(value.toString())){
-            var index = complaints.indexOf(value.toString());
+            var index = complaint_ids.indexOf(value.toString());
             if (index > -1) {
                 complaint_ids.splice(index, 1);
             }
