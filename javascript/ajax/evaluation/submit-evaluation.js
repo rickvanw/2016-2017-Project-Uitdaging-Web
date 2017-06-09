@@ -4,11 +4,11 @@
  * Author: maurice_2.
  * Date: 09-06-2017.
  */
-var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
+var jwt = sessionStorage.token;
 
 $(document).ready(function () {
 
-    $('#submit-form').click(function () {
+    $("#btn-Submit-Form").on('click', function () {
         saveEvaluationData();
     });
 
@@ -57,7 +57,9 @@ function postEvaluation(formData) {
             'authorization': jwt
         },
         url: "http://localhost:8000" + "/evaluation/add",
-        data: formData,
+        data: {
+            "answers": JSON.stringify(formData)
+        },
         success: function (data) {
             location.replace("index.html");
         },
