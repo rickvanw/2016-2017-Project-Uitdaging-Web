@@ -3,9 +3,10 @@
  */
 
 //TODO get logged in user auth code
-var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
+var jwt = sessionStorage.token;
 var done_exercises =[];
 var daysFromCurrentDate = 0;
+var hostAdress = "http://localhost:8000";
 getExercises(getCurrentDate());
 
 $(document).ready(function() {
@@ -126,7 +127,7 @@ function getExercises(date){
             'authorization':jwt,
             'day':date
         },
-        url: "http://localhost:8000" + "/treatment/exercises-day",
+        url: hostAdress + "/treatment/exercises-day",
         dataType: 'json',
         statusCode: {
             200:function(){
@@ -171,7 +172,6 @@ function placeExercises(data) {
         $("#exercise0").attr("id", "exercise" + exercise.treatment_exercise_id);
         $("#video0").attr("id", "video" + exercise.treatment_exercise_id);
 
-
         // Fill the exercises
 
         //Quickview image
@@ -181,7 +181,7 @@ function placeExercises(data) {
         $('#' + "exercise" + exercise.treatment_exercise_id).find('.collapse_image').attr("src", "img/" + exercise.image_url + ".jpg");
 
         //Expanded video
-        $('#' + "exercise" + exercise.treatment_exercise_id).find('.collapse_video').attr("src", exercise.media_url + "?enablejsapi=1&autoplay=0&showinfo=0&controls=1&rel=0&iv_load_policy=3");
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.collapse_video').attr("src", getEmbedUrl(exercise.media_url) + "?enablejsapi=1&autoplay=0&showinfo=0&controls=0&rel=0&iv_load_policy=3");
 
         // Title
         $('#' + "exercise" + exercise.treatment_exercise_id).find('.exercise_quickview_title').text(exercise.name);
@@ -190,7 +190,8 @@ function placeExercises(data) {
         $('#' + "exercise" + exercise.treatment_exercise_id).find('.exercise_quickview_amount_repeats').text(exercise.repetitions);
 
         //Repeats amount
-        $('#' + "exercise" + exercise.treatment_exercise_id).find('.description_text').text(exercise.description);
+        //TODO verander naar description uit database
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.description_text').text("Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen.Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind jehet lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op je knieën.");
 
         //Set previous like/dislike
         if(exercise.rating_user == 1) {
@@ -221,7 +222,7 @@ function doneExercise(done, treatment_exercise_id) {
         headers: {
             'authorization':jwt
         },
-        url: "http://localhost:8000" + "/treatment/exercise-done",
+        url: hostAdress + "/treatment/exercise-done",
         data: {"treatment_exercise_id": treatment_exercise_id, "done":done},
         dataType: 'json',
         statusCode: {
@@ -258,7 +259,7 @@ function rateExercise(rating, treatment_exercise_id) {
         headers: {
             'authorization':jwt
         },
-        url: "http://localhost:8000" + "/exercise/rate",
+        url: hostAdress + "/exercise/rate",
         data: {"treatment_exercise_id": treatment_exercise_id, "rating":rating},
         dataType: 'json',
         statusCode: {
@@ -375,6 +376,20 @@ function removeFromDoneExercises(value) {
         }
     }
 }
+
+// Create embed url for youtube link
+function getEmbedUrl(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        console.log("URL after: " + "www.youtube.com/embed/" + match[2]);
+        return "https://www.youtube.com/embed/" + match[2];
+    } else {
+        return 'error';
+    }
+}
+
 
 function notifyUser(message) {
     $("#notify_container").html("<div class='treatment notify_text'>"+message+"</div>");

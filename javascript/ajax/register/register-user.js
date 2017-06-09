@@ -2,6 +2,7 @@ var emailField;
 var firstNameField;
 var lastNameField;
 var passwordField3;
+var hostAdress = "http://localhost:8000";
 
 
 $(document).on('click', '#register-button', function(){
@@ -25,7 +26,7 @@ $(document).on('click', '#register-button', function(){
         if (checkUserAgreement()) {
             $.ajax({
                 type: 'POST',
-                url: "http://localhost:8000/user/add",
+                url: hostAdress + "/user/add",
                 dataType: 'json',
                 data: {'email': email, 'first_name': first_name, 'last_name': last_name, 'password': password},
                 success: function (data) {

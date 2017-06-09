@@ -3,6 +3,8 @@
  *
  * Created by maurice_2 on 17-5-2017.
  */
+var hostAdress = "http://localhost:8000";
+
 $(document).ready(function(){
 
     $("#complaint-ok").submit(function(){
@@ -11,7 +13,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'POST',
-            url: "http://localhost:8000" + "/treatment/add",
+            url: hostAdress + "/treatment/add",
             data: {
                 "start_date": start_date,
                 "end_date": end_date

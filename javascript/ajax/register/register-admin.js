@@ -3,6 +3,8 @@
  *
  * Created by maurice_2 on 17-5-2017.
  */
+var hostAdress = "http://localhost:8000";
+
 $(document).ready(function(){
 
     $('#register').submit(function () {
@@ -14,7 +16,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'POST',
-            url: "http://localhost:8000/admin/register",
+            url: hostAdress + "/admin/register",
             dataType: 'json',
             data: {'email': email, 'first-name': first_name, 'last-name': last_name, 'password': password},
             success: function () {

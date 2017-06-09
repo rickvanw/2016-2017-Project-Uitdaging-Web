@@ -3,11 +3,13 @@
  *
  * Created by maurice_2 on 17-5-2017.
  */
+var hostAdress = "http://localhost:8000";
+
 $(document).ready(function() {
 
     var request = $.ajax({
         type: 'GET',
-        url: "http://localhost:8000" + "/treatment/exercises-day",
+        url: hostAdress + "/treatment/exercises-day",
         data: {"checkdate": getCurrentDate()},
         dataType: 'json',
         statusCode: {

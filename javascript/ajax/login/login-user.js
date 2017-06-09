@@ -1,3 +1,5 @@
+var hostAdress = "http://localhost:8000";
+
 $(document).on('click', '#login-button', function(){
 
         // Get username and password
@@ -6,7 +8,7 @@ $(document).on('click', '#login-button', function(){
 
         $.ajax({
             type: 'POST',
-            url: "http://localhost:8000/user/login",
+            url: hostAdress + "/user/login",
             dataType: 'json',
             data: {'email': username,
                    'password': password},
@@ -14,6 +16,8 @@ $(document).on('click', '#login-button', function(){
             statusCode: {
                 200: function(data) {
                     setToken(data.token);
+
+                    console.log()
                     // Redirect to index page
                     window.location.href = "index.html";
                 },

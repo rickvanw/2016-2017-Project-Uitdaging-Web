@@ -3,6 +3,8 @@
  *
  * Created by maurice_2 on 17-5-2017.
  */
+var hostAdress = "http://localhost:8000";
+
 $(document).ready(function () {
 
     $('#login').submit(function () {
@@ -12,7 +14,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: "http://localhost:8000/admin/login",
+            url: hostAdress + "/admin/login",
             dataType: 'json',
             data: {'userName': username, 'password': password},
             crossdomain: true,
