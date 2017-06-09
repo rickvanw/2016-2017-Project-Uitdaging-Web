@@ -8,13 +8,16 @@ var jwt = sessionStorage.token;
 
 $(document).ready(function () {
 
-    $("#btn-Submit-Form").on('click', function () {
+    $("#submit-evaluationform").submit(function () {
         saveEvaluationData();
     });
 
     // capture(); // Screenshot with HTML2canvas
 });
 
+/**
+ * Function for saving the data from the evaluation form
+ */
 function saveEvaluationData(){
     var formData = { answers: [] };
     var questions = $("#questions").find('.question');
@@ -26,15 +29,14 @@ function saveEvaluationData(){
         var questType = currQuestion.classList[1]; // get question type, e.g.
 
         switch (questType) {
-            case "checkbox":
+            case "checkbox": // if checkbox, get all selected values
                 checkedAns = $(currQuestion).find('input[type=checkbox]:checked');
                 answer.checkbox = [];
-                for(i = 0; i < checkedAns.lenght; i++){
-                    var checked = $(checkedAns[i]).attr('choice').trim();
-                    answer.checkbox.push(checked);
+                for(i = 0; i < checkedAns.length; i++){
+                    answer.checkbox.push($(checkedAns[i]).attr('choice').trim());
                 }
                 break;
-            case "radio":
+            case "radio": // if radio, get the selected value when not undefined
                 checkedAns = $(currQuestion).find('input[type=radio]:checked');
                 if(checkedAns != undefined) {
                     answer.radio = checkedAns.attr('choice').trim();
@@ -45,12 +47,17 @@ function saveEvaluationData(){
         formData.answers.push(answer);
     }
 
-    console.log(formData.answers);
+    console.log(formData);
 
     postEvaluation(formData);
 }
 
+/**
+ * Ajax call for posting form data
+ * @param formData
+ */
 function postEvaluation(formData) {
+    console.log("formdata.answers: " + JSON.stringify(formData.answers));
     $.ajax({
         type: 'POST',
         headers: {
@@ -58,7 +65,7 @@ function postEvaluation(formData) {
         },
         url: "http://localhost:8000" + "/evaluation/add",
         data: {
-            "answers": JSON.stringify(formData)
+            "answers": JSON.stringify(formData.answers)
         },
         success: function (data) {
             location.replace("index.html");

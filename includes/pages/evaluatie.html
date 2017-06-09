@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="../../css/profiel.css">
+<link href="css/css.css" rel="stylesheet">
+
 <div style="overflow: auto; height:100%;" class="col-md-12 col-xs-12">
 
 <div style="text-align: center">
@@ -7,16 +10,13 @@
 
     </p>
 </div>
-<script src="js/bootstrap.min.js"></script>
-<script src="javascript/evaluation.js"></script>
-<script src="https://use.fontawesome.com/684f6ba679.js"></script>
+
 <div class="container" align="center">
     <div class="content-blue">
         <div id="html-content-holder">
             <form id="submit-evaluationform">
                 <div id="questions">
                     <div class="question radio">
-
                         <h3>Hoeveel kilo weegt een baksteen</h3>
                         <p class="full-width">
                             <input type="radio" name="1" id="question_1ans_1" choice="een" />
@@ -24,17 +24,37 @@
                         </p>
                         <p class="full-width">
                             <input type="radio" name="1" id="question_1ans_2" choice="twee" />
-                            <label for="question_1ans_1">twee</label>
+                            <label for="question_1ans_2">twee</label>
                         </p>
                         <p class="full-width">
                             <input type="radio" name="1" id="question_1ans_3" choice="drie" />
-                            <label for="question_1ans_1">drie</label>
+                            <label for="question_1ans_3">drie</label>
+                        </p>
+                    </div>
+                    <div class="question checkbox">
+                        <h3>Hoeveel bananen gaan in een stoeptegel</h3>
+                        <p class="full-width">
+                            <input class="form-control" type="checkbox" name="2" id="question_2ans_1" choice="10" />
+                            <label for="question_2ans_1">10</label>
+                        </p>
+                        <p class="full-width">
+                            <input class="form-control" type="checkbox" name="2" id="question_2ans_2" choice="15" />
+                            <label for="question_2ans_2">15</label>
+                        </p>
+                        <p class="full-width">
+                            <input class="form-control" type="checkbox" name="2" id="question_2ans_3" choice="20" />
+                            <label for="question_2ans_3">20</label>
+                        </p>
+                        <p class="full-width">
+                            <input class="form-control" type="checkbox" name="2" id="question_2ans_4" choice="25" />
+                            <label for="question_2ans_4">25</label>
                         </p>
                     </div>
                 </div>
+
+                <input type="submit" class="btn btn-primary" value="submit">
             </form>
         </div>
-        <input id="btn-Submit-Form" type="button" class="btn btn-primary" value="Verstuur!">
         <!--<input id="btn-Preview-Image" type="button" value="Preview"/>-->
         <!--<br/>-->
         <!--<h3>Preview :</h3>-->
@@ -43,4 +63,5 @@
 </div>
 
 <script src="javascript/ajax/evaluation/submit-evaluation.js"></script>
+
 </div>
