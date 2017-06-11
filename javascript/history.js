@@ -6,50 +6,49 @@ $(document).ready(function () {
 });
 
 function userInteraction() {
-    // getBeginDate();
-    // $(".evaluationitem").click(function () {
-    //     getEvaluation();
-    // });
-    //
-    // showEvaluations();
+    getEvaluation();
+    getBeginDate();
 }
 
 function showEvaluations(data) {
-    data.forEach(function (evaluation) {
-
-        $("#begindatum").attr("id", "begindatum" + evaluation.treatment_exercise_id);
+    $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
+    data.forEach(function (start_date) {
+        $('.evaluationlist').append("<li class='evaluationitem1'> " +
+            "<a href='evaluation-content.html' target='_blank' class='evaluationitem'> " +
+            "<p class='begin'>Begindatum</p>" +
+            "<p class='begindatum'>" + start_date + "</p>" +
+            "</a></li>");
     });
-
 }
 
-// function getBeginDate() {
-//     var request = $.ajax({
-//         type: 'GET',
-//         headers: {
-//             'authorization': jwt
-//         },
-//         url: "http://localhost:8000" + "/evaluation/",
-//         dataType: 'json',
-//         statusCode: {
-//             201: function () {
-//                 console.log(201, "succes!");
-//             },
-//             400: function (error) {
-//                 console.log(400);
-//             },
-//             403: function (error) {
-//                 console.log(403, error)
-//             }
-//         },
-//         error: function (err) {
-//             alert("Error: " + err);
-//         }
-//     });
-//     request.done(function (data) {
-//         showEvaluations(data);
-//     });
-// }
-//
+function getBeginDate() {
+    var request = $.ajax({
+        type: 'GET',
+        headers: {
+            'authorization': jwt
+        },
+        url: "http://localhost:8000/treatment/startdate",
+        dataType: 'json',
+        statusCode: {
+            200: function () {
+                console.log(200, "succes!");
+            },
+            401: function (error) {
+                console.log(401);
+            },
+            404: function (error) {
+                console.log(404, error)
+            }
+        },
+        error: function (err) {
+            alert("Error: " + err);
+        }
+    });
+    request.done(function (data) {
+        showEvaluations(data);
+    });
+}
+
 // function getEvaluation() {
 //     var request = $.ajax({
 //         type: 'GET',
@@ -74,7 +73,7 @@ function showEvaluations(data) {
 //         }
 //     });
 //     request.done(function (data) {
-//         showEvaluations(data);
+//         showEvaluationContent(data);
 //     });
 // }
 
