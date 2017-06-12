@@ -29,7 +29,9 @@ function getToken() {
     if(typeof(Storage) !== "undefined") {
         return sessionStorage.token;
     } else {
-        alert("No session storage found. Site functions are limited.");
+        alert("U bent niet ingelogd");
+        window.location.href = "login.html";
+
         return null;
     }
 }
