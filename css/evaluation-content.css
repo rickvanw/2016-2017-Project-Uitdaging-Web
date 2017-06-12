@@ -1,10 +1,33 @@
-.hide{
-    display:none;
+li {
+    text-align: center;
+    font-size: 20px;
 }
 
-.show{
-    display: block;
+.button {
+    background-color: rgb(84,120,219); /* blue */
+    border: 3px solid rgb(84,120,219);
+    color: white;
+    text-align: center;
+    display: inline-block;
+    margin-left:30px;
+
+    font-size: 30px;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    cursor: hand;
 }
-#vraag1{
-    display: none;
+
+#evaluationform {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.blue {
+    background-color: #DFE8FF;
+}
+
+.antwoord {
+    margin-right: 15px;
 }
