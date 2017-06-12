@@ -8,7 +8,8 @@ var jwt = sessionStorage.token;
 
 $(document).ready(function () {
 
-    $("#submit-form").submit(function () {
+    $("#submit_form").submit(function () {
+        alert("test");
         saveExercise();
     });
 
@@ -24,6 +25,8 @@ function saveExercise(){
     var media_url = $('input[name="exercise_link"]').val();
     var image_url = $('input[name="exercise_img"]').val();
     var repetitions = $('input[name="exercise_repetitions"]').val();
+
+    console.log(name);
 
     $.ajax({
         type: 'POST',
