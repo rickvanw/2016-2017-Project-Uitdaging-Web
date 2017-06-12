@@ -168,7 +168,6 @@
     max-width:600px;
     min-width:200px;
     margin-left:20px;
-    color:black;
     height:auto;
     float:left;
     font-weight: bold;
@@ -182,12 +181,23 @@
     margin-bottom:20px;
 }
 
+.treatment.video_url_input_container{
+    margin:0 auto;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.65);
+}
+
 .treatment.exercise_buttons{
     margin:0 auto;
     width:250px;
     text-align: center;
     background-color: white;
     border-radius: 25px;
+}
+
+.treatment.exercise_button_container{
+    width:100px;
+    height:50px;
 }
 
 .treatment.exercise_button:focus,
@@ -199,6 +209,12 @@
     outline: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
+}
+
+.treatment.exercise_button.single:focus,
+.treatment.exercise_button.single{
+    margin:0 auto;
+    float:none;
 }
 
 .treatment.button_stripe{
