@@ -1,13 +1,31 @@
+body{
+    overflow: auto;
+}
+
 .evaluationitem{
     position: absolute;
-    margin-left: 20px;
-    margin-bottom: 20px;
     padding: 10px;
     width: 80%;
     height: 100px;
     background-color: #EFEAEA;
     border-radius: 10px;
-    /*display: none;*/
+}
+
+ul.evaluationlist{
+    list-style-type: none;
+}
+
+li.evaluationitem2 {
+    padding-top: 110px;
+}
+
+li.evaluationitem2 a:hover{
+    text-decoration: none;
+    box-shadow: 3px 3px 8px #BDBDBD;
+}
+li.evaluationitem1 a:hover{
+    text-decoration: none;
+    box-shadow: 3px 3px 10px #BDBDBD;
 }
 
 .begin{
@@ -33,7 +51,7 @@
 
 #historydes{
     margin-top: 20%;
-    margin-left: 20px;
+    margin-left: 45px;
     margin-bottom: 100px;
 }
 
