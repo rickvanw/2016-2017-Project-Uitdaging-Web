@@ -1,9 +1,42 @@
-.backgroundDiv {
-    background-color: #dfeaf9;
-    width: 100%;
-}
+
 
 .form-group {
     width: 60%;
+}
+
+.heading {
+    text-align: center;
+}
+
+.paragraph {
+    margin-right: 50px;
+    margin-left: 50px;
+    padding-bottom: 1px;
+}
+
+.form-wrapper {
+    margin-top: 3px;
+    width:100%;
+}
+
+.text-field {
+    margin-bottom: 40px;
+    clear: none;
+}
+
+.text-field-2 {
+    margin-bottom: 40px;
+}
+
+.text-field-3 {
+    margin-bottom: 40px;
+}
+
+.submit-button {
+    margin-right: 11px;
+}
+
+.submit-button-2 {
+    background-color: #602192;
 }
 
