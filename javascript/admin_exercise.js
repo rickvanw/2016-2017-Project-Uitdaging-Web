@@ -50,27 +50,18 @@ function userInteraction () {
         }
     });
 
-    $('.doneButton').off("click").on("click", function (e) {
-        e.stopImmediatePropagation();
-
-        return false;
-    });
-
     $('.notDoneButton').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
 
-        return false;
-    });
+        var buttonExerciseId = this.id.split("notDoneButton")[1];
 
-    $('.likeButton').off("click").on("click", function (e) {
-        e.stopImmediatePropagation();
-
-        return false;
-    });
-
-    $('.dislikeButton').off("click").on("click", function (e) {
-        e.stopImmediatePropagation();
-
+        var confirmWindow = confirm("Weet u zeker dat u deze oefening wilt verwijderen?");
+        if (confirmWindow == true) {
+            deleteExercise(buttonExerciseId);
+        }
+        clearExercises();
+        getExercises(currentPage);
+        // return false;
     });
 }
 
@@ -260,4 +251,35 @@ function getEmbedUrl(url) {
 
 function notifyUser(message) {
     $("#notify_container").html("<div class='treatment notify_text'>"+message+"</div>");
+}
+
+/**
+ * Function that posts the complaints which the user has indicated
+ */
+function deleteExercise (exercise_id) {
+    $.ajax({
+        type: 'DELETE',
+        headers: {
+            'authorization':jwt
+        },
+        url: "http://localhost:8000" + "/exercise",
+        data: {
+            "exercise_id": exercise_id
+        },
+        dataType: 'text',
+        statusCode: {
+            201: function () {
+                console.log(201);
+            },
+            401: function (error) {
+                console.log(error);
+            },
+            400: function (error) {
+                console.log(error);
+            }
+        },
+        error: function (err) {
+            console.log("Error: " + err);
+        }
+    });
 }
