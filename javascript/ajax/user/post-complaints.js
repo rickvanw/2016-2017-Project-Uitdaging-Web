@@ -93,7 +93,7 @@ function userInteraction () {
         }
     });
     $("#complaint-ok").submit(function (e) {
-        alert("complaints: " + complaint_ids.length);
+        console.log("complaints: " + complaint_ids.length);
         e.stopImmediatePropagation();
         if (hasComplaints()) {
             // first, post the complaints of the user
@@ -101,10 +101,10 @@ function userInteraction () {
                 // then, create a new treatment
                 createTreatment();
             } else {
-                alert("Cannot create treatment, something went wrong!");
+                console.log("Cannot create treatment, something went wrong!");
             }
         } else {
-            alert("Je hebt nog geen complaint aangevinkt!");
+            console.log("Je hebt nog geen complaint aangevinkt!");
         }
     });
 
@@ -167,18 +167,18 @@ function userInteraction () {
             dataType: 'text',
             statusCode: {
                 201: function () {
-                    alert(201);
+                    console.log(201);
                     bool = true;
                 },
                 401: function (error) {
-                    alert(error);
+                    console.log(error);
                 },
                 400: function (error) {
-                    alert(error);
+                    console.log(error);
                 }
             },
             error: function (err) {
-                alert("Error: " + err);
+                console.log("Error: " + err);
             }
         });
 
@@ -189,7 +189,7 @@ function userInteraction () {
      * Function that creates the treatment for a complaint id
      */
     function createTreatment() {
-        alert("Treatment wordt gecreëerd");
+        console.log("Treatment wordt gecreëerd");
 
         $.ajax({
             type: 'POST',
@@ -203,13 +203,13 @@ function userInteraction () {
             },
             statusCode: {
                 201:function(){
-                    alert(201);
+                    console.log(201);
                 },
                 401:function(error) {
-                    alert(401);
+                    console.log(401);
                 },
                 400: function(error){
-                    alert(400);
+                    console.log(400);
                 }
             }
         });
