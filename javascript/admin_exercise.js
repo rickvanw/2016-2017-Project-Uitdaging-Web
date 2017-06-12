@@ -62,6 +62,20 @@ function userInteraction () {
     $('.notDoneButton').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
 
+        var buttonExerciseId = this.id.split("notDoneButton")[1];
+
+        var confirmWindow = confirm("Weet u zeker dat u deze oefening wilt verwijderen?");
+        if (confirmWindow == true) {
+            deleteExercise(buttonExerciseId);
+        }
+        clearExercises();
+        getExercises(currentPage);
+        // return false;
+    });
+
+    $('.likeButton').off("click").on("click", function (e) {
+        e.stopImmediatePropagation();
+
         var buttonExerciseId=this.id.split("notDoneButton")[1];
 
         $('#' + "exercise" + buttonExerciseId).find('.exercise_quickview_title').attr("contenteditable", "true");
@@ -70,37 +84,6 @@ function userInteraction () {
         return false;
     });
 
-    $('.likeButton').off("click").on("click", function (e) {
-        e.stopImmediatePropagation();
-
-        return false;
-    });
-
-}
-
-function getAmountOfExercises(){
-    var request = $.ajax({
-        type: 'GET',
-        headers: {
-            'authorization':jwt
-        },
-        url: hostAdress + "/exercise/rows",
-        dataType: 'json',
-        statusCode: {
-            200:function(){
-                console.log(200, "succes!");
-            },
-            401:function(error) {
-                console.log(401);
-            },
-            404: function(error){
-                console.log(404, error)
-            }
-        },
-        error: function (err) {
-            console.log("Error getting amount of exercises: " + err.message);
-        }
-    });
 
     request.done(function (data) {
         var amountOfExercises = data[0]["count(*)"];
@@ -217,4 +200,35 @@ function getEmbedUrl(url) {
 
 function notifyUser(message) {
     $("#notify_container").html("<div class='treatment notify_text'>"+message+"</div>");
+}
+
+/**
+ * Function that posts the complaints which the user has indicated
+ */
+function deleteExercise (exercise_id) {
+    $.ajax({
+        type: 'DELETE',
+        headers: {
+            'authorization':jwt
+        },
+        url: "http://localhost:8000" + "/exercise",
+        data: {
+            "exercise_id": exercise_id
+        },
+        dataType: 'text',
+        statusCode: {
+            201: function () {
+                console.log(201);
+            },
+            401: function (error) {
+                console.log(error);
+            },
+            400: function (error) {
+                console.log(error);
+            }
+        },
+        error: function (err) {
+            console.log("Error: " + err);
+        }
+    });
 }
