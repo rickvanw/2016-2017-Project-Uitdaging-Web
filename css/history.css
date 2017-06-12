@@ -25,10 +25,6 @@ li.evaluationitem1 a:hover {
     box-shadow: 3px 3px 10px #BDBDBD;
 }
 
-li.evaluationitem1 a:visited {
-    text-decoration: none;
-}
-
 .begin {
     position: relative;
     color: #314871;

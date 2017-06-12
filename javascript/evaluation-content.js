@@ -2,6 +2,7 @@
  * Created by larsw on 7-6-2017.
  */
 $(document).ready(function() {
+    userInteraction();
 });
 
 function userInteraction () {
@@ -11,32 +12,41 @@ function userInteraction () {
         var vraag1 = document.getElementById('vraag1');
         $(vraag1).style.display = 'block';
     });
+}
 
-    function getQuestionAnswers() {
-        var request = $.ajax({
-            type: 'GET',
-            headers: {
-                'authorization': jwt
-            },
-            url: "http://localhost:8000" + "/treatment/exercises-day",
-            dataType: 'json',
-            statusCode: {
-                200: function () {
-                    console.log(200, "succes!");
-                },
-                401: function (error) {
-                    console.log(401);
-                },
-                404: function (error) {
-                    console.log(404, error)
-                }
-            },
-            error: function (err) {
-                notifyUser("Kon geen oefeningen ophalen, neem contact op met uw systeembeheerder");
-                console.log("Error getting exercises: " + err.message);
-            }
-        });
+function openEvaluation(evaluationitem){
+    for(i = 0; i < listitems.length(); i++){
+        var currentListItem = listitems[i].getAttribute("id");
+        if(currentListItem===evaluationitem.getAttribute("id")){
+
+        }
     }
+}
+
+function getEvaluation() {
+    var request = $.ajax({
+        type: 'GET',
+        headers: {
+            'authorization': jwt
+        },
+        url: "http://localhost:8000" + "/treatment/exercises-day",
+        dataType: 'json',
+        statusCode: {
+            200: function () {
+                console.log(200, "succes!");
+            },
+            401: function (error) {
+                console.log(401);
+            },
+            404: function (error) {
+                console.log(404, error)
+            }
+        },
+        error: function (err) {
+            notifyUser("Kon geen oefeningen ophalen, neem contact op met uw systeembeheerder");
+            console.log("Error getting exercises: " + err.message);
+        }
+    });
 }
 
 function printDiv(divName) {
