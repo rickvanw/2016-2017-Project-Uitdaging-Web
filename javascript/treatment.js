@@ -391,7 +391,6 @@ function getEmbedUrl(url) {
     }
 }
 
-
 function notifyUser(message) {
     $("#notify_container").html("<div class='treatment notify_text'>"+message+"</div>");
 }
