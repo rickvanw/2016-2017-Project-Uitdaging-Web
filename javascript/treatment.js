@@ -2,7 +2,7 @@
  * Created by rickv on 18-5-2017.
  */
 
-//TODO get logged in user auth code
+//TODO remove temporary jwt token, replace with logged in user
 var jwt = sessionStorage.token;
 var done_exercises =[];
 var daysFromCurrentDate = 0;
@@ -171,6 +171,7 @@ function placeExercises(data) {
         $("#dislikeButton0").attr("id", "dislikeButton" + exercise.treatment_exercise_id);
         $("#exercise0").attr("id", "exercise" + exercise.treatment_exercise_id);
         $("#video0").attr("id", "video" + exercise.treatment_exercise_id);
+
 
         // Fill the exercises
 
