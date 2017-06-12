@@ -1,0 +1,100 @@
+<div style="overflow: auto; height:100%;" class="col-md-12 col-xs-12">
+
+    <link href="css/admin_exercise.css" rel="stylesheet">
+
+    <div class="treatment title_text">
+        <p style="white-space:normal;width:100%; height:100%;">Op deze pagina staan alle oefeningen.
+            <br>Klik op een oefening om de bijbehorende informatie hiervan te kunnen wijzigen.
+        </p>
+    </div>
+    <div id="notify_container"></div>
+    <div class="treatment date_section">
+        <div class="treatment left_arrow"><</div>
+        <div class="treatment day_text">
+            <!--Date Text-->
+        </div>
+        <div class="treatment right_arrow">></div>
+    </div>
+
+    <div id="all_exercises_container">
+
+    </div>
+
+    <script id="template_exercise" type="text/plain">
+    <div class="container treatment exercise_container" id="exercise0">
+        <div class="panel-group">
+            <div class="panel panel-default" style="border:none;">
+                <a class="treatment link_collapse" id="link01" data-toggle="collapse" href="#collapse0">
+                    <div class="panel-heading treatment exercise_quickview_container">
+                        <div class="treatment exercise_quickview_image_box_container">
+                            <div class="treatment exercise_quickview_image_box">
+                                <img src="img/exercise.jpg" onerror="this.src='img/exercise1.jpg'" class="img-responsive quickview_image">
+                            </div>
+                        </div>
+                        <p class="treatment exercise_quickview_title">
+                            Name
+                        </p>
+                        <div class="treatment exercise_quickview_repeats">
+                            <p class="treatment exercise_quickview_text_repeats">
+                                Herhalingen
+                            </p>
+                            <p class="treatment exercise_quickview_amount_repeats">
+                                #
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <div id="collapse0" class="panel-collapse collapse">
+                    <a class="treatment link_collapse" id="link02" data-toggle="collapse" href="#collapse0">
+
+                        <div class="panel-body treatment exercise_collapse_container">
+
+                            <div class="treatment container_in_collapse">
+                                <div class="treatment exercise_collapse_image_box">
+                                    <img src="img/exercise.jpg" onerror="this.src='img/exercise1.jpg'" class="img-responsive collapse_image">
+                                </div>
+                                <div class="treatment description_in_collapse">
+                                    <p style="white-space:normal;width:100%; height:100%;" class="description_text">
+                                        Description
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="treatment video_in_collapse">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe allowfullscreen="allowfullscreen" class="embed-responsive-item collapse_video" src="" id="video0" allowfullscreen></iframe>
+                            </div>
+                            </div>
+                            <div class="treatment exercise_buttons">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button type="button" id="doneButton0"
+                                            class="btn btn-default treatment exercise_button doneButton">
+                                        <img src="img/checkmark.png" class="img-responsive">
+                                    </button>
+                                    <button type="button" id="notDoneButton0"
+                                            class="btn btn-default treatment exercise_button notDoneButton">
+                                        <img src="img/close.png" class="img-responsive">
+                                    </button>
+                                </div>
+                                <div class="treatment button_stripe"></div>
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button type="button" id="likeButton0"
+                                            class="btn btn-default treatment exercise_button likeButton">
+                                        <img src="img/like.png" class="img-responsive">
+                                    </button>
+                                    <button type="button" id="dislikeButton0"
+                                            class="btn btn-default treatment exercise_button dislikeButton">
+                                        <img src="img/dislike.png" class="img-responsive">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </script>
+    <script src="javascript/admin_exercise.js"></script>
+</div>

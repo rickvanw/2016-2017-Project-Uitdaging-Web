@@ -7,6 +7,7 @@ app.controller('partialController', function($scope) {
             { name: 'klachten', url: 'includes/pages/klachten.html'},
             { name: 'evaluatie', url: 'includes/pages/evaluatie.html'},
             { name: 'behandelplan', url: 'includes/pages/behandelplan.html'},
+            { name: 'admin_exercise', url: 'includes/pages/admin_exercise.html'},
             { name: 'responsible-teacher', url: 'includes/pages/responsible_teachers_page.html'},
             { name: 'notFound', url: 'includes/pages/not_found.html'}
         ];
