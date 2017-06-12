@@ -1,8 +1,8 @@
-body{
+body {
     overflow: auto;
 }
 
-.evaluationitem{
+.evaluationitem {
     position: absolute;
     padding: 10px;
     width: 80%;
@@ -11,35 +11,36 @@ body{
     border-radius: 10px;
 }
 
-ul.evaluationlist{
+ul.evaluationlist {
     list-style-type: none;
 }
 
-li.evaluationitem2 {
-    padding-top: 110px;
+li.evaluationitem1 {
+    padding-bottom: 110px;
+    display: block;
 }
 
-li.evaluationitem2 a:hover{
-    text-decoration: none;
-    box-shadow: 3px 3px 8px #BDBDBD;
-}
-li.evaluationitem1 a:hover{
+li.evaluationitem1 a:hover {
     text-decoration: none;
     box-shadow: 3px 3px 10px #BDBDBD;
 }
 
-.begin{
+li.evaluationitem1 a:visited {
+    text-decoration: none;
+}
+
+.begin {
     position: relative;
     color: #314871;
 }
 
-.begindatum{
+.begindatum {
     position: relative;
     font-size: 35px;
     color: #6CABE7;
 }
 
-.btn{
+.btn {
     position: absolute;
     width: 10%;
     height: 80%;
@@ -49,13 +50,14 @@ li.evaluationitem1 a:hover{
     background-color: Transparent;
 }
 
-#historydes{
-    margin-top: 20%;
+#historydes {
+    margin-top: 6%;
     margin-left: 45px;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
+    display: inline-block;
 }
 
-#page{
+#page {
     position: relative;
     width: 70%;
     margin: 0 auto;

@@ -6,7 +6,6 @@ $(document).ready(function () {
 });
 
 function userInteraction() {
-    getEvaluation();
     getBeginDate();
 }
 
@@ -16,9 +15,18 @@ function showEvaluations(data) {
         $('.evaluationlist').append("<li class='evaluationitem1'> " +
             "<a href='evaluation-content.html' target='_blank' class='evaluationitem'> " +
             "<p class='begin'>Begindatum</p>" +
-            "<p class='begindatum'>" + start_date + "</p>" +
+            "<p class='begindatum'> start_date </p>" +
             "</a></li>");
     });
+    // $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
+    // for (i = 0; i < 12; i++) {
+    //     $('.evaluationlist').append("<li class='evaluationitem1'> " +
+    //         "<a href='evaluation-content.html' target='_blank' class='evaluationitem'> " +
+    //         "<p class='begin'>Begindatum</p>" +
+    //         "<p class='begindatum'> hoi </p>" +
+    //         "</a></li>");
+    //
+    // }
 }
 
 function getBeginDate() {
