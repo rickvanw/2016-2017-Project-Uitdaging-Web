@@ -6,11 +6,17 @@ $(document).ready(function () {
 });
 
 function userInteraction() {
+    // $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
+    // $('.evaluationlist').append(
+    //     "<li class='evaluationitem1' id='hoi'>" +
+    //     "<a href='evaluation-content.html?treatment_id=' class='evaluationitem'> " +
+    //     "<p class='begin'>Begindatum</p>" +
+    //     "<p class='begindatum'> Testdatum </p>" +
+    //     "</a>" +
+    //     "</li>"
+    // );
     getEvaluationId();
     getBeginDate();
-    // var evaluationitem = document.getElementsByClassName("evaluationitem1");
-    // $(evaluationitem).onclick = function() {openEvaluation(evaluationitem)};
-
 }
 
 function showEvaluations(data) {

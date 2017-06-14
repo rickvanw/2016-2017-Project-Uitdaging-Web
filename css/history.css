@@ -16,7 +16,7 @@ ul.evaluationlist {
 }
 
 li.evaluationitem1 {
-    padding-bottom: 110px;
+    padding-bottom: 115px;
     display: block;
 }
 
@@ -28,12 +28,14 @@ li.evaluationitem1 a:hover {
 .begin {
     position: relative;
     color: #314871;
+    font-weight: bold;
 }
 
 .begindatum {
     position: relative;
     font-size: 35px;
     color: #6CABE7;
+    font-weight: bold;
 }
 
 .btn {
@@ -47,10 +49,12 @@ li.evaluationitem1 a:hover {
 }
 
 #historydes {
-    margin-top: 6%;
+    margin-top: 7%;
     margin-left: 45px;
     margin-bottom: 70px;
     display: inline-block;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.65);;
 }
 
 #page {
