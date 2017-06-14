@@ -22,7 +22,16 @@
             <br><br>
             <input class="exercise_link w-input" type="text" name="exercise_link"  required="required" placeholder="Youtube url">
             <br><br>
-            <input class="exercise_img w-input" type="text" name="exercise_img" required="required" placeholder="Category">
+            <input id="exercise" class="exercise_img w-input"  type="text" name="exercise_img" required="required" placeholder="Category">
+            <select id="selecter" onchange="ChooseExercise(this)">
+                <option value="Use category Selector">Choose Category</option>
+                <option value="Schouder">Schouder</option>
+                <option value="Nek">Nek</option>
+                <option value="Rug">Rug</option>
+                <option value="Elleboog">Elleboog</option>
+                <option value="Hand/Pols">Hand/Pols</option>
+                <option value="Preventief">Preventief</option>
+            </select>
             <br><br>
             <input class="exercise_repetitions w-input" type="text" name="exercise_repetitions" required="required" placeholder="aantal herhalingen">
             <br><br>
@@ -31,5 +40,6 @@
     </div>
 </div>
 
-<script src="javascript/ajax/exercise/post-exercise.js"></script>
+    <script src="javascript/ajax/exercise/post-exercise.js"></script>
+    <script src="javascript/admin_exercise_add.js"></script>
 </div>
