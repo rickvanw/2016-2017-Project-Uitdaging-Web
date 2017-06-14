@@ -13,11 +13,11 @@ function userInteraction () {
         var vraag1 = document.getElementById('vraag1');
         $(vraag1).style.display = 'block';
     });
-
 }
 
 function openEvaluation(){
     var treatment_id = getURLParameter("treatment_id");
+
 }
 
 function getURLParameter(name) {
@@ -30,7 +30,7 @@ function getEvaluation() {
         headers: {
             'authorization': jwt
         },
-        url: "http://localhost:8000" + "/treatment/exercises-day",
+        url: "http://localhost:8000" + "/evaluation/iets",
         dataType: 'json',
         statusCode: {
             200: function () {
