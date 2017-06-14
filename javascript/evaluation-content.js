@@ -6,21 +6,22 @@ $(document).ready(function() {
 });
 
 function userInteraction () {
+    openEvaluation();
     $('#neckbutton').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
         $(this).css('background-color', '#4A90E2');
         var vraag1 = document.getElementById('vraag1');
         $(vraag1).style.display = 'block';
     });
+
 }
 
-function openEvaluation(evaluationitem){
-    for(i = 0; i < listitems.length(); i++){
-        var currentListItem = listitems[i].getAttribute("id");
-        if(currentListItem===evaluationitem.getAttribute("id")){
+function openEvaluation(){
+    var treatment_id = getURLParameter("treatment_id");
+}
 
-        }
-    }
+function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
 }
 
 function getEvaluation() {
@@ -43,8 +44,8 @@ function getEvaluation() {
             }
         },
         error: function (err) {
-            notifyUser("Kon geen oefeningen ophalen, neem contact op met uw systeembeheerder");
-            console.log("Error getting exercises: " + err.message);
+            notifyUser("Kon geen evaluaties ophalen, neem contact op met uw systeembeheerder");
+            console.log("Error getting evaluations: " + err.message);
         }
     });
 }

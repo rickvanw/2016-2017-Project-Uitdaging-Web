@@ -1,5 +1,5 @@
 var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
-var listitems = [];
+// var listitems = [];
 
 $(document).ready(function () {
     userInteraction();
@@ -7,21 +7,23 @@ $(document).ready(function () {
 
 function userInteraction() {
     getBeginDate();
-    var evaluationitem = document.getElementsByClassName("evaluationitem1");
-    $(evaluationitem).onclick = function() {openEvaluation(evaluationitem)};
+    // var evaluationitem = document.getElementsByClassName("evaluationitem1");
+    // $(evaluationitem).onclick = function() {openEvaluation(evaluationitem)};
 
 }
 
 function showEvaluations(data) {
     $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
-    data.forEach(function (start_date, treatment_id) {
-        $('.evaluationlist').append("<li class='evaluationitem1' id=''> " +
-            "<a href='evaluation-content.html' target='_blank' class='evaluationitem'> " +
-            "<p class='begin'>Begindatum</p>" +
-            "<p class='begindatum'>" + data.start_date + "</p>" +
-            "</a></li>");
-        jQuery(this).prev("li").attr("id","" + treatment_id.toString());
-        listitems.add(document.getElementById("" + treatment_id.toString()));
+    data.forEach(function (item) {
+        $('.evaluationlist').append(
+            "<li class='evaluationitem1' id='" + item.treatment_id +"'>"  +
+                "<a href='evaluation-content.html?treatment_id=" + item.treatment_id + "' target='_blank' class='evaluationitem'> " +
+                "<p class='begin'>Begindatum</p>" +
+                "<p class='begindatum'>" + item.start_date + "</p>" +
+                "</a>" +
+            "</li>"
+        );
+        // listitems.add(document.getElementById("" + treatment_id.toString()));
     });
 
     // $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
