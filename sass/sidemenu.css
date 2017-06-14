@@ -16,11 +16,15 @@ a, a:focus, a:hover, button, button:hover, button:focus, input, input:focus {
     outline: none;
 }
 
-/*Remove rounded coners*/
+/*Remove rounded corners*/
 
 nav.sidebar.navbar {
     border-radius: 0;
     z-index: 1;
+}
+
+.nav.navbar-nav{
+    cursor: pointer;
 }
 
 nav.sidebar, .main{

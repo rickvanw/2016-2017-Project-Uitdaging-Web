@@ -17,9 +17,9 @@ $(document).on('click', '#login-button', function(){
                 200: function(data) {
                     setToken(data.token);
 
-                    console.log()
+                    console.log();
                     // Redirect to index page
-                    window.location.href = "index.html";
+                    //window.location.href = "index.html";
                 },
                 401: function(data) {
                     // Wrong login
@@ -35,10 +35,13 @@ $(document).on('click', '#login-button', function(){
     });
 
     /**
-     * Set the token in the session storage.
+     * Set the token in the session storage. If checked also set in cookie
      * @param token the token.
      */
     function setToken(token) {
+        if($(".remember_me_checkbox").prop('checked') == true) {
+            setCookie("jwt", token, 365);
+        }
         if(typeof(Storage) !== "undefined") {
             sessionStorage.token = token;
         } else {

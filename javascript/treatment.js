@@ -283,7 +283,6 @@ function rateExercise(rating, treatment_exercise_id) {
     request.done(function (data) {
         console.log("DONE");
     });
-
 }
 
 /**

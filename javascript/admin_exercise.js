@@ -4,6 +4,11 @@
 
 //TODO remove temporary jwt token, replace with logged in user
 var jwt = sessionStorage.token;
+console.log("JWT COOKIE: " + getCookie("jwt"));
+
+ if(jwt==""){
+     jwt = getCookie();
+ }
 var currentPage = 1;
 var amountOfPages;
 var editingExerciseNr = 0;
@@ -14,6 +19,7 @@ var resetDescription;
 var resetRepeats;
 var resetMediaUrl;
 
+$('.day_text').text("Pagina 0/0");
 getAmountOfExercises();
 
 // Get first page of exercises (first time)
@@ -83,6 +89,12 @@ function userInteraction () {
                 editingExerciseNr = 0;
 
                 //TODO ajax call met alle nieuwe informatie
+                var name = thisExercise.find('.exercise_quickview_title').text();
+                var description = thisExercise.find('.description_text').text();
+                var repetitions = thisExercise.find('.exercise_quickview_amount_repeats').text();
+                var media_url = thisExercise.find('.video_url_input').val();
+
+                changeExercise(thisExercise, buttonExerciseId, name, description, repetitions, media_url);
 
                 loadNewMediaUrl(thisExercise);
                 exerciseEditable(thisExercise, false);
@@ -163,7 +175,40 @@ function getAmountOfExercises(){
         amountOfPages = pages;
         $('.day_text').text("Pagina " + currentPage + "/" + amountOfPages);
     });
+}
 
+function changeExercise(thisExercise, exercise_id, name, description, repetitions, media_url) {
+
+    console.log("DES: " + description);
+    var request = $.ajax({
+        type: 'POST',
+        headers: {
+            'authorization':jwt
+        },
+        url: hostAdress + "/exercise",
+        data: {"exercise_id": exercise_id, "name":name, "description":description, "repetitions": repetitions, "media_url": media_url},
+        dataType: 'json',
+        statusCode: {
+            200:function(){
+                console.log(200, "succes!");
+            },
+            401:function(error) {
+                console.log(401);
+            },
+            404: function(error){
+                console.log(404, error)
+            }
+        },
+        error: function (err) {
+            resetFromLocalExerciseContent(thisExercise);
+            notifyUser("Kon de wijziging(en) niet doorvoeren, neem contact op met uw systeembeheerder");
+            console.log("Error rating the exercise: " + err.message);
+        }
+    });
+
+    request.done(function (data) {
+        console.log("DONE");
+    });
 }
 
 // TODO, afhandelen wanneer geen oefening beschikbaar
@@ -217,7 +262,6 @@ function placeExercises(data) {
         $("#exercise0").attr("id", "exercise" + exercise.exercise_id);
         $("#video0").attr("id", "video" + exercise.exercise_id);
 
-
         // Fill the exercises
 
         //Quickview image
@@ -240,7 +284,11 @@ function placeExercises(data) {
 
         //Repeats amount
         //TODO verander naar description uit database
-        currentExercise.find('.description_text').text("Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen.Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind jehet lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op je knieën.");
+        if(exercise.description == ""){
+            currentExercise.find('.description_text').text("Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen.Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind je het lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op je knieën.");
+        }else{
+            currentExercise.find('.description_text').text(exercise.description);
+        }
     });
 
     userInteraction();
