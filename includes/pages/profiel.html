@@ -1,5 +1,8 @@
 <div class="profiel col-md-12 col-xs-12">
 
+    <link href="css/kom-in-beweging.webflow.css" rel="stylesheet" type="text/css">
+    <link href="css/webflow.css" rel="stylesheet" type="text/css">
+
     <div class="div-block">
 
             <h3>Profiel</h3>
@@ -7,7 +10,7 @@
             <p>Hieronder kunt u al uw profielgegevens inzien. Tevens kunt u uw gegevens wijzigen door deze in te vullen en vervolgens op "wijzigen" te klikken.</p>
 
 
-            <div class="form-wrapper w-form">
+            <div class="form-wrapper-profiel">
                 <form data-name="Email Form"  name="email-form">
                     <label for="Name-2">Voornaam:</label>
                     <input class="text-field w-input" id="Name-2" maxlength="256" id="name-field-profile" placeholder="First Name" type="text">
@@ -16,11 +19,16 @@
                     <label for="Email-2">Email Addres:</label>
                     <input class="text-field-3 w-input" id="Email-2" maxlength="256" name="email-2" placeholder="Email" required="required" type="email">
                 </form>
+
+                <br>
+
+                <button id=changeUserInfo-button" onclick="changeTheUserInfo()">Wijzigen</button>
+
             </div>
 
-        <div id="model-container-login"></div>
+        <br>
 
-        <button id=changeUserInfo-button" onclick="changeTheUserInfo()">Wijzigen</button>
+        <div id="model-container-login"></div>
 
     </div>
 

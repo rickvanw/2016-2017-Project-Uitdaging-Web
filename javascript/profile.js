@@ -43,7 +43,6 @@ function getUserInfo(){
 
 })}
 
-
 function changeTheUserInfo() {
 
     console.log("wijzigen");
