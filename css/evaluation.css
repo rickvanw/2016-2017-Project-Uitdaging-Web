@@ -1,11 +1,31 @@
-form{
-    background-color: #E4EEFA;
-    padding-left: 100px;
-    padding-top: 50px;
-    padding-bottom: 40px;
+p {
+    margin-top: 10px;
+    margin-left: 40px;
 }
 
-#verstuurButton{
-    margin-top: 10px;
-    font-size: 30px;
+.form-group {
+    width: 60%;
+}
+
+.heading {
+    text-align: center;
+}
+
+.paragraph {
+    margin-right: 50px;
+    margin-left: 50px;
+    padding-bottom: 1px;
+}
+
+.form-wrapper {
+    margin-top: 3px;
+    width:100%;
+}
+
+.submit-button {
+    margin-right: 11px;
+}
+
+.submit-button-2 {
+    background-color: #602192;
 }

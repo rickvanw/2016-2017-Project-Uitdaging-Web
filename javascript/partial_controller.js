@@ -103,27 +103,3 @@ function executeOnScope(cb) {
         cb($scope)
     });
 }
-
-/**
- * Get the query parameters.
- * @returns {{}}
- */
-function getQueryParams() {
-    var queries = {};
-
-    if (localStorage.params) {
-        var url = localStorage.params;
-
-        var src = url.substr(1).split("&");
-        if (src.length == 1 && !src[0]) {
-            return queries;
-        }
-
-        $.each(url.substr(1).split("&"), function (c, q) {
-            var i = q.split("=");
-            queries[i[0].toString()] = i[1].toString();
-        });
-    }
-
-    return queries;
-}
