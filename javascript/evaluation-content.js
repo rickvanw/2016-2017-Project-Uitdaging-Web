@@ -20,24 +20,26 @@ function openEvaluation(data){
     $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
     var treatment_id = getURLParameter("treatment_id");
     data.forEach(function (item) {
-        //if(complaint == rug){}
-        $('.evaluationlist').append(
-            "<li class='evaluationitem1' id='" + item.treatment_id + "'>" +
-            "<a href='evaluation-content.html?treatment_id=" + item.treatment_id + "' target='_blank' class='evaluationitem'> " +
-            "<p class='begin'>Begindatum</p>" +
-            "<p class='begindatum'>" + item.start_date + "</p>" +
-            "</a>" +
-            "</li>"
-        );
-        //else if(complaint != rug && complaint != preventief){}
-        $('.evaluationlist').append(
-            "<li class='evaluationitem1' id='" + item.treatment_id + "'>" +
-            "<a href='evaluation-content.html?treatment_id=" + item.treatment_id + "' target='_blank' class='evaluationitem'> " +
-            "<p class='begin'>Begindatum</p>" +
-            "<p class='begindatum'>" + item.start_date + "</p>" +
-            "</a>" +
-            "</li>"
-        );
+        if(item.name == "Back"){
+            $('.evaluationlist').append(
+                "<li class='evaluationitem1' id='" + item.treatment_id + "'>" +
+                "<a href='evaluation-content.html?treatment_id=" + item.treatment_id + "' target='_blank' class='evaluationitem'> " +
+                "<p class='begin'>Begindatum</p>" +
+                "<p class='begindatum'>" + item.start_date + "</p>" +
+                "</a>" +
+                "</li>"
+            );
+        }
+        else {
+            $('.evaluationlist').append(
+                "<li class='evaluationitem1' id='" + item.treatment_id + "'>" +
+                "<a href='evaluation-content.html?treatment_id=" + item.treatment_id + "' target='_blank' class='evaluationitem'> " +
+                "<p class='begin'>Begindatum</p>" +
+                "<p class='begindatum'>" + item.start_date + "</p>" +
+                "</a>" +
+                "</li>"
+            );
+        }
     });
 
 }
@@ -52,7 +54,7 @@ function getComplaints() {
         headers: {
             'authorization': jwt
         },
-        url: "http://localhost:8000/complaint/",
+        url: "http://localhost:8000/complaint/complaint-names",
         dataType: 'json',
         statusCode: {
             201: function () {
