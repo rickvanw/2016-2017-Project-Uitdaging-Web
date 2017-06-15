@@ -3,10 +3,11 @@
  */
 
 //TODO remove temporary jwt token, replace with logged in user
-var jwt = sessionStorage.token;
+var jwt = getToken();
+var hostAdress = getConnection();
+
 var done_exercises =[];
 var daysFromCurrentDate = 0;
-var hostAdress = "http://localhost:8000";
 getExercises(getCurrentDate());
 
 $(document).ready(function() {
@@ -30,7 +31,6 @@ function userInteraction () {
     $('.left_arrow').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
         clearExercises();
-        console.log("CLLICk");
         daysFromCurrentDate--;
         getExercises(daysFromDate(daysFromCurrentDate));
         $('.day_text').text(getDateString(daysFromDate(daysFromCurrentDate)));
@@ -55,8 +55,6 @@ function userInteraction () {
 
         var buttonExerciseId=this.id.split("doneButton")[1];
         addToDoneExercises(buttonExerciseId);
-        console.info(done_exercises);
-
         doneExercise(1, buttonExerciseId);
 
         $(this).css('background-color', '#BFE5BF');
@@ -71,7 +69,6 @@ function userInteraction () {
 
         var buttonExerciseId=this.id.split("notDoneButton")[1];
         removeFromDoneExercises(buttonExerciseId);
-        console.info(done_exercises);
 
         doneExercise(-1, buttonExerciseId);
 
@@ -158,8 +155,6 @@ function placeExercises(data) {
 
     data.forEach(function(exercise) {
 
-        console.log("FOREACH");
-
         //Set all the right unique id's
         $("#all_exercises_container").append(text);
         $("#collapse0").attr("id", "collapse" + exercise.treatment_exercise_id);
@@ -208,10 +203,8 @@ function placeExercises(data) {
             $('#' + "exercise" + exercise.treatment_exercise_id).find('.notDoneButton').css('background-color', '#F99C9C');
         }
         if (exercise.done == 1) {
-            console.log("ID - " + exercise.treatment_exercise_id);
             addToDoneExercises(exercise.treatment_exercise_id)
         }
-        console.info(done_exercises);
     });
 
     userInteraction();
@@ -254,7 +247,6 @@ function doneExercise(done, treatment_exercise_id) {
  * @param exerciseId    id of exercise to be changed
  */
 function rateExercise(rating, treatment_exercise_id) {
-    console.log("rating");
     var request = $.ajax({
         type: 'PUT',
         headers: {
@@ -276,7 +268,6 @@ function rateExercise(rating, treatment_exercise_id) {
         },
         error: function (err) {
             notifyUser("Kon de rating niet doorvoeren, neem contact op met uw systeembeheerder");
-            console.log("Error rating the exercise: " + err.message);
         }
     });
 
@@ -383,7 +374,6 @@ function getEmbedUrl(url) {
     var match = url.match(regExp);
 
     if (match && match[2].length == 11) {
-        console.log("URL after: " + "www.youtube.com/embed/" + match[2]);
         return "https://www.youtube.com/embed/" + match[2];
     } else {
         return 'error';

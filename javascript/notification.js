@@ -1,10 +1,8 @@
 /**
  * Created by rickv on 1-6-2017.
  */
-var hostAdress = "http://localhost:8000";
-
-//TODO remove temporary jwt token, replace with logged in user
-var jwt = sessionStorage.token;
+var jwt = getToken();
+var hostAdress = getConnection();
 
 $(document).ready(function() {
 
@@ -75,7 +73,7 @@ function initializeNotification(){
 }
 
 function notifyPopupClick() {
-    // Go to evaluations
+    // TODO Go to evaluations
     alert("test");
 }
 

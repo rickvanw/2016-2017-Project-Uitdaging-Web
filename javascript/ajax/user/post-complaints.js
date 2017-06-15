@@ -4,7 +4,7 @@
  * Created by maurice_2 on 18-5-2017.
  */
 var jwt = sessionStorage.token;
-var hostAdress = "http://localhost:8000";
+var hostAdress = getConnection();
 
 $(document).ready(function() {
     // alert("test1");

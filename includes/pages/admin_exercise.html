@@ -2,23 +2,22 @@
 
     <link href="css/admin_exercise.css" rel="stylesheet">
 
-    <div class="treatment title_text">
+    <div class="admin_exercise title_text">
         <p style="white-space:normal;width:100%; height:100%;">Op deze pagina zijn alle oefeningen te vinden.
             <br>Klik op een oefening en vervolgens op het potlood om de bijbehorende informatie van de oefening aan te kunnen passen.
         </p>
     </div>
-    <div class="treatment add_exercise_button_container">
-        <button type="button" class="btn btn-primary btn-lg treatment add_exercise_button">Toevoegen</button>
+    <div class="admin_exercise add_exercise_button_container">
+        <button type="button" class="btn btn-primary btn-lg admin_exercise add_exercise_button">Toevoegen</button>
     </div>
 
-
     <div id="notify_container"></div>
-    <div class="treatment date_section">
-        <div class="treatment left_arrow"><</div>
-        <div class="treatment day_text">
+    <div class="admin_exercise date_section">
+        <div class="admin_exercise left_arrow"><</div>
+        <div class="admin_exercise day_text">
             <!--Date Text-->
         </div>
-        <div class="treatment right_arrow">></div>
+        <div class="admin_exercise right_arrow">></div>
     </div>
 
     <div id="all_exercises_container">
@@ -26,58 +25,58 @@
     </div>
 
     <script id="template_exercise" type="text/plain">
-    <div class="container treatment exercise_container" id="exercise0">
+    <div class="container admin_exercise exercise_container" id="exercise0">
         <div class="panel-group">
             <div class="panel panel-default" style="border:none;">
-                <a class="treatment link_collapse" id="link01" data-toggle="collapse" href="#collapse0">
-                    <div class="panel-heading treatment exercise_quickview_container">
-                        <div class="treatment exercise_quickview_image_box_container">
-                            <div class="treatment exercise_quickview_image_box">
+                <a class="admin_exercise link_collapse" id="link01" data-toggle="collapse" href="#collapse0">
+                    <div class="panel-heading admin_exercise exercise_quickview_container">
+                        <div class="admin_exercise exercise_quickview_image_box_container">
+                            <div class="admin_exercise exercise_quickview_image_box">
                                 <img src="img/exercise.jpg" onerror="this.src='img/exercise1.jpg'" class="img-responsive quickview_image">
                             </div>
                         </div>
-                        <p class="treatment exercise_quickview_title">
+                        <p class="admin_exercise exercise_quickview_title">
                             Name
                         </p>
-                        <div class="treatment exercise_quickview_repeats">
-                            <p class="treatment exercise_quickview_text_repeats">
+                        <div class="admin_exercise exercise_quickview_repeats">
+                            <p class="admin_exercise exercise_quickview_text_repeats">
                                 Herhalingen
                             </p>
-                            <p class="treatment exercise_quickview_amount_repeats">
+                            <p class="admin_exercise exercise_quickview_amount_repeats">
                                 #
                             </p>
                         </div>
                     </div>
                 </a>
                 <div id="collapse0" class="panel-collapse collapse">
-                    <a class="treatment link_collapse" id="link02" data-toggle="collapse" href="#collapse0">
+                    <a class="admin_exercise link_collapse" id="link02" data-toggle="collapse" href="#collapse0">
 
-                        <div class="panel-body treatment exercise_collapse_container">
+                        <div class="panel-body admin_exercise exercise_collapse_container">
 
-                            <div class="treatment container_in_collapse">
-                                <div class="treatment exercise_collapse_image_box">
+                            <div class="admin_exercise container_in_collapse">
+                                <div class="admin_exercise exercise_collapse_image_box">
                                     <img src="img/exercise.jpg" onerror="this.src='img/exercise1.jpg'" class="img-responsive collapse_image">
                                 </div>
-                                <div class="treatment description_in_collapse">
+                                <div class="admin_exercise description_in_collapse">
                                     <p style="white-space:normal;width:100%; height:100%;" class="description_text">
                                         Description
                                     </p>
                                 </div>
                             </div>
-                            <div class="treatment video_in_collapse">
-                                <div class="embed-responsive embed-responsive-16by9 treatment video_responsive">
-                                        <iframe allowfullscreen="allowfullscreen" class="embed-responsive-item treatment collapse_video" src="https://www.youtube.com/embed" id="video0" allowfullscreen></iframe>
+                            <div class="admin_exercise video_in_collapse">
+                                <div class="embed-responsive embed-responsive-16by9 admin_exercise video_responsive">
+                                        <iframe allowfullscreen="allowfullscreen" class="embed-responsive-item admin_exercise collapse_video" src="https://www.youtube.com/embed" id="video0" allowfullscreen></iframe>
                                 </div>
                             </div>
-                            <div class="treatment exercise_buttons">
-                                <div class="btn-group treatment exercise_button_container left" role="group" aria-label="...">
-                                    <button type="button" id="editButton0"class="btn btn-default treatment exercise_button single editButton">
+                            <div class="admin_exercise exercise_buttons">
+                                <div class="btn-group admin_exercise exercise_button_container left" role="group" aria-label="...">
+                                    <button type="button" id="editButton0"class="btn btn-default admin_exercise exercise_button single editButton">
                                         <img src="img/edit.png" class="img-responsive editButtonImage">
                                     </button>
                                 </div>
-                                <div class="treatment button_stripe"></div>
-                                <div class="btn-group treatment exercise_button_container" role="group" aria-label="...">
-                                    <button type="button" id="deleteButton0" class="btn btn-default treatment exercise_button single deleteButton">
+                                <div class="admin_exercise button_stripe"></div>
+                                <div class="btn-group admin_exercise exercise_button_container" role="group" aria-label="...">
+                                    <button type="button" id="deleteButton0" class="btn btn-default admin_exercise exercise_button single deleteButton">
                                         <img src="img/trashcan.png" class="img-responsive">
                                     </button>
                                 </div>

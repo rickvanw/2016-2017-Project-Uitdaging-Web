@@ -2,17 +2,12 @@
  * Created by rickv on 18-5-2017.
  */
 
-//TODO remove temporary jwt token, replace with logged in user
-var jwt = sessionStorage.token;
-console.log("JWT COOKIE: " + getCookie("jwt"));
+var jwt = getToken();
+var hostAdress = getConnection();
 
- if(jwt==""){
-     jwt = getCookie();
- }
 var currentPage = 1;
 var amountOfPages;
 var editingExerciseNr = 0;
-var hostAdress = "http://localhost:8000";
 
 var resetTitle;
 var resetDescription;
@@ -45,7 +40,6 @@ function userInteraction () {
     $('.right_arrow').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
         clearExercises();
-        console.log("CLLICk");
         currentPage++;
         getExercises(currentPage);
         $('.day_text').text("Pagina " + currentPage + "/" + amountOfPages);
@@ -166,11 +160,9 @@ function getAmountOfExercises(){
         var amountOfExercises = data[0]["count(*)"];
         var pages =  amountOfExercises.toString()[0];
 
-        console.log("Modulus: "+ pages);
         if((amountOfExercises % 10) > 0){
             pages++;
         }
-        console.log("Pages: "+ pages);
 
         amountOfPages = pages;
         $('.day_text').text("Pagina " + currentPage + "/" + amountOfPages);
@@ -179,7 +171,6 @@ function getAmountOfExercises(){
 
 function changeExercise(thisExercise, exercise_id, name, description, repetitions, media_url) {
 
-    console.log("DES: " + description);
     var request = $.ajax({
         type: 'POST',
         headers: {
@@ -250,8 +241,6 @@ function placeExercises(data) {
 
     data.forEach(function(exercise) {
 
-        console.log("FOREACH");
-
         //Set all the right unique id's
         $("#all_exercises_container").append(text);
         $("#collapse0").attr("id", "collapse" + exercise.exercise_id);
@@ -307,7 +296,6 @@ function getEmbedUrl(url) {
     var match = url.match(regExp);
 
     if (match && match[2].length == 11) {
-        console.log("URL after: " + "www.youtube.com/embed/" + match[2]);
         return "https://www.youtube.com/embed/" + match[2];
     } else {
         return 'error';
@@ -315,7 +303,7 @@ function getEmbedUrl(url) {
 }
 
 function notifyUser(message) {
-    $("#notify_container").html("<div class='treatment notify_text'>"+message+"</div>");
+    $("#notify_container").html("<div class='admin_exercise notify_text'>"+message+"</div>");
 }
 
 /**
@@ -357,15 +345,15 @@ function exerciseEditable(thisExercise, editable){
     if(editable){
         thisExercise.find('.editButtonImage').attr("src", "img/close.png");
         thisExercise.find('.exercise_button_container.left').prepend(
-            "<button type='button' id='saveButton' class='btn btn-default treatment exercise_button saveButton'>" +
+            "<button type='button' id='saveButton' class='btn btn-default admin_exercise exercise_button saveButton'>" +
             "<img src='img/save.png' class='img-responsive'>" +
             "</button>");
         thisExercise.find('.video_responsive').css("display", "none");
         thisExercise.find('.video_in_collapse').prepend(
-            "<div class='form-group row treatment video_url_input_container'>" +
+            "<div class='form-group row admin_exercise video_url_input_container'>" +
             "<label for='url-input' class='col-2 col-form-label'>Youtube video link</label>"+
             "<div class='col-10'>" +
-            "<input class='form-control treatment video_url_input' type='url' value='" + thisExercise.find('.collapse_video').attr('value') + "' id='url-input'>" +
+            "<input class='form-control admin_exercise video_url_input' type='url' value='" + thisExercise.find('.collapse_video').attr('value') + "' id='url-input'>" +
             "</div>"+
             "</div>"
         );
@@ -422,7 +410,6 @@ function getEmbedUrl(url) {
     var match = url.match(regExp);
 
     if (match && match[2].length == 11) {
-        console.log("URL after: " + "www.youtube.com/embed/" + match[2]);
         return "https://www.youtube.com/embed/" + match[2];
     } else {
         return 'error';

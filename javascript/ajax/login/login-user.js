@@ -1,4 +1,4 @@
-var hostAdress = "http://localhost:8000";
+var hostAdress = getConnection();
 
 $(document).on('click', '#login-button', function(){
 
@@ -15,11 +15,11 @@ $(document).on('click', '#login-button', function(){
             crossdomain: true,
             statusCode: {
                 200: function(data) {
-                    setToken(data.token);
+                    rememberToken(data.token);
 
                     console.log();
                     // Redirect to index page
-                    //window.location.href = "index.html";
+                    window.location.href = "index.html";
                 },
                 401: function(data) {
                     // Wrong login
@@ -38,9 +38,9 @@ $(document).on('click', '#login-button', function(){
      * Set the token in the session storage. If checked also set in cookie
      * @param token the token.
      */
-    function setToken(token) {
+    function rememberToken(token) {
         if($(".remember_me_checkbox").prop('checked') == true) {
-            setCookie("jwt", token, 365);
+            setToken(token);
         }
         if(typeof(Storage) !== "undefined") {
             sessionStorage.token = token;

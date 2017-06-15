@@ -2,7 +2,7 @@ var emailField;
 var firstNameField;
 var lastNameField;
 var passwordField3;
-var hostAdress = "http://localhost:8000";
+var hostAdress = getConnection();
 
 
 $(document).on('click', '#register-button', function(){
