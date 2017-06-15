@@ -1,7 +1,8 @@
 $(document).ready(function() {
-
     getUserInfo();
 });
+
+parserr = new JWTParser(sessionStorage.token);
 
 function getUserInfo(){
     var request = $.ajax({
@@ -41,6 +42,49 @@ function getUserInfo(){
         email.value = data[0].email;
 
 })}
+
+function changeTheUserInfo() {
+
+    console.log("wijzigen");
+
+    var first_name = $("#Name-2").val();
+    var last_name = $("#Name-3").val();
+    var email = $("#Email-2").val();
+    var user_id = parserr.getUserId();
+
+    var request = $.ajax({
+        type: 'PUT',
+        headers: {
+            'authorization': jwt
+        },
+        url: hostAdress + "/user/change",
+        data: {"email": email, "first_name": first_name, "last_name": last_name, "user_id": user_id},
+        dataType: 'json',
+        statusCode: {
+            200: function () {
+                console.log(200, "succes!");
+                location.reload();
+            },
+            401: function (error) {
+                console.log(401);
+            },
+            404: function (error) {
+                console.log(404, error)
+            }
+        },
+        error: function (err) {
+            notifyUser("Kon de wijziging niet doorvoeren, neem contact op met uw systeembeheerder");
+            console.log("Error changing user info: " + err.message);
+        }
+    });
+
+    request.done(function (data) {
+        console.log("DONE");
+    });
+
+}
+
+
 
 
 
