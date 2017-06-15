@@ -43,6 +43,7 @@ function getUserInfo(){
 
 })}
 
+
 function changeTheUserInfo() {
 
     console.log("wijzigen");
@@ -63,7 +64,7 @@ function changeTheUserInfo() {
         statusCode: {
             200: function () {
                 console.log(200, "succes!");
-                location.reload();
+                showInfoChangedModel();
             },
             401: function (error) {
                 console.log(401);
@@ -73,15 +74,16 @@ function changeTheUserInfo() {
             }
         },
         error: function (err) {
-            notifyUser("Kon de wijziging niet doorvoeren, neem contact op met uw systeembeheerder");
             console.log("Error changing user info: " + err.message);
         }
     });
 
-    request.done(function (data) {
-        console.log("DONE");
-    });
+    showInfoChangedModel();
+}
 
+function showInfoChangedModel() {
+    $("#model-container-login").append('<div class="alert alert-success" id="register-alert" role="alert">' +
+        '<strong>Succes! </strong> Je gegevens zijn gewijzigd! </div>');
 }
 
 
