@@ -18,7 +18,7 @@ function getCookie(key) {
     return keyValue ? keyValue[2] : "";
 }
 
-function removeCookie(key) {
+function clearCookie(key) {
     document.cookie = key + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
@@ -27,17 +27,24 @@ function setToken(value) {
 }
 
 function getToken() {
-    if(typeof(Storage) !== "undefined") {
-        console.log("SESSION");
+    if(typeof sessionStorage.token != "undefined"){
+        console.log("SESSION: " + sessionStorage.token);
         return sessionStorage.token;
     } else if(getCookie("jwt") != ""){
-        console.log("COOKIE");
+        console.log("COOKIE: " + getCookie("jwt"));
         return getCookie("jwt");
     } else {
+        console.log("NO AUTH: session: " + sessionStorage.token);
+        console.log("NO AUTH: cookie: " + getCookie("jwt"));
+
         alert("U bent niet ingelogd");
         window.location.href = "login.html";
         return null;
     }
+}
+
+function clearToken() {
+    clearCookie("jwt");
 }
 
 function JWTParser(token) {
