@@ -13,15 +13,65 @@ function userInteraction () {
         var vraag1 = document.getElementById('vraag1');
         $(vraag1).style.display = 'block';
     });
+
 }
 
-function openEvaluation(){
+function openEvaluation(data){
+    $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
     var treatment_id = getURLParameter("treatment_id");
+    data.forEach(function (item) {
+        //if(complaint == rug){}
+        $('.evaluationlist').append(
+            "<li class='evaluationitem1' id='" + item.treatment_id + "'>" +
+            "<a href='evaluation-content.html?treatment_id=" + item.treatment_id + "' target='_blank' class='evaluationitem'> " +
+            "<p class='begin'>Begindatum</p>" +
+            "<p class='begindatum'>" + item.start_date + "</p>" +
+            "</a>" +
+            "</li>"
+        );
+        //else if(complaint != rug && complaint != preventief){}
+        $('.evaluationlist').append(
+            "<li class='evaluationitem1' id='" + item.treatment_id + "'>" +
+            "<a href='evaluation-content.html?treatment_id=" + item.treatment_id + "' target='_blank' class='evaluationitem'> " +
+            "<p class='begin'>Begindatum</p>" +
+            "<p class='begindatum'>" + item.start_date + "</p>" +
+            "</a>" +
+            "</li>"
+        );
+    });
 
 }
 
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+}
+
+function getComplaints() {
+    var request = $.ajax({
+        type: 'GET',
+        headers: {
+            'authorization': jwt
+        },
+        url: "http://localhost:8000/complaint/",
+        dataType: 'json',
+        statusCode: {
+            201: function () {
+                console.log(201, "succes!");
+            },
+            400: function (error) {
+                console.log(400);
+            },
+            403: function (error) {
+                console.log(403, error)
+            }
+        },
+        error: function (err) {
+            alert("Error: " + err);
+        }
+    });
+    request.done(function (data) {
+        openEvaluation(data);
+    });
 }
 
 function getEvaluation() {
