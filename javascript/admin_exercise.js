@@ -235,6 +235,7 @@ function getExercises(page){
 
 }
 
+
 function placeExercises(data) {
 
     var text = $("#template_exercise").html();
@@ -278,6 +279,15 @@ function placeExercises(data) {
         }else{
             currentExercise.find('.description_text').text(exercise.description);
         }
+
+        //Like / dislike amount
+        currentExercise.find('.admin_exercise.likes').text("Likes: "+ exercise.likes);
+        currentExercise.find('.admin_exercise.dislikes').text("Dislikes: " +exercise.dislikes);
+
+        //Done / notdone amount
+        currentExercise.find('.admin_exercise.done').text("Gedaan: " +exercise.done);
+        currentExercise.find('.admin_exercise.notdone').text("Niet gedaan: " +exercise.notdone);
+
     });
 
     userInteraction();
