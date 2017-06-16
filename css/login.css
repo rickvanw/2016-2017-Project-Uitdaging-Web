@@ -1,0 +1,9 @@
+.login.password_reset_button{
+    margin:0 auto;
+    width:100px;
+    display:inline-block;
+}
+.login.password_reset_button_container{
+    text-align:center;
+    margin-bottom:20px;
+}
