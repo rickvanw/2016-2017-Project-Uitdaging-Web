@@ -1,6 +1,3 @@
-/**
- * Created by rickv on 18-5-2017.
- */
 
 //TODO remove temporary jwt token, replace with logged in user
 var jwt = getToken();
