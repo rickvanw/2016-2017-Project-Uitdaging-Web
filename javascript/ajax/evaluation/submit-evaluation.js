@@ -8,12 +8,24 @@ var jwt = sessionStorage.token;
 
 $(document).ready(function () {
 
+    userInteraction();
+
     $("#submit-evaluationform").submit(function () {
         saveEvaluationData();
     });
 
     // capture(); // Screenshot with HTML2canvas
 });
+
+function userInteraction() {
+    //getQuestions();
+    showQuestions();
+}
+
+function showQuestions() {
+
+    $('#questions').append("hoi");
+}
 
 /**
  * Function for saving the data from the evaluation form
