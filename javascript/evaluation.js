@@ -60,6 +60,10 @@ function showQuestions() {
     }
 }
 
+function getComplaints(){
+
+}
+
 function getQuestions() {
     var request = $.ajax({
         type: 'GET',
