@@ -1,7 +1,3 @@
-/**
- * Created by rickv on 18-5-2017.
- */
-
 var jwt = getToken();
 var hostAdress = getConnection();
 
