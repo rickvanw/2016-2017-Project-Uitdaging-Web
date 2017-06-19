@@ -49,14 +49,14 @@ function showQuestions() {
     //      answer.appendTo('#submit-evaluationform');
     // });
     for(i = 0; i < 5; i++) {
-        $('#submit-evaluationform').append(
+        $('#questions').append(
             "<div class='questionitem'>" +
             "<p class='question'>hoi</p>" +
-            // "<p class='answer'>hoihoi</p>" +
         "</div>"
         );
-        var answer = $('<input type="radio" name="radioAnswer"> Hoiii </input>');
-        answer.appendTo('#submit-evaluationform');
+        // var answer = $('<input type="radio" name="radioAnswer"> Hoiii </input>');
+        var answer = $('<input type="radio" name="1"> 1 </input>');
+        answer.appendTo('.question');
     }
 }
 
