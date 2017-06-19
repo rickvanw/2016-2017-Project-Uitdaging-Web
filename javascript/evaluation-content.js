@@ -13,32 +13,31 @@ function userInteraction () {
         var vraag1 = document.getElementById('vraag1');
         $(vraag1).style.display = 'block';
     });
-
 }
 
 function openEvaluation(data){
-    $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
+    $('#evaluationform').append("<ul id='evaluationlist'></ul>");
     var treatment_id = getURLParameter("treatment_id");
+    var showOnce = false;
     data.forEach(function (item) {
         if(item.name == "Back"){
-            $('.evaluationlist').append(
-                "<li class='evaluationitem1' id='" + item.treatment_id + "'>" +
-                "<a href='evaluation-content.html?treatment_id=" + item.treatment_id + "' target='_blank' class='evaluationitem'> " +
-                "<p class='begin'>Begindatum</p>" +
-                "<p class='begindatum'>" + item.start_date + "</p>" +
+            $('#evaluationlist').append(
+                "<li class='evaluationitem' id='" + complaint.treatment_id + "'>" +
+                "<p class='question'>" + item.question + "</p>" +
+                "<p class='answer'>" + item.answer + "</p>" +
                 "</a>" +
                 "</li>"
             );
         }
-        else {
+        else if(item.name != "Back" && showOnce == true){
             $('.evaluationlist').append(
-                "<li class='evaluationitem1' id='" + item.treatment_id + "'>" +
-                "<a href='evaluation-content.html?treatment_id=" + item.treatment_id + "' target='_blank' class='evaluationitem'> " +
-                "<p class='begin'>Begindatum</p>" +
-                "<p class='begindatum'>" + item.start_date + "</p>" +
+                "<li class='evaluationitem' id='" + complaint.treatment_id + "'>" +
+                "<p class='question'>" + item.question + "</p>" +
+                "<p class='answer'>" + item.answer + "</p>" +
                 "</a>" +
                 "</li>"
             );
+            showOnce = true;
         }
     });
 
