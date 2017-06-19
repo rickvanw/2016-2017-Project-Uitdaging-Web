@@ -19,13 +19,14 @@ $(document).ready(function () {
  * Function for saving the data from the evaluation form
  */
 function saveEvaluationData(){
-    var formData = { answers: [] };
+    var formData = { questions: [], answers: [] };
     var questions = $("#questions").find('.question');
     var checkedAns;
 
     for(i = 0; i < questions.length; i++){
         var answer = {};
         var currQuestion = questions[i];
+        var question = currQuestion.children[0].innerText;
         var questType = currQuestion.classList[1]; // get question type, e.g.
 
         switch (questType) {
@@ -44,19 +45,20 @@ function saveEvaluationData(){
                 break;
         }
 
+        formData.questions.push(question);
         formData.answers.push(answer);
     }
 
-    console.log(formData);
-
-    postEvaluation(formData);
+    postEvaluation(questions, formData);
 }
 
 /**
  * Ajax call for posting form data
+ * @param questions
  * @param formData
  */
-function postEvaluation(formData) {
+function postEvaluation(questions, formData) {
+    console.log("formdata.questions: " + JSON.stringify(formData.questions));
     console.log("formdata.answers: " + JSON.stringify(formData.answers));
     $.ajax({
         type: 'POST',
@@ -65,6 +67,7 @@ function postEvaluation(formData) {
         },
         url: "http://localhost:8000" + "/evaluation/add",
         data: {
+            "questions": JSON.stringify(formData.questions),
             "answers": JSON.stringify(formData.answers)
         },
         success: function (data) {
