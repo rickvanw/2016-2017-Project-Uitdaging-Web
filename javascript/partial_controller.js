@@ -1,4 +1,3 @@
-
 var app = angular.module('kibClient', []);
 app.controller('partialController', function($scope) {
     $scope.templates =
