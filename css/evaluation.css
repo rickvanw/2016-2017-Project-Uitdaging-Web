@@ -17,34 +17,34 @@
     /*text-align: center;*/
 /*}*/
 
-/*p {*/
-    /*margin-top: 10px;*/
-    /*margin-left: 40px;*/
-/*}*/
+p {
+    margin-top: 10px;
+    margin-left: 40px;
+}
 
-/*.form-group {*/
-    /*width: 60%;*/
-/*}*/
+.form-group {
+    width: 60%;
+}
 
-/*.heading {*/
-    /*text-align: center;*/
-/*}*/
+.heading {
+    text-align: center;
+}
 
-/*.paragraph {*/
-    /*margin-right: 50px;*/
-    /*margin-left: 50px;*/
-    /*padding-bottom: 1px;*/
-/*}*/
+.paragraph {
+    margin-right: 50px;
+    margin-left: 50px;
+    padding-bottom: 1px;
+}
 
-/*.form-wrapper {*/
-    /*margin-top: 3px;*/
-    /*width:100%;*/
-/*}*/
+.form-wrapper {
+    margin-top: 3px;
+    width:100%;
+}
 
-/*.submit-button {*/
-    /*margin-right: 11px;*/
-/*}*/
+.submit-button {
+    margin-right: 11px;
+}
 
-/*.submit-button-2 {*/
-    /*background-color: #602192;*/
-/*}*/
+.submit-button-2 {
+    background-color: #602192;
+}
