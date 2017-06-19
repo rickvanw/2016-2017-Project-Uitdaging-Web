@@ -1,87 +1,209 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:text-align="http://www.w3.org/1999/xhtml">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:text-align="http://www.w3.org/1999/xhtml">-->
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>evaluation</title>
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--&lt;!&ndash; The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags &ndash;&gt;-->
+<!--<title>evaluation</title>-->
 
-    <!-- Bootstrap  & Styling-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="sass/sidemenu.css" rel="stylesheet">
-    <link href="sass/header.css" rel="stylesheet">
-    <link href="css/css.css" rel="stylesheet">
+<!--&lt;!&ndash; Bootstrap  & Styling&ndash;&gt;-->
+<!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+<!--<link href="sass/sidemenu.css" rel="stylesheet">-->
+<!--<link href="sass/header.css" rel="stylesheet">-->
+<!--<link href="css/css.css" rel="stylesheet">-->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<!--&lt;!&ndash; jQuery (necessary for Bootstrap's JavaScript plugins) &ndash;&gt;-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
 
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!--<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>-->
+<!--<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
+<!--<![endif]&ndash;&gt;-->
 
-    <script type="text/javascript" src="html2canvas/html2canvas.js"></script>
-    <script type="text/javascript" src="html2canvas/jquery.plugin.html2canvas.js"></script>
-</head>
+<!--<script type="text/javascript" src="html2canvas/html2canvas.js"></script>-->
+<!--<script type="text/javascript" src="html2canvas/jquery.plugin.html2canvas.js"></script>-->
+<!--</head>-->
 
-<body ng-app="">
+<!--<body ng-app="">-->
 
 
-<div ng-include="'includes/header.html'"></div>
+<!--<div ng-include="'includes/header.html'"></div>-->
 
-<div ng-include="'includes/side_menu.html'"></div>
+<!--<div ng-include="'includes/side_menu.html'"></div>-->
 
-<div style="text-align: center">
-    <h1>Welkom op de evaluatieformulier pagina.<br><small>U heeft een behandelplan van
-        zes weken gevolgd en hieronder kunt u aangeven hoe dit gegaan is.<br> Hieruit volgt vervolgens een advies.</small></h1>
-    <p id = "evaldescription">
+<!--<script src="js/bootstrap.min.js"></script>-->
+<!--<script src="javascript/evaluation.js"></script>-->
+<!--<script src="https://use.fontawesome.com/684f6ba679.js"></script>-->
+<!--&lt;!&ndash;<div class="container" align="center">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="content-blue">&ndash;&gt;-->
+<!--&lt;!&ndash;<div id="html-content-holder">&ndash;&gt;-->
+<!--&lt;!&ndash;<form id="submit-evaluationform">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<div id="questions">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<div class="question radio">&ndash;&gt;&ndash;&gt;-->
 
-    </p>
-</div>
-<script src="js/bootstrap.min.js"></script>
-<script src="javascript/evaluation.js"></script>
-<script src="https://use.fontawesome.com/684f6ba679.js"></script>
-<div class="container" align="center">
-    <div class="content-blue">
-        <div id="html-content-holder">
+<!--&lt;!&ndash;&lt;!&ndash;<h3>Hoeveel kilo weegt een baksteen</h3>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<p class="full-width">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<input type="radio" name="1" id="question_1ans_1" choice="een" />&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<label for="question_1ans_1">een</label>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<p class="full-width">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<input type="radio" name="1" id="question_1ans_2" choice="twee" />&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<label for="question_1ans_1">twee</label>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<p class="full-width">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<input type="radio" name="1" id="question_1ans_3" choice="drie" />&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<label for="question_1ans_1">drie</label>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<input id="btn-Submit-Form" type="button" class="btn btn-primary" value="Verstuur!">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<input id="btn-Preview-Image" type="button" value="Preview"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<br/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<h3>Preview :</h3>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<div id="previewImage">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<footer class="text-center">&ndash;&gt;-->
+<!--&lt;!&ndash;<button type="button" class="btn btn-primary" id="verstuurButton" disabled="disabled">Verstuur</button>&ndash;&gt;-->
+<!--&lt;!&ndash;</footer>&ndash;&gt;-->
+
+<!--<script src="javascript/ajax/evaluation/submit-evaluation.js"></script>-->
+<!--<div class="evaluation col-md-12 col-xs-12">-->
+
+<!--<link href="css/evaluation.css" rel="stylesheet">-->
+
+<!--<div class="div-block">-->
+
+<!--<h2>Welkom op de evaluatieformulier pagina.<br>-->
+<!--<small>U heeft een behandelplan van zes weken gevolgd en hieronder kunt u aangeven hoe dit gegaan is.<br>-->
+<!--Hieruit volgt vervolgens een advies.-->
+<!--</small>-->
+<!--</h2>-->
+
+<!--<div class="form-wrapper w-form">-->
+<!--<form id="submit-evaluationform">-->
+
+<!--<div id="questions">-->
+<!--<div class="question radio">-->
+<!--<label for="answers_quest1"><b>Testje testje</b></label>-->
+<!--<div id="answers_quest1">-->
+<!--<p>-->
+<!--<input type="radio" name="1" id="question_1ans_1" choice="een"/>-->
+<!--<label for="question_1ans_1">een</label>-->
+<!--</p>-->
+<!--<p>-->
+<!--<input type="radio" name="1" id="question_1ans_2" choice="twee"/>-->
+<!--<label for="question_1ans_2">twee</label>-->
+<!--</p>-->
+<!--<p>-->
+<!--<input type="radio" name="1" id="question_1ans_3" choice="drie"/>-->
+<!--<label for="question_1ans_3">drie</label>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="question checkbox">-->
+<!--<label for="answers_quest2"><b>Nog een testje testje</b></label>-->
+<!--<div id="answers_quest2">-->
+<!--<p>-->
+<!--<input type="checkbox" name="2" id="question_2ans_1" choice="10"/>-->
+<!--<label for="question_2ans_1">10</label>-->
+<!--</p>-->
+<!--<p class="full-width">-->
+<!--<input type="checkbox" name="2" id="question_2ans_2" choice="15"/>-->
+<!--<label for="question_2ans_2">15</label>-->
+<!--</p>-->
+<!--<p class="full-width">-->
+<!--<input type="checkbox" name="2" id="question_2ans_3" choice="20"/>-->
+<!--<label for="question_2ans_3">20</label>-->
+<!--</p>-->
+<!--<p class="full-width">-->
+<!--<input type="checkbox" name="2" id="question_2ans_4" choice="25"/>-->
+<!--<label for="question_2ans_4">25</label>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<input class="submit-button w-button" type="submit" value="Verstuur">-->
+<!--<input class="submit-button-2 w-button" type="reset" value="Reset">-->
+<!--</form>-->
+<!--</div>-->
+<!--<script src="javascript/ajax/evaluation/submit-evaluation.js"></script>-->
+<!--</div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+<div class="evaluation col-md-12 col-xs-12">
+
+    <link href="css/evaluation.css" rel="stylesheet">
+
+    <div class="div-block">
+
+        <h2>Welkom op de evaluatieformulier pagina.<br>
+            <small>U heeft een behandelplan van zes weken gevolgd en hieronder kunt u aangeven hoe dit gegaan is.<br>
+                Hieruit volgt vervolgens een advies.
+            </small>
+        </h2>
+
+        <div class="form-wrapper w-form">
             <form id="submit-evaluationform">
-                <div id="questions">
-                    <div class="question radio">
 
-                        <h3>Hoeveel kilo weegt een baksteen</h3>
-                        <p class="full-width">
-                            <input type="radio" name="1" id="question_1ans_1" choice="een" />
-                            <label for="question_1ans_1">een</label>
-                        </p>
-                        <p class="full-width">
-                            <input type="radio" name="1" id="question_1ans_2" choice="twee" />
-                            <label for="question_1ans_1">twee</label>
-                        </p>
-                        <p class="full-width">
-                            <input type="radio" name="1" id="question_1ans_3" choice="drie" />
-                            <label for="question_1ans_1">drie</label>
-                        </p>
-                    </div>
+                <div id="questions">
+                    <!--<div class="question radio">-->
+                        <!--<label for="answers_quest1"><b>Testje testje</b></label>-->
+                        <div id="answers_quest1">
+                            <p>
+                                <input type="radio" name="1" id="question_1ans_1" choice="een"/>
+                                <label for="question_1ans_1">een</label>
+                            </p>
+                            <p>
+                                <input type="radio" name="1" id="question_1ans_2" choice="twee"/>
+                                <label for="question_1ans_2">twee</label>
+                            </p>
+                            <p>
+                                <input type="radio" name="1" id="question_1ans_3" choice="drie"/>
+                                <label for="question_1ans_3">drie</label>
+                            </p>
+                        </div>
+                    <!--</div>-->
+
+                    <!--<div class="question checkbox">-->
+                        <!--<label for="answers_quest2"><b>Nog een testje testje</b></label>-->
+                        <div id="answers_quest2">
+                            <p>
+                                <input type="checkbox" name="2" id="question_2ans_1" choice="10"/>
+                                <label for="question_2ans_1">10</label>
+                            </p>
+                            <p class="full-width">
+                                <input type="checkbox" name="2" id="question_2ans_2" choice="15"/>
+                                <label for="question_2ans_2">15</label>
+                            </p>
+                            <p class="full-width">
+                                <input type="checkbox" name="2" id="question_2ans_3" choice="20"/>
+                                <label for="question_2ans_3">20</label>
+                            </p>
+                            <p class="full-width">
+                                <input type="checkbox" name="2" id="question_2ans_4" choice="25"/>
+                                <label for="question_2ans_4">25</label>
+                            </p>
+                        </div>
+                    <!--</div>-->
                 </div>
+
+                <input class="submit-button w-button" type="submit" value="Verstuur">
+                <input class="submit-button-2 w-button" type="reset" value="Reset">
             </form>
         </div>
-        <input id="btn-Submit-Form" type="button" class="btn btn-primary" value="Verstuur!">
-        <!--<input id="btn-Preview-Image" type="button" value="Preview"/>-->
-        <!--<br/>-->
-        <!--<h3>Preview :</h3>-->
-        <!--<div id="previewImage">-->
+        <script src="javascript/ajax/evaluation/submit-evaluation.js"></script>
     </div>
 </div>
-
-<script>
-</script>
-
-<footer class="text-center">
-    <button type="button" class="btn btn-primary" id="verstuurButton" disabled="disabled">Verstuur</button>
-</footer>
-
-<script src="javascript/ajax/evaluation/submit-evaluation.js"></script>
-</body>
-</html>
