@@ -65,7 +65,7 @@ function postEvaluation(questions, formData) {
         headers: {
             'authorization': jwt
         },
-        url: "http://localhost:8000" + "/evaluation/add",
+        url: hostAdress + "/evaluation/add",
         data: {
             "questions": JSON.stringify(formData.questions),
             "answers": JSON.stringify(formData.answers)

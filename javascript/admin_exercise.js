@@ -297,7 +297,7 @@ function clearExercises() {
 
 // Create embed url for youtube link
 function getEmbedUrl(url) {
-    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var regExpocalhost = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     var match = url.match(regExp);
 
     if (match && match[2].length == 11) {
