@@ -24,13 +24,40 @@ $(document).ready(function(){
 });
 
 function userInteraction() {
-
+    //getQuestions();
+    showQuestions();
 }
 
-function showQuestions(data) {
-    data.forEach(function(evaluation) {
-        $("#questions").append()
-    });
+function showQuestions() {
+    // $('#questions').append("<ul class='questionlist'></ul>");
+    // data.forEach(function(evaluation) {
+    //             $('.questionlist').append(
+    //                 "<li class='questionitem'>" +
+    //                 "<p class='question'>" + evaluation.question + "</p>" +
+    //                 "<p class='answer'>" + evaluation.answer + "</p>" +
+    //                 "</a>" +
+    //                 "</li>"
+    //             );
+    // });
+    // data.forEach(function(evaluation) {
+    //     $('#submit-evaluationform').append(
+    //         "<div class='questionitem'>" +
+    //         "<p class='question'>" + evaluation.question + "</p>" +
+    //         "</div>"
+    //     );
+    //      var answer = $('<input type="radio" name="radioAnswer">" + evaluation.answer + "</input>');
+    //      answer.appendTo('#submit-evaluationform');
+    // });
+    for(i = 0; i < 5; i++) {
+        $('#submit-evaluationform').append(
+            "<div class='questionitem'>" +
+            "<p class='question'>hoi</p>" +
+            // "<p class='answer'>hoihoi</p>" +
+        "</div>"
+        );
+        var answer = $('<input type="radio" name="radioAnswer"> Hoiii </input>');
+        answer.appendTo('#submit-evaluationform');
+    }
 }
 
 function getQuestions() {
@@ -40,7 +67,7 @@ function getQuestions() {
             'authorization': jwt
         },
         data: JSON.stringify(exercises),
-        url: "http://localhost:8000" + "/evaluation/evaluation",
+        url: "http://localhost:8000" + "/evaluation/evaluations",
         dataType: 'text',
         statusCode: {
             201: function () {
