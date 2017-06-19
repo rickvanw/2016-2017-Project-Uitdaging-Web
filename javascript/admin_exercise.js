@@ -124,8 +124,7 @@ function userInteraction () {
         var confirmWindow = confirm("Weet u zeker dat u deze oefening wilt verwijderen?");
         if (confirmWindow == true) {
             deleteExercise(buttonExerciseId);
-            clearExercises();
-            getExercises(currentPage);
+
         }
 
         return false;
@@ -320,7 +319,7 @@ function notifyUser(message) {
  * Function that posts the complaints which the user has indicated
  */
 function deleteExercise (exercise_id) {
-    $.ajax({
+    var request = $.ajax({
         type: 'DELETE',
         headers: {
             'authorization':jwt
@@ -344,6 +343,12 @@ function deleteExercise (exercise_id) {
         error: function (err) {
             console.log(err);
         }
+        });
+
+        request.done(function (data) {
+            console.log("DONE");
+            clearExercises();
+            getExercises(currentPage);
     });
 }
 
