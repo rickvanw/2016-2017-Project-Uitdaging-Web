@@ -7,6 +7,8 @@ var hostAdress = getConnection();
 
 $(document).on('click', '#register-button', function(){
 
+    console.log("REGISTER");
+
     emailField = $('#email_field');
     firstNameField = $('#surname_field');
     lastNameField = $('#lastname_field');
@@ -67,7 +69,7 @@ function validateFields() {
 
 function checkUserAgreement() {
 
-    var agreed = false
+    var agreed = false;
 
     if($('#Checkbox-2').is(':checked')) {
         agreed = true;
