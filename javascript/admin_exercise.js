@@ -167,7 +167,7 @@ function getAmountOfExercises(){
 function changeExercise(thisExercise, exercise_id, name, description, repetitions, media_url) {
 
     var request = $.ajax({
-        type: 'POST',
+        type: 'PUT',
         headers: {
             'authorization':jwt
         },
