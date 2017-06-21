@@ -25,7 +25,7 @@ function saveExercise(){
     var media_url = $('input[name="exercise_link"]').val();
     var image_url = $('input[name="exercise_img"]').val();
     var repetitions = $('input[name="exercise_repetitions"]').val();
-
+    alert(name);
     console.log(name);
 
     $.ajax({

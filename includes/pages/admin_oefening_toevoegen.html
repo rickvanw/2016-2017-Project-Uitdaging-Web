@@ -4,9 +4,6 @@
 <link href="css/kom-in-beweging.webflow.css" rel="stylesheet" type="text/css">
 <link href="css/admin_exercise_add.css" rel="stylesheet">
 <link href="css/bootstrap.css" rel="stylesheet">
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
 <div style="overflow: auto; height:100%;" class="col-md-12 col-xs-12">
 
@@ -27,7 +24,7 @@
             <input class="exercise_link w-input" type="text" name="exercise_link"  required="required" placeholder="Youtube url">
             <br><br>
             <input disabled id="exercise" class="exercise_img w-input"  type="text" name="exercise_img" required="required" placeholder="Choose category from list">
-            <select class="js-example-disabled-results" id="selecter" onchange="ChooseExercise(this)">
+            <select id="selecter" onchange="ChooseExercise(this)">
                 <option value="Kies een category!">Choose Category</option>
                 <option value="Schouder">Schouder</option>
                 <option value="Nek">Nek</option>
@@ -43,17 +40,6 @@
         </form>
     </div>
 </div>
-
     <script src="javascript/ajax/exercise/post-exercise.js"></script>
     <script src="javascript/admin_exercise_add.js"></script>
-
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-
-    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-
 </div>
