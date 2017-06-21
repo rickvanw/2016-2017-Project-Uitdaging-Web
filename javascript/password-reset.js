@@ -6,8 +6,6 @@ $('.password_reset_button').off("click").on("click", function (e) {
 
     var email = $('.email_input').val();
 
-
-
     alert("HALLO " + email);
 
 });

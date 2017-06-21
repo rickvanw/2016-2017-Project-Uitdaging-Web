@@ -120,8 +120,7 @@ function userInteraction () {
         var confirmWindow = confirm("Weet u zeker dat u deze oefening wilt verwijderen?");
         if (confirmWindow == true) {
             deleteExercise(buttonExerciseId);
-            clearExercises();
-            getExercises(currentPage);
+
         }
 
         return false;
@@ -168,7 +167,7 @@ function getAmountOfExercises(){
 function changeExercise(thisExercise, exercise_id, name, description, repetitions, media_url) {
 
     var request = $.ajax({
-        type: 'POST',
+        type: 'PUT',
         headers: {
             'authorization':jwt
         },
@@ -298,7 +297,7 @@ function clearExercises() {
 
 // Create embed url for youtube link
 function getEmbedUrl(url) {
-    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var regExpocalhost = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     var match = url.match(regExp);
 
     if (match && match[2].length == 11) {
@@ -316,7 +315,7 @@ function notifyUser(message) {
  * Function that posts the complaints which the user has indicated
  */
 function deleteExercise (exercise_id) {
-    $.ajax({
+    var request = $.ajax({
         type: 'DELETE',
         headers: {
             'authorization':jwt
@@ -340,6 +339,12 @@ function deleteExercise (exercise_id) {
         error: function (err) {
             console.log(err);
         }
+        });
+
+        request.done(function (data) {
+            console.log("DONE");
+            clearExercises();
+            getExercises(currentPage);
     });
 }
 
