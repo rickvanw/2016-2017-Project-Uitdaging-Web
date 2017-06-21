@@ -4,7 +4,8 @@
  * Author: maurice_2.
  * Date: 09-06-2017.
  */
-var jwt = sessionStorage.token;
+var jwt = getToken();
+var hostAdress = getConnection();
 
 $(document).ready(function () {
 
@@ -33,7 +34,7 @@ function saveExercise(){
         headers: {
             "authorization" : jwt
         },
-        url: "http://localhost:8000" + "/exercise",
+        url: hostAdress + "/exercise",
         data: {
             "exercise_name": name,
             "description": description,
