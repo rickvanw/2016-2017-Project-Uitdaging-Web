@@ -125,7 +125,7 @@ function getExercises(date){
         dataType: 'json',
         statusCode: {
             200:function(){
-                console.log(200, "succes!");
+                console.log(200);
             },
             401:function(error) {
                 console.log(401);

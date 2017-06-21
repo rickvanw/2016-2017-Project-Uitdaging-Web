@@ -43,8 +43,11 @@ p {
 
 .submit-button {
     margin-right: 11px;
+    /*background-color: #5ba3e7;*/
+    /*color: white;*/
 }
 
 .submit-button-2 {
-    background-color: #602192;
+    background-color: #5ba3e7;
+    color: white;
 }
