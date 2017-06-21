@@ -155,11 +155,6 @@ function showQuestions(data) {
                 $('#questions').append('<div class="question radio">' + html);
             }
         });
-
-
-        // var answer = $('<input type="radio" name="1"> 1 </input>');
-        // answer.appendTo('.question');
-
 }
 
 function getComplaints() {
