@@ -45,9 +45,12 @@ function clearToken() {
 }
 
 function isAdministrator(){
-    var parts = jwt.split(".");
-    payload = JSON.parse(atob(parts[1]));
-    return payload["role_id"] == 1;
+
+    if(getToken() != null) {
+        var parts = getToken().split(".");
+        payload = JSON.parse(atob(parts[1]));
+        return payload["role_id"] == 1;
+    }else{return false;}
 }
 
 function JWTParser(token) {
