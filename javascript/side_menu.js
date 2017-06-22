@@ -14,6 +14,7 @@ $(document).ready(function() {
         addToMenu("klachten", "Klachten","fa-plus-square");
         addToMenu("evaluatie", "Evaluatie","fa-plus-square");
         addToMenu("behandelplan", "Behandelplan","fa-list");
+        addToMenu("history", "Geschiedenis","fa-list");
     }
 
 });

@@ -2,16 +2,26 @@ var app = angular.module('kibClient', []);
 app.controller('partialController', function($scope) {
     $scope.templates =
         [
+            //These two pages should be kept in the same position
             { name: 'behandelplan', url: 'includes/pages/behandelplan.html'},
+            { name: 'admin_exercise', url: 'includes/pages/admin_exercise.html'},
+
             { name: 'profiel', url: 'includes/pages/profiel.html'},
             { name: 'klachten', url: 'includes/pages/klachten.html'},
             { name: 'evaluatie', url: 'includes/pages/evaluatie.html'},
+            { name: 'history', url: 'includes/pages/geschiedenis.html'},
             { name: 'admin_exercise', url: 'includes/pages/admin_exercise.html'},
             { name: 'admin_add_admin', url: 'includes/pages/admin_add_admin.html'},
             { name: 'notFound', url: 'includes/pages/not_found.html'}
         ];
 
-    $scope.template = $scope.templates[0];
+    if(isAdministrator()){
+        $scope.template = $scope.templates[0];
+
+    }else{
+        $scope.template = $scope.templates[1];
+
+    }
 
     // Load a page in the main section
     $scope.loadPage = function(pageName, queryString) {
