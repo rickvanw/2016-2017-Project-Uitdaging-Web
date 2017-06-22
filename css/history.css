@@ -1,27 +1,44 @@
-.evaluationitem{
+body {
+    overflow: auto;
+}
+
+.evaluationitem {
     position: absolute;
-    margin-left: 20px;
-    margin-bottom: 20px;
     padding: 10px;
     width: 80%;
     height: 100px;
     background-color: #EFEAEA;
     border-radius: 10px;
-    /*display: none;*/
 }
 
-.begin{
+ul.evaluationlist {
+    list-style-type: none;
+}
+
+li.evaluationitem1 {
+    padding-bottom: 115px;
+    display: block;
+}
+
+li.evaluationitem1 a:hover {
+    text-decoration: none;
+    box-shadow: 3px 3px 10px #BDBDBD;
+}
+
+.begin {
     position: relative;
     color: #314871;
+    font-weight: bold;
 }
 
-.begindatum{
+.begindatum {
     position: relative;
     font-size: 35px;
     color: #6CABE7;
+    font-weight: bold;
 }
 
-.btn{
+.btn {
     position: absolute;
     width: 10%;
     height: 80%;
@@ -31,13 +48,16 @@
     background-color: Transparent;
 }
 
-#historydes{
-    margin-top: 20%;
-    margin-left: 20px;
-    margin-bottom: 100px;
+#historydes {
+    margin-top: 7%;
+    margin-left: 45px;
+    margin-bottom: 70px;
+    display: inline-block;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.65);;
 }
 
-#page{
+#page {
     position: relative;
     width: 70%;
     margin: 0 auto;
