@@ -6,7 +6,7 @@ $(document).ready(function () {
 });
 
 function userInteraction() {
-    getEvaluationId();
+    // getEvaluationId();
     getBeginDate();
 }
 
