@@ -6,23 +6,36 @@ $(document).ready(function () {
 });
 
 function userInteraction() {
-    // getEvaluationId();
     getBeginDate();
 }
 
 function showEvaluations(data) {
+
+
     $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
     data.forEach(function (evaluations, index) {
+        var startdate = changeDateFormat(evaluations.start_date);
         // if (index <= evaluationIds.size()) {
             $('.evaluationlist').append(
                 "<li class='evaluationitem1' id='" + evaluations.treatment_id + "'>" +
                 "<a href='evaluation-content.html?treatment_id=" + evaluations.treatment_id + "' target='_blank' class='evaluationitem'> " +
                 "<p class='begin'>Begindatum</p>" +
-                "<p class='begindatum'>" + evaluations.start_date + "</p>" +
+                "<p class='begindatum'>" + startdate + "</p>" +
                 "</a>" +
                 "</li>"
             );
     });
+}
+
+function changeDateFormat(startdate){
+    startdate = new Date(startdate);
+    var d = startdate.getDate();
+    var m =  startdate.getMonth();
+    m += 1;
+    var y = startdate.getFullYear();
+    startdate = "" + d + "-" + m + "-" + y;
+    console.log(startdate);
+    return startdate;
 }
 
 function addEvaluationId(data) {
