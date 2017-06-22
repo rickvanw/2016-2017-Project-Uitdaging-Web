@@ -1,4 +1,5 @@
 var hostAdress = "http://localhost:8000";
+var alertShown = false;
 
 function getConnection() {
     return hostAdress;
@@ -34,7 +35,7 @@ function getToken() {
         console.log("NO AUTH: session: " + sessionStorage.token);
         console.log("NO AUTH: cookie: " + getCookie("jwt"));
 
-        alert("U bent niet ingelogd");
+        showNotLoggedInAlert();
         window.location.href = "login.html";
         return null;
     }
@@ -73,5 +74,12 @@ function JWTParser(token) {
      */
     this.getEmail = function () {
         return payload["email"];
+    }
+}
+
+function showNotLoggedInAlert(){
+    if(!alertShown){
+        alertShown = true;
+        alert("U bent niet ingelogd");
     }
 }
