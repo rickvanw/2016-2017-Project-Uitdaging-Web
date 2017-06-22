@@ -1,20 +1,11 @@
-var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
-var evaluationIds = [];
+var jwt = getToken();
+var hostAdress = getConnection();
 
 $(document).ready(function () {
     userInteraction();
 });
 
 function userInteraction() {
-    // $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
-    // $('.evaluationlist').append(
-    //     "<li class='evaluationitem1' id='hoi'>" +
-    //     "<a href='evaluation-content.html?treatment_id=' class='evaluationitem'> " +
-    //     "<p class='begin'>Begindatum</p>" +
-    //     "<p class='begindatum'> Testdatum </p>" +
-    //     "</a>" +
-    //     "</li>"
-    // );
     getEvaluationId();
     getBeginDate();
 }
@@ -58,26 +49,31 @@ function getBeginDate() {
         headers: {
             'authorization': jwt
         },
-        url: "http://localhost:8000/treatment/startdate",
+        url: hostAdress + "/treatment/startdate",
         dataType: 'json',
         statusCode: {
             200: function () {
-                console.log(200, "succes!");
+                console.log(200);
             },
-            401: function (error) {
-                console.log(401);
+            400: function (error) {
+                console.log(400);
             },
-            404: function (error) {
-                console.log(404, error)
+            403: function (error) {
+                console.log(403)
+            },
+            404: function (err) {
+                console.log(404);
             }
         },
         error: function (err) {
             alert("Error: " + err);
         }
     });
+
     request.done(function (data) {
         showEvaluations(data);
     });
+
 }
 
 function getEvaluationId() {
