@@ -15,16 +15,12 @@ function userInteraction() {
 }
 
 function showQuestions(data) {
-    var isntBack = false;
     var count = 0;
     console.log("DATA IN SHOWQUESTIONS: " + data);
-
-        data.forEach(function(complaint, index) {
-            console.log("" + index + " size:" + data.length);
+        data.forEach(function(complaint) {
             count++;
             var html = '';
             if (complaint.name != "Prevention") {
-
                 html +=
                     '<p><b>' + complaint.name + '</b></p>' +
                     '<div class="question radio">' +
@@ -137,9 +133,6 @@ function showQuestions(data) {
                         '</div>' +
                         '</div>';
                 } else {
-                    isntBack = true;
-                }
-                if(isntBack == true && index == data.length-1){
                     count++;
                     html += '<div class="question checkbox">' +
                         '<label for="answers_quest' + count + '"><b>Aankruisen welke klachten aanwezig zijn</b></label>' +
