@@ -10,12 +10,10 @@ function userInteraction() {
 }
 
 function showEvaluations(data) {
-
-
     $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
     data.forEach(function (evaluations, index) {
-        var startdate = changeDateFormat(evaluations.start_date);
-        // if (index <= evaluationIds.size()) {
+        // if(new Date( < evaluations.end_date){
+            var startdate = changeDateFormat(evaluations.start_date);
             $('.evaluationlist').append(
                 "<li class='evaluationitem1' id='" + evaluations.treatment_id + "'>" +
                 "<a href='evaluation-content.html?treatment_id=" + evaluations.treatment_id + "' target='_blank' class='evaluationitem'> " +
@@ -27,6 +25,10 @@ function showEvaluations(data) {
     });
 }
 
+function compareTime(time1, time2) {
+    return new Date(time1) > new Date(time2); // true if time1 is later
+}
+
 function changeDateFormat(startdate){
     startdate = new Date(startdate);
     var d = startdate.getDate();
@@ -34,7 +36,6 @@ function changeDateFormat(startdate){
     m += 1;
     var y = startdate.getFullYear();
     startdate = "" + d + "-" + m + "-" + y;
-    console.log(startdate);
     return startdate;
 }
 
