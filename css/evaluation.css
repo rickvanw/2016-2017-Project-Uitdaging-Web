@@ -1,50 +1,31 @@
-/*form{*/
-    /*background-color: #E4EEFA;*/
-    /*padding-left: 100px;*/
-    /*padding-top: 50px;*/
-    /*padding-bottom: 40px;*/
-/*}*/
-
-/*#verstuurButton{*/
-    /*margin-top: 10px;*/
-    /*font-size: 30px;*/
-/*}*/
-
-/*#evaldescription{*/
-    /*font-size: 17px;*/
-    /*font-weight: bold;*/
-    /*color: rgba(0, 0, 0, 0.65);*/
-    /*text-align: center;*/
-/*}*/
-
-p {
+.evaluation p {
     margin-top: 10px;
     margin-left: 40px;
 }
 
-.form-group {
+.evaluation.form-group {
     width: 60%;
 }
 
-.heading {
+.evaluation.heading {
     text-align: center;
 }
 
-.paragraph {
+.evaluation.paragraph {
     margin-right: 50px;
     margin-left: 50px;
     padding-bottom: 1px;
 }
 
-.form-wrapper {
+.evaluation.form-wrapper {
     margin-top: 3px;
     width:100%;
 }
 
-.submit-button {
+.evaluation.submit-button {
     margin-right: 11px;
 }
 
-.submit-button-2 {
+.evaluation.submit-button-2 {
     background-color: #602192;
 }
