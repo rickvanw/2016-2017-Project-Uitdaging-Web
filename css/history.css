@@ -58,7 +58,7 @@ li.evaluationitem1 a:hover {
 }
 
 #page {
-    position: relative;
+    position: fixed;
     width: 70%;
     margin: 0 auto;
 }

@@ -13,7 +13,7 @@ function userInteraction() {
 function showEvaluations(data) {
     $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
     data.forEach(function (evaluations, index) {
-        if (index <= evaluationIds.size()) {
+        // if (index <= evaluationIds.size()) {
             $('.evaluationlist').append(
                 "<li class='evaluationitem1' id='" + evaluations.treatment_id + "'>" +
                 "<a href='evaluation-content.html?treatment_id=" + evaluations.treatment_id + "' target='_blank' class='evaluationitem'> " +
@@ -22,7 +22,6 @@ function showEvaluations(data) {
                 "</a>" +
                 "</li>"
             );
-        }
     });
 }
 
