@@ -1,5 +1,3 @@
-
-//TODO remove temporary jwt token, replace with logged in user
 var jwt = getToken();
 var hostAdress = getConnection();
 
@@ -9,6 +7,8 @@ getExercises(getCurrentDate());
 
 $(document).ready(function() {
     userInteraction();
+
+    // Set day text and hide next page arrow
     $('.day_text').text(getDateString(getCurrentDate()));
     $('.right_arrow').css('visibility', 'hidden');
 
@@ -16,6 +16,9 @@ $(document).ready(function() {
 
 });
 
+/**
+ * All button/interaction handlers are included in this function
+ */
 function userInteraction () {
 
     // Pause video if expansion collapses
@@ -25,6 +28,7 @@ function userInteraction () {
 
     });
 
+    // Go to next day
     $('.left_arrow').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
         clearExercises();
@@ -35,6 +39,8 @@ function userInteraction () {
             $('.right_arrow').css('visibility', 'visible');
         }
     });
+
+    // Go to previous day
     $('.right_arrow').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
         clearExercises();
@@ -47,6 +53,7 @@ function userInteraction () {
         }
     });
 
+    // Mark exercise done
     $('.doneButton').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
 
@@ -61,6 +68,7 @@ function userInteraction () {
         return false;
     });
 
+    // Mark exercise notdone
     $('.notDoneButton').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
 
@@ -76,6 +84,7 @@ function userInteraction () {
         return false;
     });
 
+    // Like exercise
     $('.likeButton').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
 
@@ -91,9 +100,9 @@ function userInteraction () {
             $('#' + "dislikeButton" + buttonExerciseId).css('background-color', 'white');
         }
         return false;
-
     });
 
+    // Dislike exercise
     $('.dislikeButton').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
 
@@ -109,10 +118,13 @@ function userInteraction () {
             $('#' + "likeButton" + buttonExerciseId).css('background-color', 'white');
         }
         return false;
-
     });
 }
 
+/**
+ * Get exercises for given date, if succesfull then place them
+ * @param date
+ */
 function getExercises(date){
     var request = $.ajax({
         type: 'GET',
@@ -147,10 +159,16 @@ function getExercises(date){
     });
 }
 
+/**
+ * Place given exercises on page
+ * @param data - Exercises from given day
+ */
 function placeExercises(data) {
 
+    // Get the template from the page, this template represents one exercise
     var text = $("#template_exercise").html();
 
+    // For every exercise, fill the template
     data.forEach(function(exercise) {
 
         //Set all the right unique id's
@@ -164,7 +182,6 @@ function placeExercises(data) {
         $("#dislikeButton0").attr("id", "dislikeButton" + exercise.treatment_exercise_id);
         $("#exercise0").attr("id", "exercise" + exercise.treatment_exercise_id);
         $("#video0").attr("id", "video" + exercise.treatment_exercise_id);
-
 
         // Fill the exercises
 
@@ -208,6 +225,11 @@ function placeExercises(data) {
     userInteraction();
 }
 
+/**
+ * Mark exercise as done
+ * @param done
+ * @param treatment_exercise_id
+ */
 function doneExercise(done, treatment_exercise_id) {
     var request = $.ajax({
         type: 'PUT',
@@ -240,9 +262,9 @@ function doneExercise(done, treatment_exercise_id) {
 }
 
 /**
- *
+ * Rate exercise
  * @param rating        rating (1 or -1)
- * @param exerciseId    id of exercise to be changed
+ * @param treatment_exercise_id    id of exercise to be changed
  */
 function rateExercise(rating, treatment_exercise_id) {
     var request = $.ajax({
@@ -297,6 +319,7 @@ function getCurrentDate(){
     return currentDate;
 }
 
+// Get the date given amount of days back
 function daysFromDate(daysBack) {
     var today = new Date();
     var yesterday = new Date(today);
@@ -318,6 +341,7 @@ function daysFromDate(daysBack) {
     return yyyy + '-' + mm + '-' + dd;
 }
 
+// Get given date with full weekday
 function getDateString(date){
 
     var weekday = ["Zondag","Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag"];
@@ -340,6 +364,7 @@ function getDateString(date){
     return weekday[date.getDay()]+', ' + dd + '-' + mm + '-' + yyyy;
 }
 
+// Clear alls exercises from page
 function clearExercises() {
     //$("#all_exercises_container").find("*").off();
     $("#all_exercises_container").off();
@@ -347,16 +372,19 @@ function clearExercises() {
     $("#notify_container").html("");
 }
 
+// Check if exercise is done already
 function isInDoneExercises(value) {
     return done_exercises.indexOf(value.toString()) > -1;
 }
 
+// Add exercise to done
 function addToDoneExercises(value) {
     if(!isInDoneExercises(value.toString())){
         done_exercises.push(value.toString());
     }
 }
 
+// Remove exercise from done
 function removeFromDoneExercises(value) {
     if(isInDoneExercises(value.toString())){
         var index = done_exercises.indexOf(value.toString());
@@ -378,6 +406,10 @@ function getEmbedUrl(url) {
     }
 }
 
+/**
+ * Notify user at top of page
+ * @param message -  Message to be displayed to user
+ */
 function notifyUser(message) {
     $("#notify_container").html("<div class='treatment notify_text'>"+message+"</div>");
 }

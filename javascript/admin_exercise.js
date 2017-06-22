@@ -33,11 +33,13 @@ function userInteraction () {
 
     });
 
+    // Go to add exercise page
     $('.add_exercise_button').off("click").on("click", function (e) {
        loadPageFromJS('admin_add_exercise');
 
     });
 
+    // Go to next page of exercises
     $('.right_arrow').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
         clearExercises();
@@ -52,6 +54,8 @@ function userInteraction () {
         }
         editingExerciseNr = 0;
     });
+
+    // Go to previous page of exercises
     $('.left_arrow').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
         clearExercises();
@@ -68,6 +72,7 @@ function userInteraction () {
         editingExerciseNr = 0;
     });
 
+    // Enable edit mode for exercise
     $('.editButton').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
         var buttonExerciseId = this.id.split("editButton")[1];
@@ -79,6 +84,7 @@ function userInteraction () {
             setLocalExerciseContent(thisExercise);
             exerciseEditable(thisExercise, true);
 
+            // Save changes to exercise
             $('.saveButton').off("click").on("click", function (e) {
                 e.stopImmediatePropagation();
                 editingExerciseNr = 0;
@@ -117,6 +123,7 @@ function userInteraction () {
         return false;
     });
 
+    // Delete exercise
     $('.deleteButton').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
 
@@ -132,6 +139,9 @@ function userInteraction () {
     });
 }
 
+/**
+ * Get the amount of exercises
+ */
 function getAmountOfExercises(){
     var request = $.ajax({
         type: 'GET',
@@ -169,6 +179,15 @@ function getAmountOfExercises(){
     });
 }
 
+/**
+ * Change the exercise to the newly entered information
+ * @param thisExercise
+ * @param exercise_id
+ * @param name
+ * @param description
+ * @param repetitions
+ * @param media_url
+ */
 function changeExercise(thisExercise, exercise_id, name, description, repetitions, media_url) {
 
     var request = $.ajax({
@@ -202,7 +221,10 @@ function changeExercise(thisExercise, exercise_id, name, description, repetition
     });
 }
 
-// TODO, afhandelen wanneer geen oefening beschikbaar
+/**
+ * Get a page with exercises (10 per page), if done place them
+ * @param page - Page number
+ */
 function getExercises(page){
     var request = $.ajax({
         type: 'GET',
@@ -235,7 +257,10 @@ function getExercises(page){
 
 }
 
-
+/**
+ * Place given exercises on page
+ * @param data
+ */
 function placeExercises(data) {
 
     var text = $("#template_exercise").html();
@@ -293,6 +318,7 @@ function placeExercises(data) {
     userInteraction();
 }
 
+// Clear page of exercises
 function clearExercises() {
     //$("#all_exercises_container").find("*").off();
     $("#all_exercises_container").off();
@@ -312,12 +338,17 @@ function getEmbedUrl(url) {
     }
 }
 
+/**
+ * Notify user at the top
+ * @param message - Message to display to user
+ */
 function notifyUser(message) {
     $("#notify_container").html("<div class='admin_exercise notify_text'>"+message+"</div>");
 }
 
 /**
  * Function that posts the complaints which the user has indicated
+ * @param exercise_id
  */
 function deleteExercise (exercise_id) {
     var request = $.ajax({
@@ -353,6 +384,11 @@ function deleteExercise (exercise_id) {
     });
 }
 
+/**
+ * Toggle edit mode for given exercise
+ * @param thisExercise - Exercise to edit
+ * @param editable - true/false to enable or disable editing
+ */
 function exerciseEditable(thisExercise, editable){
     thisExercise.find('.exercise_quickview_title').attr("contenteditable", editable);
     thisExercise.find('.description_text').attr("contenteditable", editable);
@@ -387,6 +423,10 @@ function exerciseEditable(thisExercise, editable){
     }
 }
 
+/**
+ * Save given exercise content to reset if edit is canceled
+ * @param thisExercise
+ */
 function setLocalExerciseContent(thisExercise){
     resetTitle = thisExercise.find('.exercise_quickview_title').text();
     resetDescription = thisExercise.find('.description_text').text();
@@ -394,12 +434,17 @@ function setLocalExerciseContent(thisExercise){
     resetMediaUrl = thisExercise.find('.collapse_video').attr("src");
 }
 
+/**
+ * Reset given exercise in local html if edit canceled
+ * @param thisExercise
+ */
 function resetFromLocalExerciseContent(thisExercise){
     thisExercise.find('.exercise_quickview_title').text(resetTitle);
     thisExercise.find('.description_text').text(resetDescription);
     thisExercise.find('.exercise_quickview_amount_repeats').text(resetRepeats);
 }
 
+// Disable all exercises from collapsing
 function disableCollapsing() {
     $('.link_collapse').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
@@ -408,10 +453,15 @@ function disableCollapsing() {
     });
 }
 
+// Enable all exercises collapsing
 function enableCollapsing() {
     $('.link_collapse').unbind();
 }
 
+/**
+ * Load new youtube url for this exercise
+ * @param thisExercise
+ */
 function loadNewMediaUrl(thisExercise) {
     var newLink = thisExercise.find('.video_url_input').val();
     //Expanded video
