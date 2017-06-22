@@ -71,6 +71,21 @@
     background-color: rgb(84,120,219);
 }
 
+body {
+    overflow-y: scroll;
+}
+
 #kaas {
     overflow-y:scroll;
 }
+
+.content-blue {
+    background-color: #DFE8FF;
+    width: 50%;
+}
+
+#html-content-holder {
+    margin-top: 10px;
+    padding-top: 10px;
+}
+

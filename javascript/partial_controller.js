@@ -1,10 +1,12 @@
-
 var app = angular.module('kibClient', []);
 app.controller('partialController', function($scope) {
     $scope.templates =
         [
             { name: 'profiel', url: 'includes/pages/profiel.html'},
+            { name: 'klachten', url: 'includes/pages/klachten.html'},
+            { name: 'evaluatie', url: 'includes/pages/evaluatie.html'},
             { name: 'behandelplan', url: 'includes/pages/behandelplan.html'},
+            { name: 'admin_exercise', url: 'includes/pages/admin_exercise.html'},
             { name: 'responsible-teacher', url: 'includes/pages/responsible_teachers_page.html'},
             { name: 'notFound', url: 'includes/pages/not_found.html'}
         ];
@@ -99,28 +101,4 @@ function executeOnScope(cb) {
     $scope.$apply(function() {
         cb($scope)
     });
-}
-
-/**
- * Get the query parameters.
- * @returns {{}}
- */
-function getQueryParams() {
-    var queries = {};
-
-    if (localStorage.params) {
-        var url = localStorage.params;
-
-        var src = url.substr(1).split("&");
-        if (src.length == 1 && !src[0]) {
-            return queries;
-        }
-
-        $.each(url.substr(1).split("&"), function (c, q) {
-            var i = q.split("=");
-            queries[i[0].toString()] = i[1].toString();
-        });
-    }
-
-    return queries;
 }

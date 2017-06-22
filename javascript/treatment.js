@@ -1,9 +1,8 @@
-/**
- * Created by rickv on 18-5-2017.
- */
 
-//TODO get logged in user auth code
-var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1YmVuYXNzaW5rQGhvdG1haWwuY29tIiwidXNlcl9pZCI6NCwicm9sZV9pZCI6MCwiaWF0IjoxNDk1MzkzNTYwLCJleHAiOjE1MjY5Mjk1NjB9.4UMl25J0i7C4d5METeHxY-4FYrf9ez0B0RkkijuoaCc";
+//TODO remove temporary jwt token, replace with logged in user
+var jwt = getToken();
+var hostAdress = getConnection();
+
 var done_exercises =[];
 var daysFromCurrentDate = 0;
 getExercises(getCurrentDate());
@@ -29,7 +28,6 @@ function userInteraction () {
     $('.left_arrow').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
         clearExercises();
-        console.log("CLLICk");
         daysFromCurrentDate--;
         getExercises(daysFromDate(daysFromCurrentDate));
         $('.day_text').text(getDateString(daysFromDate(daysFromCurrentDate)));
@@ -54,8 +52,6 @@ function userInteraction () {
 
         var buttonExerciseId=this.id.split("doneButton")[1];
         addToDoneExercises(buttonExerciseId);
-        console.info(done_exercises);
-
         doneExercise(1, buttonExerciseId);
 
         $(this).css('background-color', '#BFE5BF');
@@ -70,7 +66,6 @@ function userInteraction () {
 
         var buttonExerciseId=this.id.split("notDoneButton")[1];
         removeFromDoneExercises(buttonExerciseId);
-        console.info(done_exercises);
 
         doneExercise(-1, buttonExerciseId);
 
@@ -126,7 +121,7 @@ function getExercises(date){
             'authorization':jwt,
             'day':date
         },
-        url: "http://localhost:8000" + "/treatment/exercises-day",
+        url: hostAdress + "/treatment/exercises-day",
         dataType: 'json',
         statusCode: {
             200:function(){
@@ -157,8 +152,6 @@ function placeExercises(data) {
 
     data.forEach(function(exercise) {
 
-        console.log("FOREACH");
-
         //Set all the right unique id's
         $("#all_exercises_container").append(text);
         $("#collapse0").attr("id", "collapse" + exercise.treatment_exercise_id);
@@ -181,7 +174,7 @@ function placeExercises(data) {
         $('#' + "exercise" + exercise.treatment_exercise_id).find('.collapse_image').attr("src", "img/" + exercise.image_url + ".jpg");
 
         //Expanded video
-        $('#' + "exercise" + exercise.treatment_exercise_id).find('.collapse_video').attr("src", exercise.media_url + "?enablejsapi=1&autoplay=0&showinfo=0&controls=1&rel=0&iv_load_policy=3");
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.collapse_video').attr("src", getEmbedUrl(exercise.media_url) + "?enablejsapi=1&autoplay=0&showinfo=0&controls=0&rel=0&iv_load_policy=3");
 
         // Title
         $('#' + "exercise" + exercise.treatment_exercise_id).find('.exercise_quickview_title').text(exercise.name);
@@ -190,7 +183,8 @@ function placeExercises(data) {
         $('#' + "exercise" + exercise.treatment_exercise_id).find('.exercise_quickview_amount_repeats').text(exercise.repetitions);
 
         //Repeats amount
-        $('#' + "exercise" + exercise.treatment_exercise_id).find('.description_text').text(exercise.description);
+        //TODO verander naar description uit database
+        $('#' + "exercise" + exercise.treatment_exercise_id).find('.description_text').text("Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen.Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind jehet lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op je knieën.");
 
         //Set previous like/dislike
         if(exercise.rating_user == 1) {
@@ -206,10 +200,8 @@ function placeExercises(data) {
             $('#' + "exercise" + exercise.treatment_exercise_id).find('.notDoneButton').css('background-color', '#F99C9C');
         }
         if (exercise.done == 1) {
-            console.log("ID - " + exercise.treatment_exercise_id);
             addToDoneExercises(exercise.treatment_exercise_id)
         }
-        console.info(done_exercises);
     });
 
     userInteraction();
@@ -221,7 +213,7 @@ function doneExercise(done, treatment_exercise_id) {
         headers: {
             'authorization':jwt
         },
-        url: "http://localhost:8000" + "/treatment/exercise-done",
+        url: hostAdress + "/treatment/exercise-done",
         data: {"treatment_exercise_id": treatment_exercise_id, "done":done},
         dataType: 'json',
         statusCode: {
@@ -252,13 +244,12 @@ function doneExercise(done, treatment_exercise_id) {
  * @param exerciseId    id of exercise to be changed
  */
 function rateExercise(rating, treatment_exercise_id) {
-    console.log("rating");
     var request = $.ajax({
         type: 'PUT',
         headers: {
             'authorization':jwt
         },
-        url: "http://localhost:8000" + "/exercise/rate",
+        url: hostAdress + "/exercise/rate",
         data: {"treatment_exercise_id": treatment_exercise_id, "rating":rating},
         dataType: 'json',
         statusCode: {
@@ -274,14 +265,12 @@ function rateExercise(rating, treatment_exercise_id) {
         },
         error: function (err) {
             notifyUser("Kon de rating niet doorvoeren, neem contact op met uw systeembeheerder");
-            console.log("Error rating the exercise: " + err.message);
         }
     });
 
     request.done(function (data) {
         console.log("DONE");
     });
-
 }
 
 /**
@@ -373,6 +362,18 @@ function removeFromDoneExercises(value) {
         if (index > -1) {
             done_exercises.splice(index, 1);
         }
+    }
+}
+
+// Create embed url for youtube link
+function getEmbedUrl(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        return "https://www.youtube.com/embed/" + match[2];
+    } else {
+        return 'error';
     }
 }
 

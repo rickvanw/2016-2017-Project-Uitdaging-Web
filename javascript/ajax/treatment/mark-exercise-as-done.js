@@ -3,13 +3,15 @@
  *
  * Created by maurice_2 on 17-5-2017.
  */
+var hostAdress = getConnection();
+
 $("#complete-exercise").submit(function () {
     var exerciseId = localStorage.getItem('exerciseId');
     var done = 1;
 
     $.ajax({
         type: 'PUT',
-        url: "http://localhost:8000/treatment/exercise-done",
+        url: hostAdress + "/treatment/exercise-done",
         dataType: 'text',
         data: {"exerciseId": exerciseId, "done": done},
         headers: {"Authorization": localStorage.getItem('token')},

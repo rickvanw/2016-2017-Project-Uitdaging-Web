@@ -3,6 +3,8 @@
  *
  * Created by maurice_2 on 17-5-2017.
  */
+var hostAdress = getConnection();
+
 $(document).ready(function() {
 
     $("#").submit(function() {
@@ -10,7 +12,7 @@ $(document).ready(function() {
 
         var request = $.ajax({
             type: 'GET',
-            url: "http://localhost:8000" + "/exercise",
+            url: hostAdress + "/exercise",
             data: {"exerciseId": exerciseId},
             dataType: 'json',
             statusCode: {

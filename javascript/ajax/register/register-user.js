@@ -2,9 +2,12 @@ var emailField;
 var firstNameField;
 var lastNameField;
 var passwordField3;
+var hostAdress = getConnection();
 
 
 $(document).on('click', '#register-button', function(){
+
+    console.log("REGISTER");
 
     emailField = $('#email_field');
     firstNameField = $('#surname_field');
@@ -25,7 +28,7 @@ $(document).on('click', '#register-button', function(){
         if (checkUserAgreement()) {
             $.ajax({
                 type: 'POST',
-                url: "http://localhost:8000/user/add",
+                url: hostAdress + "/user/add",
                 dataType: 'json',
                 data: {'email': email, 'first_name': first_name, 'last_name': last_name, 'password': password},
                 success: function (data) {
@@ -66,7 +69,7 @@ function validateFields() {
 
 function checkUserAgreement() {
 
-    var agreed = false
+    var agreed = false;
 
     if($('#Checkbox-2').is(':checked')) {
         agreed = true;

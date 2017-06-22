@@ -45,3 +45,11 @@ a{  color: white;
 .sub-header-button:hover {
     color: deepskyblue;
 }
+
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.cursor_default {
+    cursor: default;
+}

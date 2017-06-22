@@ -1,26 +1,40 @@
 <div class="profiel col-md-12 col-xs-12">
 
-    <h3>Profiel</h3>
+    <link href="css/kom-in-beweging.webflow.css" rel="stylesheet" type="text/css">
+    <link href="css/webflow.css" rel="stylesheet" type="text/css">
 
-    <p>Hieronder kunt u al uw profielgegevens inzien. Tevens kunt u uw gegevens wijzigen door deze in te vullen en vervolgens op "wijzigen" te klikken.</p>
+    <div class="div-block">
 
-    <div class="backgroundDiv" align="middle">
+            <h3>Profiel</h3>
 
-    <div class="redFlagContainer">
+            <p>Hieronder kunt u al uw profielgegevens inzien. Tevens kunt u uw gegevens wijzigen door deze in te vullen en vervolgens op "wijzigen" te klikken.</p>
 
-        <div class="[ form-group ]">
-            <input type="checkbox" name="fancy-checkbox-info" id="fancy-checkbox-info" autocomplete="off" />
-            <div class="[ btn-group ]">
-                <label for="fancy-checkbox-info" class="[ btn btn-info ]">
-                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                    <span> </span>
-                </label>
-                <label for="fancy-checkbox-info" class="[ btn btn-default active ]">
-                    bibhiobhklbouinjlnhuiohbkjlnouhjiojpiojipojiojiojio
-                </label>
+
+            <div class="form-wrapper-profiel">
+                <form data-name="Email Form"  name="email-form">
+                    <label for="Name-2">Voornaam:</label>
+                    <input class="text-field w-input" id="Name-2" maxlength="256" id="name-field-profile" placeholder="First Name" type="text">
+                    <label for="Name-3">Achternaam:</label>
+                    <input class="text-field-2 w-input" id="Name-3" maxlength="256" placeholder="Last Name" required="required" type="text">
+                    <label for="Email-2">Email Addres:</label>
+                    <input class="text-field-3 w-input" id="Email-2" maxlength="256" name="email-2" placeholder="Email" required="required" type="email">
+                </form>
+
+                <br>
+
+                <button id=changeUserInfo-button" onclick="changeTheUserInfo()">Wijzigen</button>
+
             </div>
-        </div>
+
+        <br>
+
+        <div id="model-container-login"></div>
 
     </div>
 
+    <script src="javascript/profile.js"></script>
+
 </div>
+
+
+

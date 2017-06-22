@@ -19,8 +19,7 @@
     <link href="css/profiel.css" rel="stylesheet">
 
     <link href="css/checkbox.css" rel="stylesheet">
-
-
+    <link href="css/css.css" rel="stylesheet">
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -38,6 +37,8 @@
 <body ng-app="kibClient" ng-controller="partialController">
 
 <script src="javascript/partial_controller.js"></script>
+<script src="javascript/utils.js"></script>
+
 
 <div ng-include="'includes/header.html'"></div>
 <div ng-include="'includes/side_menu.html'"></div>
@@ -47,10 +48,11 @@
 </div>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="https://use.fontawesome.com/684f6ba679.js"></script>
 
-<script src="javascript/logout.js"></script>
+<script src="javascript/ajax/user/post-complaints.js"></script>
+<script src="javascript/ajax/treatment/create-treatment.js"></script>
 
 </body>
 </html>
