@@ -7,19 +7,22 @@ app.controller('partialController', function($scope) {
             { name: 'admin_exercise', url: 'includes/pages/admin_exercise.html'},
 
             { name: 'profiel', url: 'includes/pages/profiel.html'},
-            { name: 'klachten', url: 'includes/pages/klachten.html'},
             { name: 'evaluatie', url: 'includes/pages/evaluatie.html'},
             { name: 'history', url: 'includes/pages/geschiedenis.html'},
+            { name: 'klachten', url: 'includes/pages/klachten.html'},
             { name: 'admin_exercise', url: 'includes/pages/admin_exercise.html'},
             { name: 'admin_add_admin', url: 'includes/pages/admin_add_admin.html'},
+            { name: 'admin_add_exercise', url: 'includes/pages/admin_add_exercise.html'},
             { name: 'notFound', url: 'includes/pages/not_found.html'}
         ];
 
     if(isAdministrator()){
-        $scope.template = $scope.templates[0];
+        console.log("IS ADMIN");
+        $scope.template = $scope.templates[1];
 
     }else{
-        $scope.template = $scope.templates[1];
+        console.log("IS NOT ADMIN");
+        $scope.template = $scope.templates[0];
 
     }
 

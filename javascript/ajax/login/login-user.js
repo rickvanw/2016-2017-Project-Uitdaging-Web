@@ -15,6 +15,8 @@ $(document).on('click', '#login-button', function(){
             crossdomain: true,
             statusCode: {
                 200: function(data) {
+                    clearToken();
+                    sessionStorage.clear();
                     rememberToken(data.token);
 
                     console.log();

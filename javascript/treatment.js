@@ -113,7 +113,6 @@ function userInteraction () {
     });
 }
 
-// TODO, afhandelen wanneer geen oefening beschikbaar
 function getExercises(date){
     var request = $.ajax({
         type: 'GET',
@@ -127,14 +126,17 @@ function getExercises(date){
             200:function(){
                 console.log(200, "succes!");
             },
-            401:function(error) {
+            401:function() {
                 console.log(401);
-            },
-            404: function(error){
-                console.log(404, error)
             }
         },
         error: function (err) {
+
+            // Check if user has
+            if(err.status = 404){
+                console.log("404!!" + err.status);
+                loadPageFromJS('klachten');
+            }
             notifyUser("Kon geen oefeningen ophalen, neem contact op met uw systeembeheerder");
             console.log("Error getting exercises: " + err.message);
         }
@@ -143,7 +145,6 @@ function getExercises(date){
     request.done(function (data) {
         placeExercises(data)
     });
-
 }
 
 function placeExercises(data) {

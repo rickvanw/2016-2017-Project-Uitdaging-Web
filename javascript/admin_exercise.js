@@ -33,6 +33,11 @@ function userInteraction () {
 
     });
 
+    $('.add_exercise_button').off("click").on("click", function (e) {
+       loadPageFromJS('admin_add_exercise');
+
+    });
+
     $('.right_arrow').off("click").on("click", function (e) {
         e.stopImmediatePropagation();
         clearExercises();

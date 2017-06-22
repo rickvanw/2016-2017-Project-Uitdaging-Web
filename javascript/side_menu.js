@@ -11,7 +11,6 @@ $(document).ready(function() {
         addToMenu("admin_add_admin", "Admin +","fa-list");
     }else{
         addToMenu("profiel", "Profiel","fa-user");
-        addToMenu("klachten", "Klachten","fa-plus-square");
         addToMenu("evaluatie", "Evaluatie","fa-plus-square");
         addToMenu("behandelplan", "Behandelplan","fa-list");
         addToMenu("history", "Geschiedenis","fa-list");

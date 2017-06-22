@@ -1,0 +1,110 @@
+.admin_add_exercise.title_text{
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    margin-top:60px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.admin_add_exercise.blue {
+    background-color: #DFE8FF;
+}
+
+.admin_add_exercise.submit_form {
+    padding-top: 15px;
+    margin-bottom: 5px;
+    text-align:center;
+
+}
+
+.admin_add_exercise.content {
+    text-align: left;
+}
+
+.admin_add_exercise.exercise_name {
+    display: block;
+    width: 25%;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.admin_add_exercise.exercise_description {
+    display: block;
+    width: 25%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.admin_add_exercise.exercise_link {
+    display: block;
+    width: 25%;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.admin_add_exercise.exercise_img {
+    display: block;
+    width: 25%;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.admin_add_exercise.exercise_repetitions {
+    display: block;
+    width: 25%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.admin_add_exercise.submit_button {
+    border-radius: 20px;
+    background-color: #4990e2;
+    margin-bottom:10px;
+}
+
+.admin_add_exercise.text {
+    font-size: 20px;
+}
+
+.admin_add_exercise.selecter {
+    margin-bottom:20px;
+}
+
+/* Media queries*/
+@media screen and (max-width: 992px){
+
+    .admin_add_exercise.title_text{
+        width:700px;
+    }
+}
+
+@media screen and (max-width: 1200px)and (min-width: 992px){
+    .admin_add_exercise.title_text{
+        width:900px;
+    }
+
+}
+
+@media screen and (min-width: 1200px){
+    .admin_add_exercise.title_text{
+        width:1000px;
+    }
+}
+
+
+
+
