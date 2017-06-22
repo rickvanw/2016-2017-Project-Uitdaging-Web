@@ -276,12 +276,10 @@ function saveEvaluationData(){
                 checkedAns = $(currQuestion).find('input[type=checkbox]:checked');
                 console.log("Amount of checked checkboxes: " + checkedAns.length);
                 answer.checkbox = [];
-                if(checkedAns.length != 0) {
-                    for(i = 0; i < checkedAns.length; i++){
-                        if(checkedAns.attr('choice') != undefined) {
-                            answer.checkbox.push($(checkedAns[i]).attr('choice').trim());
-                        }
-                    }
+                for(j = 0; j < checkedAns.length; j++){
+                    // if(checkedAns[j].attr('choice') != undefined) {
+                    answer.checkbox.push($(checkedAns[j]).attr('choice').trim());
+                    // }
                 }
                 break;
             case "radio": // if radio, get the selected value when not undefined

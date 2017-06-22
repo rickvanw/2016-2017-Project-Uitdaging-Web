@@ -32,7 +32,6 @@ function showQuestions() {
  * Function for saving the data from the evaluation form
  */
 function saveEvaluationData(){
-    alert("test");
     var formData = { questions: [], answers: [] };
     var questions = $("#questions").find('.question');
     var checkedAns;
@@ -53,9 +52,12 @@ function saveEvaluationData(){
             case "checkbox": // if checkbox, get all selected values
                 checkedAns = $(currQuestion).find('input[type=checkbox]:checked');
                 answer.checkbox = [];
-                for(i = 0; i < checkedAns.length; i++){
-                    answer.checkbox.push($(checkedAns[i]).attr('choice').trim());
-                }
+                console.log("LENGTE VAN CHECKEDANS: " + checkedAns.length);
+                // for(i = 0; i < checkedAns.length; i++){
+                //     if(checkedAns[i] != undefined) {
+                //         answer.checkbox.push($(checkedAns[i]).attr('choice').trim());
+                //     }
+                // }
                 break;
             case "radio": // if radio, get the selected value when not undefined
                 checkedAns = $(currQuestion).find('input[type=radio]:checked');
@@ -66,7 +68,9 @@ function saveEvaluationData(){
         }
 
         formData.questions.push(question);
+        console.log("PUSH question");
         formData.answers.push(answer);
+        console.log("PUSH answer");
     }
 
     postEvaluation(questions, formData);
