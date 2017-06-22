@@ -11,6 +11,7 @@ $(document).ready(function () {
     userInteraction();
 
     $("#submit-evaluationform").submit(function () {
+        alert("HIer komt hij");
         saveEvaluationData();
     });
 
@@ -24,13 +25,14 @@ function userInteraction() {
 
 function showQuestions() {
 
-    $('#questions').append("hoi");
+    // $('#questions').append("hoiyuygu");
 }
 
 /**
  * Function for saving the data from the evaluation form
  */
 function saveEvaluationData(){
+    alert("test");
     var formData = { questions: [], answers: [] };
     var questions = $("#questions").find('.question');
     var checkedAns;
@@ -42,6 +44,12 @@ function saveEvaluationData(){
         var questType = currQuestion.classList[1]; // get question type, e.g.
 
         switch (questType) {
+            case "w-select": // if select, get all selected values
+                checkedAns = $(currQuestion).find('option:checked');
+                if(checkedAns != undefined) {
+                    answer.selected = checkedAns.attr('choice').trim();
+                }
+                break;
             case "checkbox": // if checkbox, get all selected values
                 checkedAns = $(currQuestion).find('input[type=checkbox]:checked');
                 answer.checkbox = [];
