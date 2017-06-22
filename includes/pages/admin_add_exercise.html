@@ -1,0 +1,33 @@
+<div style="overflow: auto; height:100%;" class="col-md-12 col-xs-12">
+    <link href="css/admin_add_exercise.css" rel="stylesheet">
+    <link href="css/webflow.css" rel="stylesheet" type="text/css">
+    <div class="admin_add_exercise content">
+        <div class="admin_add_exercise title_text">
+            <p style="white-space:normal;width:100%; height:100%;"> Op deze pagina staan de oefeningen van de dag.
+                <br>Hier kan je teruggaan naar vorige dagen om likes/dislikes aan te passen van vorige oefeningen. Ook kan je aangeven of je een oefening gedaan hebt, en of deze oefening beviel.
+            </p>
+        </div>
+
+    <div class="admin_add_exercise blue">
+        <form class="admin_add_exercise submit_form" id="submit_form">
+            <input class="admin_add_exercise exercise_name w-input" type="text" name="exercise_name" required="required" placeholder="Oefening naam">
+            <input class="admin_add_exercise exercise_description w-input" type="text" name="exercise_description"  required="required" placeholder="Oefening beschrijving">
+            <input class="admin_add_exercise exercise_link w-input" type="text" name="exercise_link"  required="required" placeholder="Youtube url">
+            <input disabled id="exercise" class="admin_add_exercise exercise_img w-input category"  type="text" name="exercise_img" required="required" placeholder="Choose category from list">
+            <select class="admin_add_exercise selecter" id="selecter" onchange="ChooseExercise(this)">
+                <option value="Kies een categorie">Kies categorie</option>
+                <option value="Schouder">Schouder</option>
+                <option value="Nek">Nek</option>
+                <option value="Rug">Rug</option>
+                <option value="Elleboog">Elleboog</option>
+                <option value="Hand/Pols">Hand/Pols</option>
+                <option value="Preventief">Preventief</option>
+            </select>
+            <input class="admin_add_exercise exercise_repetitions w-input" type="text" name="exercise_repetitions" required="required" placeholder="Aantal herhalingen">
+            <input class="admin_add_exercise submit_button w-button" type="submit" id="submit-button" value="Oefening toevoegen!">
+        </form>
+    </div>
+</div>
+    <script src="javascript/ajax/exercise/post-exercise.js"></script>
+    <script src="javascript/admin_add_exercise.js"></script>
+</div>
