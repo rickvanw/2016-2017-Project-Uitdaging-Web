@@ -25,4 +25,10 @@ $('#password_reset_button').off("click").on("click", function (e) {
             console.log("Error: " + err.message);
         }
     });
+    showInfoChangedModel()
 });
+
+function showInfoChangedModel() {
+    $("#pass-reset-alert-container").append('<div class="alert alert-success" id="register-alert" role="alert">' +
+        '<strong>Succes! </strong> Er is een mail gestuurd met je nieuwe inloggegevens! </div>');
+}
