@@ -2,16 +2,16 @@ var app = angular.module('kibClient', []);
 app.controller('partialController', function($scope) {
     $scope.templates =
         [
+            { name: 'behandelplan', url: 'includes/pages/behandelplan.html'},
             { name: 'profiel', url: 'includes/pages/profiel.html'},
             { name: 'klachten', url: 'includes/pages/klachten.html'},
             { name: 'evaluatie', url: 'includes/pages/evaluatie.html'},
-            { name: 'behandelplan', url: 'includes/pages/behandelplan.html'},
             { name: 'admin_exercise', url: 'includes/pages/admin_exercise.html'},
-            { name: 'responsible-teacher', url: 'includes/pages/responsible_teachers_page.html'},
+            { name: 'admin_add_admin', url: 'includes/pages/admin_add_admin.html'},
             { name: 'notFound', url: 'includes/pages/not_found.html'}
         ];
 
-    $scope.template = "";
+    $scope.template = $scope.templates[0];
 
     // Load a page in the main section
     $scope.loadPage = function(pageName, queryString) {
@@ -45,8 +45,9 @@ app.controller('partialController', function($scope) {
             }
         }
 
+
         // When no template with given name is found, load the not found page.
-        $scope.template = $scope.templates[$scope.templates.length - 1];
+        $scope.template = $scope.templates[1];
 
     };
 });
@@ -60,23 +61,6 @@ window.onpopstate = function(e){
         loadPageFromJS(e.state.pageName);
     }
 };
-
-/**
- * Load a dashboard from a javascript file.
- * @param dashboardName the name of the dasboard being displayed.
- */
-function loadDashboardFromJS(dashboardName){
-    executeOnScope(function ($scope) {
-        for (var i = 0; i < $scope.templates.length; i++) {
-            // Find the template with correct dashboard.
-            if ($scope.templates[i].name === dashboardName) {
-                // Set the default dashboard to the given dashboard.
-                $scope.templates[0].url = $scope.templates[i].url;
-                return $scope.loadPage('dashboard');
-            }
-        }
-    });
-}
 
 /**
  * Load a page from a javascript file.
@@ -95,8 +79,7 @@ function loadPageFromJS (pageName, queryString) {
  * @param cb the callback function.
  */
 function executeOnScope(cb) {
-    var appElement = document.querySelector('[ng-app=OCClient]');
-    var $scope = angular.element(appElement).scope();
+    var $scope = angular.element("#controller_div").scope();
     $scope = $scope.$$childHead; // add this and it will work
     $scope.$apply(function() {
         cb($scope)

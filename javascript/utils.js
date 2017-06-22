@@ -44,6 +44,12 @@ function clearToken() {
     clearCookie("jwt");
 }
 
+function isAdministrator(){
+    var parts = jwt.split(".");
+    payload = JSON.parse(atob(parts[1]));
+    return payload["role_id"] == 1;
+}
+
 function JWTParser(token) {
 
     var payload = null;

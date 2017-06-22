@@ -1,0 +1,50 @@
+<div style="overflow: auto; height:100%;" class="col-md-12 col-xs-12">
+    <link href="css/admin_add_admin.css" rel="stylesheet">
+
+<div class="admin_add_admin title_text">
+    <p style="white-space:normal;width:100%; height:100%;">Hier kan een administrator gebruiker aangemaakt worden.
+        <br>Een administrator kan oefeningen toevoegen, wijzigen en verwijderen.
+    </p>
+</div>
+<div class="admin_add_admin form_container">
+
+    <div class="form-group row">
+        <label for="surname_field" class="col-2 col-form-label">Voornaam</label>
+        <div class="col-10">
+            <input class="form-control" id="surname_field"type="text">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="lastname_field" class="col-2 col-form-label">Achternaam</label>
+        <div class="col-10">
+            <input class="form-control" id="lastname_field"type="text">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="email_field" class="col-2 col-form-label">Email</label>
+        <div class="col-10">
+            <input class="form-control" id="email_field"type="email">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="password_field-2" class="col-2 col-form-label">Wachtwoord</label>
+        <div class="col-10">
+            <input class="form-control" id="password_field-2"type="password">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="password_field-3" class="col-2 col-form-label">Wachtwoord herhaling</label>
+        <div class="col-10">
+            <input class="form-control" id="password_field-3"type="password">
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" id="register-button">Administrator aanmaken</button>
+</div>
+</div>
+
+<script src="javascript/utils.js"></script>
+<script src="javascript/ajax/register/register-admin.js"></script>

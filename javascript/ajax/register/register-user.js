@@ -39,7 +39,13 @@ $(document).on('click', '#register-button', function(){
                     }
                 },
                 error: function (err) {
-                    console.error(err);
+                    if(err.status == 409) {
+                        showAlreadyExistsAlert();
+
+                    }else{
+                        showErrorExistsAlert();
+                    }
+                    console.log("Error creating admin: " + err.message);
                 }
             });
         }
@@ -103,4 +109,16 @@ function showAgreementAlert() {
 
     $("#register-alert-container").append('<div class="alert alert-danger" id="register-alert" role="alert">' +
         '<strong>Oops! </strong> U dient de gebruiksvoorwaarden te accepteren. </div>');
+}
+
+function showAlreadyExistsAlert() {
+
+    $("#register-alert-container").append('<div class="alert alert-danger" id="register-alert" role="alert">' +
+        '<strong>Oops! </strong> Dit emailadres is al in gebruik. </div>');
+}
+
+function showErrorExistsAlert() {
+
+    $("#register-alert-container").append('<div class="alert alert-danger" id="register-alert" role="alert">' +
+        '<strong>Oops! </strong> Kon geen account aanmaken, neem contact op met uw systeembeheerder. </div>');
 }
