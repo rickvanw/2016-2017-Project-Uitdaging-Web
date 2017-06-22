@@ -12,29 +12,18 @@ function userInteraction() {
 
 function showEvaluations(data) {
     $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
-    data.forEach(function (item, index) {
+    data.forEach(function (evaluations, index) {
         if (index <= evaluationIds.size()) {
             $('.evaluationlist').append(
-                "<li class='evaluationitem1' id='" + item.treatment_id + "'>" +
-                "<a href='evaluation-content.html?treatment_id=" + item.treatment_id + "' target='_blank' class='evaluationitem'> " +
+                "<li class='evaluationitem1' id='" + evaluations.treatment_id + "'>" +
+                "<a href='evaluation-content.html?treatment_id=" + evaluations.treatment_id + "' target='_blank' class='evaluationitem'> " +
                 "<p class='begin'>Begindatum</p>" +
-                "<p class='begindatum'>" + item.start_date + "</p>" +
+                "<p class='begindatum'>" + evaluations.start_date + "</p>" +
                 "</a>" +
                 "</li>"
             );
         }
     });
-
-    //Testing list
-    // $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
-    // for (i = 0; i < 12; i++) {
-    //     $('.evaluationlist').append("<li class='evaluationitem1'> " +
-    //         "<a href='evaluation-content.html' target='_blank' class='evaluationitem'> " +
-    //         "<p class='begin'>Begindatum</p>" +
-    //         "<p class='begindatum'> hoi </p>" +
-    //         "</a></li>");
-    //
-    // }
 }
 
 function addEvaluationId(data) {
