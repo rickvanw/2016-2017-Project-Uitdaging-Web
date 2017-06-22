@@ -3,7 +3,7 @@
  *
  * Created by maurice_2 on 17-5-2017.
  */
-var hostAdress = "http://localhost:8000";
+var hostAdress = getConnection();
 
 $("#complete-exercise").submit(function () {
     var exerciseId = localStorage.getItem('exerciseId');

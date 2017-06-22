@@ -2,10 +2,12 @@ var emailField;
 var firstNameField;
 var lastNameField;
 var passwordField3;
-var hostAdress = "http://localhost:8000";
+var hostAdress = getConnection();
 
 
 $(document).on('click', '#register-button', function(){
+
+    console.log("REGISTER");
 
     emailField = $('#email_field');
     firstNameField = $('#surname_field');
@@ -37,7 +39,13 @@ $(document).on('click', '#register-button', function(){
                     }
                 },
                 error: function (err) {
-                    console.error(err);
+                    if(err.status == 409) {
+                        showAlreadyExistsAlert();
+
+                    }else{
+                        showErrorExistsAlert();
+                    }
+                    console.log("Error creating admin: " + err.message);
                 }
             });
         }
@@ -67,7 +75,7 @@ function validateFields() {
 
 function checkUserAgreement() {
 
-    var agreed = false
+    var agreed = false;
 
     if($('#Checkbox-2').is(':checked')) {
         agreed = true;
@@ -101,4 +109,16 @@ function showAgreementAlert() {
 
     $("#register-alert-container").append('<div class="alert alert-danger" id="register-alert" role="alert">' +
         '<strong>Oops! </strong> U dient de gebruiksvoorwaarden te accepteren. </div>');
+}
+
+function showAlreadyExistsAlert() {
+
+    $("#register-alert-container").append('<div class="alert alert-danger" id="register-alert" role="alert">' +
+        '<strong>Oops! </strong> Dit emailadres is al in gebruik. </div>');
+}
+
+function showErrorExistsAlert() {
+
+    $("#register-alert-container").append('<div class="alert alert-danger" id="register-alert" role="alert">' +
+        '<strong>Oops! </strong> Kon geen account aanmaken, neem contact op met uw systeembeheerder. </div>');
 }

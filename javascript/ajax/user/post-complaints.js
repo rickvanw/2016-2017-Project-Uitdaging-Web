@@ -4,7 +4,7 @@
  * Created by maurice_2 on 18-5-2017.
  */
 var jwt = sessionStorage.token;
-var hostAdress = "http://localhost:8000";
+var hostAdress = getConnection();
 
 $(document).ready(function() {
     // alert("test1");
@@ -159,7 +159,7 @@ function userInteraction () {
             headers: {
                 'authorization':jwt
             },
-            url: "http://localhost:8000" + "/user/complaint/add",
+            url: hostAdress + "/user/complaint/add",
             async: false,
             data: {
                 "complaint_ids": JSON.stringify(complaint_ids)
@@ -196,7 +196,7 @@ function userInteraction () {
             headers: {
                 'authorization':jwt
             },
-            url: "http://localhost:8000" + "/treatment/add",
+            url: hostAdress + "/treatment/add",
             success: function(){
                 alert("A new treatment has been created");
                 return true;

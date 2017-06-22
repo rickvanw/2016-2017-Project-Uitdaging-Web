@@ -1,0 +1,49 @@
+.admin_add_admin.form_container{
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.admin_add_admin.title_text{
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    margin-top:60px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.65);
+}
+#register-button{
+    margin-top:15px;
+}
+
+/* Media queries*/
+@media screen and (max-width: 992px){
+
+    .admin_add_admin.title_text{
+        width:700px;
+    }
+    .admin_add_admin.form_container{
+        width:700px;
+    }
+}
+
+@media screen and (max-width: 1200px)and (min-width: 992px){
+    .admin_add_admin.title_text{
+        width:900px;
+    }
+    .admin_add_admin.form_container{
+        width:900px;
+    }
+
+}
+
+@media screen and (min-width: 1200px){
+    .admin_add_admin.title_text{
+        width:1000px;
+    }
+    .admin_add_admin.form_container{
+        width:1000px;
+    }
+}

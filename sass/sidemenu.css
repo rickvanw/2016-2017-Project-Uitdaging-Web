@@ -16,11 +16,15 @@ a, a:focus, a:hover, button, button:hover, button:focus, input, input:focus {
     outline: none;
 }
 
-/*Remove rounded coners*/
+/*Remove rounded corners*/
 
 nav.sidebar.navbar {
     border-radius: 0;
     z-index: 1;
+}
+
+.nav.navbar-nav{
+    cursor: pointer;
 }
 
 nav.sidebar, .main{
@@ -33,7 +37,7 @@ nav.sidebar, .main{
 .main{
     padding: 0px 10px 0 10px;
     overflow-y: auto;
-    max-height: calc(100% - 200px);
+    max-height: calc(100% - 170px);
     margin-top: 180px;
 
 }
@@ -89,6 +93,7 @@ nav.sidebar .navbar-nav > li:hover {
         width: calc(100% - 40px);
         margin-left: 40px;
         float: right;
+        margin-top:0px;
 
     }
 
@@ -144,8 +149,10 @@ nav.sidebar .navbar-nav > li:hover {
 @media (min-width: 1330px) {
 
     .main{
-        width: calc(100% - 200px);
+        width: calc(100% - 170px);
         margin-left: 200px;
+        margin-top:170px;
+
     }
 
     nav.sidebar{

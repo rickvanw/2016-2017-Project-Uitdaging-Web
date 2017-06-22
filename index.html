@@ -34,8 +34,9 @@
 
 </head>
 
-<body ng-app="kibClient" ng-controller="partialController">
+<body ng-app="kibClient" ng-controller="partialController" id="controller_div">
 
+<script src="javascript/utils.js"></script>
 <script src="javascript/partial_controller.js"></script>
 
 <div ng-include="'includes/header.html'"></div>
@@ -48,9 +49,6 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="https://use.fontawesome.com/684f6ba679.js"></script>
-
-<script src="javascript/logout.js"></script>
-<script src="javascript/jwtParser.js"></script>
 
 <script src="javascript/ajax/user/post-complaints.js"></script>
 <script src="javascript/ajax/treatment/create-treatment.js"></script>
