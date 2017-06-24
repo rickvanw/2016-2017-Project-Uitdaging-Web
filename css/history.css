@@ -54,11 +54,19 @@ li.evaluationitem1 a:hover {
     margin-bottom: 70px;
     display: inline-block;
     font-weight: bold;
-    color: rgba(0, 0, 0, 0.65);;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+#noevals {
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.65);
+    display: inline-block;
+    text-decoration: underline;
 }
 
 #page {
-    position: relative;
+    position: fixed;
     width: 70%;
     margin: 0 auto;
 }

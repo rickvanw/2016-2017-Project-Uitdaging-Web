@@ -6,6 +6,7 @@ app.controller('partialController', function($scope) {
             { name: 'behandelplan', url: 'includes/pages/behandelplan.html'},
             { name: 'admin_exercise', url: 'includes/pages/admin_exercise.html'},
 
+            { name: 'evaluatiecontent', url: 'includes/pages/evaluatiecontent.html'},
             { name: 'profiel', url: 'includes/pages/profiel.html'},
             { name: 'evaluatie', url: 'includes/pages/evaluatie.html'},
             { name: 'history', url: 'includes/pages/geschiedenis.html'},

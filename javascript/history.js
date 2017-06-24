@@ -6,30 +6,42 @@ $(document).ready(function () {
 });
 
 function userInteraction() {
-    getEvaluationId();
     getBeginDate();
 }
 
 function showEvaluations(data) {
     $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
     data.forEach(function (evaluations, index) {
-        if (index <= evaluationIds.size()) {
-            $('.evaluationlist').append(
-                "<li class='evaluationitem1' id='" + evaluations.treatment_id + "'>" +
-                "<a href='evaluation-content.html?treatment_id=" + evaluations.treatment_id + "' target='_blank' class='evaluationitem'> " +
-                "<p class='begin'>Begindatum</p>" +
-                "<p class='begindatum'>" + evaluations.start_date + "</p>" +
-                "</a>" +
-                "</li>"
-            );
-        }
+        var currentDate = getRightDate(new Date());
+        var startDate = getRightDate(evaluations.start_date);
+        var endDate = getRightDate(evaluations.end_date);
+        // if(data.length == 1 && compareTime(endDate, currentDate) || data.length == 0){
+        //     $('.evaluationlist').append("<p id='noevals'>Er zijn nog geen voltooide evaluaties om te bekijken, voltooi eerst een behandelplan voor zes weken.</p>");
+        // } else if(data.length >= 1 && compareTime(currentDate, endDate)){
+        $('.evaluationlist').append(
+            "<li class='evaluationitem1' id='" + evaluations.treatment_id + "'>" +
+            "<a href='evaluationcontent.html?treatment_id=" + evaluations.treatment_id + "' target='_blank' class='evaluationitem'> " +
+            "<p class='begin'>Begindatum</p>" +
+            "<p class='begindatum'>" + startDate + "</p>" +
+            "</a>" +
+            "</li>"
+        );
+        // }
     });
 }
 
-function addEvaluationId(data) {
-    data.forEach(function (item) {
-        evaluationIds.add(item);
-    });
+function compareTime(time1, time2) {
+    return (time1) > (time2);
+}
+
+function getRightDate(date){
+    date = new Date(date);
+    var y = date.getFullYear();
+    var m =  date.getMonth();
+    var d = date.getDate();
+    m += 1;
+    date = "" + y + "-" + m + "-" + d;
+    return date;
 }
 
 function getBeginDate() {
@@ -55,7 +67,7 @@ function getBeginDate() {
             }
         },
         error: function (err) {
-            alert("Error: " + err);
+            notifyUser("Kon geen evaluaties ophalen, neem contact op met uw systeembeheerder");
         }
     });
 
@@ -63,34 +75,6 @@ function getBeginDate() {
         showEvaluations(data);
     });
 
-}
-
-function getEvaluationId() {
-    var request = $.ajax({
-        type: 'GET',
-        headers: {
-            'authorization': jwt
-        },
-        url: "http://localhost:8000/evaluation/evaluationid",
-        dataType: 'json',
-        statusCode: {
-            201: function () {
-                console.log(201, "succes!");
-            },
-            400: function (error) {
-                console.log(400);
-            },
-            403: function (error) {
-                console.log(403, error)
-            }
-        },
-        error: function (err) {
-            alert("Error: " + err);
-        }
-    });
-    request.done(function (data) {
-        addEvaluationId(data);
-    });
 }
 
 function printDiv(divName) {
@@ -103,5 +87,6 @@ function printDiv(divName) {
 
     document.body.innerHTML = originalContents;
 }
+
 
 
