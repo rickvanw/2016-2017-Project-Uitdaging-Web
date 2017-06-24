@@ -20,7 +20,7 @@ function showEvaluations(data) {
         // } else if(data.length >= 1 && compareTime(currentDate, endDate)){
             $('.evaluationlist').append(
                 "<li class='evaluationitem1' id='" + evaluations.treatment_id + "'>" +
-                "<a href='evaluation-content.html?treatment_id=" + evaluations.treatment_id + "' target='_blank' class='evaluationitem'> " +
+                "<a href='evaluationcontent.html?treatment_id=" + evaluations.treatment_id + "' target='_blank' class='evaluationitem'> " +
                 "<p class='begin'>Begindatum</p>" +
                 "<p class='begindatum'>" + startDate + "</p>" +
                 "</a>" +

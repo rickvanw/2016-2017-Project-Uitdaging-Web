@@ -2,6 +2,7 @@ var jwt = getToken();
 var hostAdress = getConnection();
 
 $(document).ready(function() {
+    console.log(jwt);
     userInteraction();
 });
 
@@ -42,6 +43,7 @@ function getURLParameter(name) {
 }
 
 function getEvaluation() {
+    console.log("zit in getEvaluation");
     var request = $.ajax({
         type: 'GET',
         headers: {
