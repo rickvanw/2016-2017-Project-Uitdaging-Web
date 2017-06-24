@@ -1,34 +1,34 @@
-p {
+.evaluation.p {
     margin-top: 10px;
     margin-left: 40px;
 }
 
-.form-group {
+.evaluation.form-group {
     width: 60%;
 }
 
-.heading {
+.evaluation.heading {
     text-align: center;
 }
 
-.paragraph {
+.evaluation.paragraph {
     margin-right: 50px;
     margin-left: 50px;
     padding-bottom: 1px;
 }
 
-.form-wrapper {
+.evaluation.form-wrapper {
     margin-top: 3px;
     width:100%;
 }
 
-.submit-button {
+.evaluation.submit-button {
     margin-right: 11px;
     /*background-color: #5ba3e7;*/
     /*color: white;*/
 }
 
-.submit-button-2 {
+.evaluation.submit-button-2 {
     background-color: #5ba3e7;
     color: white;
 }

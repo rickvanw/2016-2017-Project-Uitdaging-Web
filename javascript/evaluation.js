@@ -188,7 +188,7 @@ function getComplaints() {
         headers: {
             'authorization': jwt
         },
-        url: hostAdress + "/complaints",
+        url: hostAdress + "/complaint",
         dataType: 'json',
         statusCode: {
             200: function () {
