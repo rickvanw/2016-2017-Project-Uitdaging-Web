@@ -1,31 +1,35 @@
-.evaluation p {
+p {
     margin-top: 10px;
     margin-left: 40px;
 }
 
-.evaluation.form-group {
+.form-group {
     width: 60%;
 }
 
-.evaluation.heading {
+.heading {
     text-align: center;
 }
 
-.evaluation.paragraph {
+.paragraph {
     margin-right: 50px;
     margin-left: 50px;
     padding-bottom: 1px;
 }
 
-.evaluation.form-wrapper {
+.form-wrapper {
     margin-top: 3px;
     width:100%;
 }
 
-.evaluation.submit-button {
+.submit-button {
     margin-right: 11px;
+    /*background-color: #5ba3e7;*/
+    /*color: white;*/
 }
 
-.evaluation.submit-button-2 {
-    background-color: #602192;
+.submit-button-2 {
+    background-color: #5ba3e7;
+    color: white;
 }
+
