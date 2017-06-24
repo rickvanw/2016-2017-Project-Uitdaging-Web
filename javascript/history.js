@@ -15,9 +15,9 @@ function showEvaluations(data) {
         var currentDate = getRightDate(new Date());
         var startDate = getRightDate(evaluations.start_date);
         var endDate = getRightDate(evaluations.end_date);
-        if(data.length == 1 && compareTime(endDate, currentDate) || data.length == 0){
-            $('.evaluationlist').append("<p id='noevals'>Er zijn nog geen voltooide evaluaties om te bekijken, voltooi eerst een behandelplan voor zes weken.</p>");
-        } else if(data.length >= 1 && compareTime(currentDate, endDate)){
+        // if(data.length == 1 && compareTime(endDate, currentDate) || data.length == 0){
+        //     $('.evaluationlist').append("<p id='noevals'>Er zijn nog geen voltooide evaluaties om te bekijken, voltooi eerst een behandelplan voor zes weken.</p>");
+        // } else if(data.length >= 1 && compareTime(currentDate, endDate)){
             $('.evaluationlist').append(
                 "<li class='evaluationitem1' id='" + evaluations.treatment_id + "'>" +
                 "<a href='evaluation-content.html?treatment_id=" + evaluations.treatment_id + "' target='_blank' class='evaluationitem'> " +
@@ -26,7 +26,7 @@ function showEvaluations(data) {
                 "</a>" +
                 "</li>"
             );
-        }
+        // }
     });
 }
 
@@ -67,7 +67,7 @@ function getBeginDate() {
             }
         },
         error: function (err) {
-            alert("Error: " + err);
+            notifyUser("Kon geen evaluaties ophalen, neem contact op met uw systeembeheerder");
         }
     });
 
