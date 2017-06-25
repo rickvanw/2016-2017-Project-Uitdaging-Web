@@ -89,7 +89,6 @@ function userInteraction () {
                 e.stopImmediatePropagation();
                 editingExerciseNr = 0;
 
-                //TODO ajax call met alle nieuwe informatie
                 var name = thisExercise.find('.exercise_quickview_title').text();
                 var description = thisExercise.find('.description_text').text();
                 var repetitions = thisExercise.find('.exercise_quickview_amount_repeats').text();
@@ -298,7 +297,6 @@ function placeExercises(data) {
         currentExercise.find('.exercise_quickview_amount_repeats').text(exercise.repetitions);
 
         //Repeats amount
-        //TODO verander naar description uit database
         if(exercise.description == ""){
             currentExercise.find('.description_text').text("Planken is niet ingewikkeld. Voor de basisplank ga je eerst op je buik liggen.Plaats je ellebogen onder de schouders en zet je tenen in de vloer. Druk je bovenlichaam omhoog op je onderarmen en til ook je benen van de grond. Vind je het lastig om in een keer je lijf omhoog te brengen, steun dan als tussenstap op je knieën.");
         }else{

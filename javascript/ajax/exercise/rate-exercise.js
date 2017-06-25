@@ -7,14 +7,13 @@ var hostAdress = getConnection();
 
 $("#rate-exercise").submit(function () {
     var exerciseId = $('#exercise').val();
-    // TODO var rating = "";
 
     $.ajax({
         type: 'PUT',
         url: hostAdress + "/treatment/exercise-done",
         dataType: 'text',
         data: {
-            "exerciseId": exerciseId, // TODO "rating": rating},
+            "exerciseId": exerciseId,
             headers: {"Authorization": localStorage.getItem('token')},
             success: function (data) {
                 //console.log("Exercise rated!");

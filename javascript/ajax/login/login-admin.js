@@ -19,10 +19,8 @@ $(document).ready(function () {
             data: {'userName': username, 'password': password},
             crossdomain: true,
             success: function(data){
-                // TODO afhandeling succes
             },
             statusCode: {
-                // TODO afhandeling status codes
             },
             error: function(err){
                 //console.log("Error: " + err);

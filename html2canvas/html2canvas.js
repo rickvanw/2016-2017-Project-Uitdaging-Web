@@ -136,7 +136,6 @@ _html2canvas.Util.Bounds = function getBounds (el) {
     clientRect = el.getBoundingClientRect();
 
 
-    // TODO add scroll position to bounds, so no scrolling of window necessary
     bounds.top = clientRect.top;
     bounds.bottom = clientRect.bottom || (clientRect.top + clientRect.height);
     bounds.left = clientRect.left;
@@ -466,12 +465,6 @@ _html2canvas.Util.Font = (function () {
   /^(-o-radial-gradient)\(((?:\d{1,3}%?)\s(?:\d{1,3}%?)),\s(\w+)\s([a-z\-]+)([\w\d\.\s,%\(\)]+)\)$/
   ];
 
-  /*
- * TODO: Add IE10 vendor prefix (-ms) support
- * TODO: Add W3C gradient (linear-gradient) support
- * TODO: Add old Webkit -webkit-gradient(radial, ...) support
- * TODO: Maybe some RegExp optimizations are possible ;o)
- */
   _html2canvas.Generate.parseGradient = function(css, bounds) {
     var gradient, i, len = reGradients.length, m1, stop, m2, m2Len, step, m3, tl,tr,br,bl;
 
@@ -559,7 +552,7 @@ _html2canvas.Util.Font = (function () {
         case '-webkit-gradient':
 
           gradient = {
-            type: m1[2] === 'radial' ? 'circle' : m1[2], // TODO: Add radial gradient support for older mozilla definitions
+            type: m1[2] === 'radial' ? 'circle' : m1[2],
             x0: 0,
             y0: 0,
             x1: 0,
@@ -740,7 +733,6 @@ _html2canvas.Util.Font = (function () {
                 }
                 break;
 
-            // TODO: add support for "30px 40px" sizes (webkit only)
             }
           }
 
@@ -786,7 +778,6 @@ _html2canvas.Util.Font = (function () {
     canvas.width = bounds.width;
     canvas.height = bounds.height;
 
-    // TODO: add support for multi defined background gradients
     gradient = _html2canvas.Generate.parseGradient(src, bounds);
 
     if(gradient) {
@@ -996,14 +987,12 @@ _html2canvas.Parse = function (images, options) {
     switch(text_decoration) {
       case "underline":
         // Draws a line at the baseline of the font
-        // TODO As some browsers display the line as more than 1px if the font-size is big, need to take that into account both in position and size
         renderRect(ctx, bounds.left, Math.round(bounds.top + metrics.baseline + metrics.lineWidth), bounds.width, 1, color);
         break;
       case "overline":
         renderRect(ctx, bounds.left, Math.round(bounds.top), bounds.width, 1, color);
         break;
       case "line-through":
-        // TODO try and find exact position for line-through
         renderRect(ctx, bounds.left, Math.ceil(bounds.top + metrics.middle + metrics.lineWidth), bounds.width, 1, color);
         break;
     }
@@ -1198,7 +1187,6 @@ _html2canvas.Parse = function (images, options) {
   }
 
   function setZ(zIndex, parentZ){
-    // TODO fix static elements overlapping relative/absolute elements under same stack, if they are defined after them
     var newContext;
     if (!parentZ){
       newContext = h2czContext(0);
@@ -1799,7 +1787,6 @@ _html2canvas.Parse = function (images, options) {
 
       image = loadImage(key);
 
-      // TODO add support for background-origin
       if (image) {
         renderBackgroundRepeating(element, bounds, ctx, image, imageIndex);
       } else {
@@ -1839,7 +1826,6 @@ _html2canvas.Parse = function (images, options) {
       clip: (parentStack && parentStack.clip) ? _html2canvas.Util.Extend( {}, parentStack.clip ) : null
     };
 
-    // TODO correct overflow for absolute content residing under a static position
     if (options.useOverflow === true && /(hidden|scroll|auto)/.test(getCSS(element, "overflow")) === true && /(BODY)/i.test(element.nodeName) === false){
       stack.clip = (stack.clip) ? clipBounds(stack.clip, bounds) : bounds;
     }
@@ -1903,8 +1889,6 @@ _html2canvas.Parse = function (images, options) {
         }
         break;
       case "INPUT":
-        // TODO add all relevant type's, i.e. HTML5 new stuff
-        // todo add support for placeholder attribute for browsers which support it
         if (/^(text|url|email|submit|button|reset)$/.test(element.type) && (element.value || element.placeholder).length > 0){
           renderFormValue(element, bounds, stack);
         }
@@ -2055,7 +2039,7 @@ _html2canvas.Preload = function( options ) {
   count = 0,
   element = options.elements[0] || document.body,
   doc = element.ownerDocument,
-  domImages = doc.images, // TODO probably should limit it to images present in the element only
+  domImages = doc.images,
   imgLen = domImages.length,
   link = doc.createElement("a"),
   supportCORS = (function( img ){
@@ -2085,7 +2069,6 @@ _html2canvas.Preload = function( options ) {
     }
   }
 
-  // TODO modify proxy to serve images with CORS enabled, where available
   function proxyGetImage(url, img, imageObj){
     var callback_name,
     scriptUrl = options.proxy,
@@ -2784,7 +2767,6 @@ _html2canvas.Renderer.Canvas = function(options) {
 
 
     if ( options.svgRendering && zStack.svgRender !== undefined ) {
-      // TODO: enable async rendering to support this
       ctx.drawImage( zStack.svgRender, 0, 0 );
     } else {
       for ( i = 0, queueLen = queue.length; i < queueLen; i+=1 ) {

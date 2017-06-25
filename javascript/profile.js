@@ -113,25 +113,16 @@ function changeTheUserInfo() {
             }
         },
         error: function (err) {
-            //console.log("Error changing user info: " + err.message);
+            console.log("Error changing user info: " + err.message);
         }
     });
+
+    showInfoChangedModel();
 }
 
-/**
- * Alert for a succesfully changing the user info
- */
 function showInfoChangedModel() {
     $("#model-container-login").append('<div class="alert alert-success" id="register-alert" role="alert">' +
         '<strong>Succes! </strong> Je gegevens zijn gewijzigd! </div>');
-}
-
-/**
- * Alert for successfully changing the user password
- */
-function showPasswordChangedModel() {
-    $("#model-container-login").append('<div class="alert alert-success" id="register-alert" role="alert">' +
-        '<strong>Succes! </strong> Je wachtwoord is veranderd! </div>');
 }
 
 
