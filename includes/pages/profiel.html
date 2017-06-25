@@ -17,7 +17,7 @@
                     <label for="Name-3">Achternaam:</label>
                     <input class="text-field-2 w-input" id="Name-3" maxlength="256" placeholder="Last Name" required="required" type="text">
                     <label for="Email-2">Email Addres:</label>
-                    <input class="text-field-3 w-input" id="Email-2" maxlength="256" name="email-2" placeholder="Email" required="required" type="email">
+                    <input class="text-field-3 w-input" id="Email-2" maxlength="256" placeholder="Email" required="required" type="email">
                 </form>
 
                 <br>
@@ -29,6 +29,35 @@
         <br>
 
         <div id="model-container-login"></div>
+
+    </div>
+
+    <div class="div-block">
+
+        <h3>Wachtwoord</h3>
+
+        <p>Hieronder kunt u uw wachtwoord wijzigen.</p>
+
+
+        <div class="form-wrapper-password">
+            <form>
+                <label for="password-0">Oud wachtwoord:</label>
+                <input class="text-field w-input" id="password-0" maxlength="256" placeholder="Oud wachtwoord" type="password">
+                <label for="password-1">Nieuw wachtwoord:</label>
+                <input class="text-field-2 w-input" id="password-1" maxlength="256" placeholder="Nieuw wachtwoord" required="required" type="password">
+                <label for="password-22">Herhaal:</label>
+                <input class="text-field-3 w-input" id="password-22" maxlength="256" placeholder="Herhaal" required="required" type="password">
+            </form>
+
+            <br>
+
+            <button id="changePassword-button" onclick="changePassword()">Wachtwoord wijzigen</button>
+
+        </div>
+
+        <br>
+
+        <div id="model-container-pass-reset"></div>
 
     </div>
 
