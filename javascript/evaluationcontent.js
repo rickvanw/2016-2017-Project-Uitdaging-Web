@@ -1,13 +1,15 @@
 var jwt = getToken();
 var hostAdress = getConnection();
 
-$(document).ready(function() {
+$(document).ready(function () {
     console.log(jwt);
+    console.log("hoihoihoih");
     userInteraction();
 });
 
 function userInteraction () {
-    openEvaluation();
+    console.log("hoihoieshofisehoifhseoifhesi");
+    getEvaluation();
     // $('#neckbutton').off("click").on("click", function (e) {
     //     e.stopImmediatePropagation();
     //     $(this).css('background-color', '#4A90E2');
