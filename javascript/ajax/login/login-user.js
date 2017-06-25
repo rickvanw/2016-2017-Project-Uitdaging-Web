@@ -6,6 +6,8 @@ $(document).on('click', '#login-button', function(){
         var username = $('#username-field').val();
         var password = $('#password-field').val();
 
+        clearLoginAlert();
+
         $.ajax({
             type: 'POST',
             url: hostAdress + "/user/login",
@@ -60,4 +62,8 @@ $(document).on('click', '#login-button', function(){
         $("#login-alert-container").append('<div class="alert alert-danger" id="register-alert" role="alert">' +
             '<strong>Oops! </strong> Server onbereikbaar! </div>');
     }
+
+function clearLoginAlert() {
+    $("#login-alert-container").empty();
+}
 

@@ -20,7 +20,7 @@ $('#register-button').off("click").on("click", function (e) {
         var email = emailField.val();
         var password = passwordField3.val();
 
-        clear();
+    clearRegisterAlert();
 
         // Executes ajax call only when fields are filled, and checkbox is checked.
         if(validateFields()) {
@@ -85,7 +85,7 @@ function checkUserAgreement() {
     return agreed;
 }
 
-function clear() {
+function clearRegisterAlert() {
     $("#register-alert-container").empty();
 }
 
