@@ -72,16 +72,16 @@ function getBeginDate() {
         dataType: 'json',
         statusCode: {
             200: function () {
-                console.log(200);
+                //console.log(200);
             },
             400: function (error) {
-                console.log(400);
+                //console.log(400);
             },
             403: function (error) {
-                console.log(403)
+                //console.log(403)
             },
             404: function (err) {
-                console.log(404);
+                //console.log(404);
             }
         },
         error: function (err) {

@@ -19,7 +19,7 @@ $(document).on('click', '#login-button', function(){
                     sessionStorage.clear();
                     rememberToken(data.token);
 
-                    console.log();
+                    //console.log();
                     // Redirect to index page
                     window.location.href = "index.html";
                 },

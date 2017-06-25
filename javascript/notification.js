@@ -17,26 +17,26 @@ function getTreatment(){
         dataType: 'json',
         statusCode: {
             200:function(){
-                console.log(200, "succes!");
+                //console.log(200, "succes!");
             },
             401:function(error) {
-                console.log(401);
+                //console.log(401);
             },
             404: function(error){
-                console.log(404, error)
+                //console.log(404, error)
             }
         },
         error: function (err) {
-            console.log("Error getting treatment: " + err.message);
+            //console.log("Error getting treatment: " + err.message);
         }
     });
 
     request.done(function (data) {
         if(data == ""){
-            console.log("No treatment to be evaluated");
+            //console.log("No treatment to be evaluated");
         }else{
             //TODO niet als error terugkomt
-            console.log("Treatment to be evaluated");
+            //console.log("Treatment to be evaluated");
             enableNotifcation();
         }
     });

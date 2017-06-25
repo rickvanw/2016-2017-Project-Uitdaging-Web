@@ -16,7 +16,7 @@ function userInteraction() {
 
 function showQuestions(data) {
     var count = 0;
-    console.log("DATA IN SHOWQUESTIONS: " + data);
+    //console.log("DATA IN SHOWQUESTIONS: " + data);
     data.forEach(function(complaint) {
         count++;
         var html = '';
@@ -182,7 +182,7 @@ function showQuestions(data) {
 }
 
 function getComplaints() {
-    console.log("get complaints");
+    //console.log("get complaints");
     var request = $.ajax({
         type: 'GET',
         headers: {
@@ -192,16 +192,16 @@ function getComplaints() {
         dataType: 'json',
         statusCode: {
             200: function () {
-                console.log(200);
+                //console.log(200);
             },
             400: function (error) {
-                console.log(400);
+                //console.log(400);
             },
             403: function (error) {
-                console.log(403)
+                //console.log(403)
             },
             404: function (err) {
-                console.log(404);
+                //console.log(404);
             }
         },
         error: function (err) {
@@ -210,7 +210,7 @@ function getComplaints() {
     });
 
     request.done(function (data) {
-        console.log("TEst: show questions");
+        //console.log("TEst: show questions");
         showQuestions(data);
     });
 }
@@ -226,13 +226,13 @@ function getQuestions() {
         dataType: 'text',
         statusCode: {
             201: function () {
-                console.log(201, "succes!");
+                //console.log(201, "succes!");
             },
             400: function (error) {
-                console.log(400);
+                //console.log(400);
             },
             403: function (error) {
-                console.log(403, error)
+                //console.log(403, error)
             }
         },
         error: function (err) {
@@ -253,21 +253,21 @@ function saveEvaluationData(){
     var checkedAns;
 
     for(i = 0; i < questions.length; i++){
-        console.log("Questions.length: " + questions.length);
+        //console.log("Questions.length: " + questions.length);
         var answer = {};
         var currQuestion = questions[i];
         var question = currQuestion.children[0].innerText;
         var questType = currQuestion.classList[1]; // get question type, e.g.
 
-        console.log(answer);
-        console.log(currQuestion);
-        console.log("question: " + question);
-        console.log("questType: " + questType);
+        //console.log(answer);
+        //console.log(currQuestion);
+        //console.log("question: " + question);
+        //console.log("questType: " + questType);
 
         switch (questType) {
             case "checkbox": // if checkbox, get all selected values
                 checkedAns = $(currQuestion).find('input[type=checkbox]:checked');
-                console.log("Amount of checked checkboxes: " + checkedAns.length);
+                //console.log("Amount of checked checkboxes: " + checkedAns.length);
                 answer.checkbox = [];
                 for(j = 0; j < checkedAns.length; j++){
                     // if(checkedAns[j].attr('choice') != undefined) {
@@ -277,14 +277,14 @@ function saveEvaluationData(){
                 break;
             case "radio": // if radio, get the selected value when not undefined
                 checkedAns = $(currQuestion).find('input[type=radio]:checked');
-                console.log("checkedAns: " + checkedAns);
+                //console.log("checkedAns: " + checkedAns);
                 if(checkedAns.attr('choice') != undefined) {
                     answer.radio = checkedAns.attr('choice').trim();
                 }
                 break;
             case "w-select": // if select, get all selected values
                 checkedAns = $(currQuestion).find('option:selected');
-                console.log("checkedAns: " + checkedAns);
+                //console.log("checkedAns: " + checkedAns);
                 if(checkedAns.attr('choice') != undefined) {
                     answer.selected = checkedAns.attr('choice').trim();
                 }
@@ -304,8 +304,8 @@ function saveEvaluationData(){
  * @param formData
  */
 function postEvaluation(questions, formData) {
-    console.log("formdata.questions: " + JSON.stringify(formData.questions));
-    console.log("formdata.answers: " + JSON.stringify(formData.answers));
+    //console.log("formdata.questions: " + JSON.stringify(formData.questions));
+    //console.log("formdata.answers: " + JSON.stringify(formData.answers));
     $.ajax({
         type: 'POST',
         headers: {
@@ -321,17 +321,17 @@ function postEvaluation(questions, formData) {
         },
         statusCode: {
             200: function () {
-                console.log(200);
+                //console.log(200);
             },
             401: function (error) {
-                console.log(401);
+                //console.log(401);
             },
             400: function (error) {
-                console.log(400, error)
+                //console.log(400, error)
             }
         },
         error: function (err) {
-            console.log("Error posting evaluation");
+            //console.log("Error posting evaluation");
         }
     })
 }

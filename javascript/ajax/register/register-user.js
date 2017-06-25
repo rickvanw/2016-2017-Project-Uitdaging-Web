@@ -5,8 +5,8 @@ var passwordField3;
 var hostAdress = getConnection();
 
 $('#register-button').off("click").on("click", function (e) {
-    
-        console.log("REGISTER");
+
+        //console.log("REGISTER");
 
         emailField = $('#email_field');
         firstNameField = $('#surname_field');
@@ -44,7 +44,7 @@ $('#register-button').off("click").on("click", function (e) {
                         }else{
                             showErrorExistsAlert();
                         }
-                        console.log("Error creating admin: " + err.message);
+                        //console.log("Error creating admin: " + err.message);
                     }
                 });
             }

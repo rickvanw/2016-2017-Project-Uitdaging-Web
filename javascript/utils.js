@@ -26,14 +26,14 @@ function setToken(value) {
 
 function getToken() {
     if(typeof sessionStorage.token != "undefined"){
-        console.log("SESSION: " + sessionStorage.token);
+        //console.log("SESSION: " + sessionStorage.token);
         return sessionStorage.token;
     } else if(getCookie("jwt") != ""){
-        console.log("COOKIE: " + getCookie("jwt"));
+        //console.log("COOKIE: " + getCookie("jwt"));
         return getCookie("jwt");
     } else {
-        console.log("NO AUTH: session: " + sessionStorage.token);
-        console.log("NO AUTH: cookie: " + getCookie("jwt"));
+        //console.log("NO AUTH: session: " + sessionStorage.token);
+        //console.log("NO AUTH: cookie: " + getCookie("jwt"));
 
         showNotLoggedInAlert();
         window.location.href = "login.html";

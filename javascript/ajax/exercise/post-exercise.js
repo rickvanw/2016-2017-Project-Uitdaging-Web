@@ -10,7 +10,6 @@ var hostAdress = getConnection();
 $(document).ready(function () {
 
     $("#submit_form").submit(function () {
-        alert("test");
         saveExercise();
     });
 
@@ -26,8 +25,7 @@ function saveExercise(){
     var media_url = $('input[name="exercise_link"]').val();
     var image_url = $('input[name="exercise_img"]').val();
     var repetitions = $('input[name="exercise_repetitions"]').val();
-    alert(name);
-    console.log(name);
+    //console.log(name);
 
     $.ajax({
         type: 'POST',
@@ -44,23 +42,23 @@ function saveExercise(){
         },
         dataType: 'text',
         success: function (data) {
-            console.log("exercise posted");
-            console.log(data);
+            //console.log("exercise posted");
+            //console.log(data);
             location.replace("index.html");
         },
         statusCode: {
             200: function () {
-                console.log(200);
+                //console.log(200);
             },
             401: function (error) {
-                console.log(401);
+                //console.log(401);
             },
             400: function (error) {
-                console.log(400, error)
+                //console.log(400, error)
             }
         },
         error: function (err) {
-            console.log("Error posting exercise");
+            //console.log("Error posting exercise");
         }
     });
 }

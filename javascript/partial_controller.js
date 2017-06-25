@@ -18,11 +18,11 @@ app.controller('partialController', function($scope) {
         ];
 
     if(isAdministrator()){
-        console.log("IS ADMIN");
+        //console.log("IS ADMIN");
         $scope.template = $scope.templates[1];
 
     }else{
-        console.log("IS NOT ADMIN");
+        //console.log("IS NOT ADMIN");
         $scope.template = $scope.templates[0];
 
     }

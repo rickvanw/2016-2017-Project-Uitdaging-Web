@@ -3,15 +3,15 @@ var hostAdress = getConnection();
 
 $(document).ready(function() {
 
-    console.log("SIDEMENU");
+    //console.log("SIDEMENU");
 
 
     if(isAdministrator()){
+        addToMenu("profiel", "Profiel","fa-user");
         addToMenu("admin_exercise", "Oefeningen","fa-list");
         addToMenu("admin_add_admin", "Admin +","fa-list");
     }else{
         addToMenu("profiel", "Profiel","fa-user");
-        addToMenu("evaluatie", "Evaluatie","fa-list");
         addToMenu("behandelplan", "Behandelplan","fa-list");
         addToMenu("history", "Geschiedenis","fa-list");
     }

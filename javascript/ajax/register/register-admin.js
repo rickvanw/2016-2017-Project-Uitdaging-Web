@@ -7,7 +7,7 @@ var jwt = getToken();
 
 $('#register-button').off("click").on("click", function (e) {
 
-    console.log("REGISTER");
+    //console.log("REGISTER");
 
     emailField = $('#email_field');
     firstNameField = $('#surname_field');
@@ -33,7 +33,7 @@ $('#register-button').off("click").on("click", function (e) {
                 data: {'email': email, 'first_name': first_name, 'last_name': last_name, 'password': password},
                 statusCode: {
                 201:function(){
-                    console.log(200, "succes!");
+                    //console.log(200, "succes!");
                     alert("Administrator aangemaakt");
                 }
             },
@@ -46,7 +46,7 @@ $('#register-button').off("click").on("click", function (e) {
                     alert("Kon geen administrator aanmaken, neem contact op met uw systeembeheerder");
 
                 }
-                console.log("Error creating admin: " + err.message);
+                //console.log("Error creating admin: " + err.message);
             }
         });
 

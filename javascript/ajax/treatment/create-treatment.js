@@ -23,13 +23,13 @@ $(document).ready(function(){
             },
             statusCode: {
                 200:function(){
-                    console.log(200, "succes!");
+                    //console.log(200, "succes!");
                 },
                 401:function(error) {
-                    console.log(401);
+                    //console.log(401);
                 },
                 400: function(error){
-                    console.log(400, error)
+                    //console.log(400, error)
                 }
             }
         });

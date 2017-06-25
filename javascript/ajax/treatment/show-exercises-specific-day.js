@@ -14,13 +14,13 @@ $(document).ready(function() {
         dataType: 'json',
         statusCode: {
             200:function(){
-                console.log(200, "succes!");
+                //console.log(200, "succes!");
             },
             401:function(error) {
-                console.log(401);
+                //console.log(401);
             },
             404: function(error){
-                console.log(404, error)
+                //console.log(404, error)
             }
         }
     });
@@ -42,7 +42,7 @@ $(document).ready(function() {
     });
 
     request.error(function (jqXHR, textStatus, errorThrown){
-        console.log("ERROR: " + textStatus + " CODE: " + errorThrown);
+        //console.log("ERROR: " + textStatus + " CODE: " + errorThrown);
     });
 
     /**

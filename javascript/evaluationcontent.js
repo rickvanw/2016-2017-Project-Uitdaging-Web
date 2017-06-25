@@ -2,13 +2,13 @@ var jwt = getToken();
 var hostAdress = getConnection();
 
 $(document).ready(function () {
-    console.log(jwt);
-    console.log("hoihoihoih");
+    //console.log(jwt);
+    //console.log("hoihoihoih");
     userInteraction();
 });
 
 function userInteraction () {
-    console.log("hoihoieshofisehoifhseoifhesi");
+    //console.log("hoihoieshofisehoifhseoifhesi");
     getEvaluation();
 }
 
@@ -39,7 +39,7 @@ function getURLParameter(name) {
 }
 
 function getEvaluation() {
-    console.log("zit in getEvaluation");
+    //console.log("zit in getEvaluation");
     var request = $.ajax({
         type: 'GET',
         headers: {
@@ -49,21 +49,21 @@ function getEvaluation() {
         dataType: 'json',
         statusCode: {
             200: function () {
-                console.log(200, "succes!");
+                //console.log(200, "succes!");
             },
             400: function (error) {
-                console.log(400);
+                //console.log(400);
             },
             403: function (error) {
-                console.log(403);
+                //console.log(403);
             },
             404: function (error) {
-                console.log(404 + "errorrrrrr");
+                //console.log(404 + "errorrrrrr");
             }
         },
         error: function (err) {
             notifyUser("Kon geen evaluaties ophalen, neem contact op met uw systeembeheerder");
-            console.log("Error getting evaluations: " + err.message);
+            //console.log("Error getting evaluations: " + err.message);
         }
     });
 
@@ -82,13 +82,13 @@ function getEvaluation() {
 //         dataType: 'json',
 //         statusCode: {
 //             201: function () {
-//                 console.log(201, "succes!");
+//                 //console.log(201, "succes!");
 //             },
 //             400: function (error) {
-//                 console.log(400);
+//                 //console.log(400);
 //             },
 //             403: function (error) {
-//                 console.log(403, error)
+//                 //console.log(403, error)
 //             }
 //         },
 //         error: function (err) {

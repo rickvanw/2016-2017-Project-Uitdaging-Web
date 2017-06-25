@@ -136,21 +136,21 @@ function getExercises(date){
         dataType: 'json',
         statusCode: {
             200:function(){
-                console.log(200, "succes!");
+                //console.log(200, "succes!");
             },
             401:function() {
-                console.log(401);
+                //console.log(401);
             }
         },
         error: function (err) {
 
             // Check if user has
             if(err.status = 404){
-                console.log("404!!" + err.status);
+                //console.log("404!!" + err.status);
                 loadPageFromJS('klachten');
             }
             notifyUser("Kon geen oefeningen ophalen, neem contact op met uw systeembeheerder");
-            console.log("Error getting exercises: " + err.message);
+            //console.log("Error getting exercises: " + err.message);
         }
     });
 
@@ -241,23 +241,23 @@ function doneExercise(done, treatment_exercise_id) {
         dataType: 'json',
         statusCode: {
             200:function(){
-                console.log(200, "succes!");
+                //console.log(200, "succes!");
             },
             401:function(error) {
-                console.log(401);
+                //console.log(401);
             },
             404: function(error){
-                console.log(404, error)
+                //console.log(404, error)
             },
             error: function (err) {
                 notifyUser("Kon de wijziging niet doorvoeren, neem contact op met uw systeembeheerder");
-                console.log("Error marking exercise done: " + err.message);
+                //console.log("Error marking exercise done: " + err.message);
             }
         }
     });
 
     request.done(function (data) {
-        console.log("DONE");
+        //console.log("DONE");
     });
 }
 
@@ -277,13 +277,13 @@ function rateExercise(rating, treatment_exercise_id) {
         dataType: 'json',
         statusCode: {
             200:function(){
-                console.log(200, "succes!");
+                //console.log(200, "succes!");
             },
             401:function(error) {
-                console.log(401);
+                //console.log(401);
             },
             404: function(error){
-                console.log(404, error)
+                //console.log(404, error)
             }
         },
         error: function (err) {
@@ -292,7 +292,7 @@ function rateExercise(rating, treatment_exercise_id) {
     });
 
     request.done(function (data) {
-        console.log("DONE");
+        //console.log("DONE");
     });
 }
 

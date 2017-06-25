@@ -17,22 +17,22 @@ function getFullName(){
         dataType: 'json',
         statusCode: {
             200:function(){
-                console.log(200, "succes!");
+                //console.log(200, "succes!");
             },
             401:function(error) {
-                console.log(401);
+                //console.log(401);
             },
             404: function(error){
-                console.log(404, error)
+                //console.log(404, error)
             }
         },
         error: function (err) {
-            console.log("Error getting name: " + err.message);
+            //console.log("Error getting name: " + err.message);
         }
     });
 
     request.done(function (data) {
-        console.log("getFullname " + data[0].first_name + " " + data[0].last_name);
+        //console.log("getFullname " + data[0].first_name + " " + data[0].last_name);
         userInteraction();
         $('.welcome-text').text("Welkom terug, " + data[0].first_name + " " + data[0].last_name);
     });

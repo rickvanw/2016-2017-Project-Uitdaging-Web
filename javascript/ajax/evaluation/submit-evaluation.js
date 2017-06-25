@@ -58,8 +58,8 @@ function saveEvaluationData(){
  * @param formData
  */
 function postEvaluation(questions, formData) {
-    console.log("formdata.questions: " + JSON.stringify(formData.questions));
-    console.log("formdata.answers: " + JSON.stringify(formData.answers));
+    //console.log("formdata.questions: " + JSON.stringify(formData.questions));
+    //console.log("formdata.answers: " + JSON.stringify(formData.answers));
     $.ajax({
         type: 'POST',
         headers: {
@@ -75,17 +75,17 @@ function postEvaluation(questions, formData) {
         },
         statusCode: {
             200: function () {
-                console.log(200);
+                //console.log(200);
             },
             401: function (error) {
-                console.log(401);
+                //console.log(401);
             },
             400: function (error) {
-                console.log(400, error)
+                //console.log(400, error)
             }
         },
         error: function (err) {
-            console.log("Error posting evaluation");
+            //console.log("Error posting evaluation");
         }
     })
 }

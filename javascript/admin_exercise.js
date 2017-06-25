@@ -152,17 +152,17 @@ function getAmountOfExercises(){
         dataType: 'json',
         statusCode: {
             200:function(){
-                console.log(200, "succes!");
+                //console.log(200, "succes!");
             },
             401:function(error) {
-                console.log(401);
+                //console.log(401);
             },
             404: function(error){
-                console.log(404, error)
+                //console.log(404, error)
             }
         },
         error: function (err) {
-            console.log("Error getting amount of exercises: " + err.message);
+            //console.log("Error getting amount of exercises: " + err.message);
         }
     });
 
@@ -200,24 +200,24 @@ function changeExercise(thisExercise, exercise_id, name, description, repetition
         dataType: 'json',
         statusCode: {
             200:function(){
-                console.log(200, "succes!");
+                //console.log(200, "succes!");
             },
             401:function(error) {
-                console.log(401);
+                //console.log(401);
             },
             404: function(error){
-                console.log(404, error)
+                //console.log(404, error)
             }
         },
         error: function (err) {
             resetFromLocalExerciseContent(thisExercise);
             notifyUser("Kon de wijziging(en) niet doorvoeren, neem contact op met uw systeembeheerder");
-            console.log("Error rating the exercise: " + err.message);
+            //console.log("Error rating the exercise: " + err.message);
         }
     });
 
     request.done(function (data) {
-        console.log("DONE");
+        //console.log("DONE");
     });
 }
 
@@ -236,18 +236,18 @@ function getExercises(page){
         dataType: 'json',
         statusCode: {
             200:function(){
-                console.log(200, "succes!");
+                //console.log(200, "succes!");
             },
             401:function(error) {
-                console.log(401);
+                //console.log(401);
             },
             404: function(error){
-                console.log(404, error)
+                //console.log(404, error)
             }
         },
         error: function (err) {
             notifyUser("Kon geen oefeningen ophalen, neem contact op met uw systeembeheerder");
-            console.log("Error getting exercises: " + err.message);
+            //console.log("Error getting exercises: " + err.message);
         }
     });
 
@@ -363,22 +363,22 @@ function deleteExercise (exercise_id) {
         dataType: 'text',
         statusCode: {
             201: function () {
-                console.log(201);
+                //console.log(201);
             },
             401: function (error) {
-                console.log(error);
+                //console.log(error);
             },
             400: function (error) {
-                console.log(error);
+                //console.log(error);
             }
         },
         error: function (err) {
-            console.log(err);
+            //console.log(err);
         }
         });
 
         request.done(function (data) {
-            console.log("DONE");
+            //console.log("DONE");
             clearExercises();
             getExercises(currentPage);
     });

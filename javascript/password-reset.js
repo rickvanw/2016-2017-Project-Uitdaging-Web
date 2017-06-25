@@ -3,7 +3,7 @@ $('#password_reset_button').off("click").on("click", function (e) {
     e.stopImmediatePropagation();
 
     var email = $('.email_input').val();
-    console.log(email);
+    //console.log(email);
 
     $.ajax({
         type: 'POST',
@@ -22,7 +22,7 @@ $('#password_reset_button').off("click").on("click", function (e) {
 
 
             }
-            console.log("Error: " + err.message);
+            //console.log("Error: " + err.message);
         }
     });
     showInfoChangedModel()

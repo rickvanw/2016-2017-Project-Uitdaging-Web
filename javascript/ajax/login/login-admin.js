@@ -25,7 +25,7 @@ $(document).ready(function () {
                 // TODO afhandeling status codes
             },
             error: function(err){
-                console.log("Error: " + err);
+                //console.log("Error: " + err);
             }
         });
     });
