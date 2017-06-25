@@ -1,19 +1,15 @@
 var jwt = getToken();
 var hostAdress = getConnection();
 
-$(document).ready(function() {
+$(document).ready(function () {
     console.log(jwt);
+    console.log("hoihoihoih");
     userInteraction();
 });
 
 function userInteraction () {
-    openEvaluation();
-    // $('#neckbutton').off("click").on("click", function (e) {
-    //     e.stopImmediatePropagation();
-    //     $(this).css('background-color', '#4A90E2');
-    //     var vraag1 = document.getElementById('vraag1');
-    //     $(vraag1).style.display = 'block';
-    // });
+    console.log("hoihoieshofisehoifhseoifhesi");
+    getEvaluation();
 }
 
 function openEvaluation(data){
@@ -49,7 +45,7 @@ function getEvaluation() {
         headers: {
             'authorization': jwt
         },
-        url: hostAdress + "/treatment/evaluation-answers",
+        url: hostAdress + "/treatment/evaluationanswers",
         dataType: 'json',
         statusCode: {
             200: function () {
@@ -59,10 +55,10 @@ function getEvaluation() {
                 console.log(400);
             },
             403: function (error) {
-                console.log(403)
+                console.log(403);
             },
             404: function (error) {
-                console.log(404)
+                console.log(404 + "errorrrrrr");
             }
         },
         error: function (err) {
