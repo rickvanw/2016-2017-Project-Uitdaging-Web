@@ -5,7 +5,7 @@ var passwordField3;
 var hostAdress = getConnection();
 var jwt = getToken();
 
-$(document).on('click', '#register-button', function(){
+$('#register-button').off("click").on("click", function (e) {
 
     console.log("REGISTER");
 

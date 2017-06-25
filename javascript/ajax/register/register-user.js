@@ -4,16 +4,15 @@ var lastNameField;
 var passwordField3;
 var hostAdress = getConnection();
 
+$('#register-button').off("click").on("click", function (e) {
+    
+        console.log("REGISTER");
 
-$(document).on('click', '#register-button', function(){
-
-    console.log("REGISTER");
-
-    emailField = $('#email_field');
-    firstNameField = $('#surname_field');
-    lastNameField = $('#lastname_field');
-    passwordField2 = $('#password_field-2');
-    passwordField3 = $('#password_field-3');
+        emailField = $('#email_field');
+        firstNameField = $('#surname_field');
+        lastNameField = $('#lastname_field');
+        passwordField2 = $('#password_field-2');
+        passwordField3 = $('#password_field-3');
 
         // Get the values
         var first_name = firstNameField.val();
@@ -21,35 +20,36 @@ $(document).on('click', '#register-button', function(){
         var email = emailField.val();
         var password = passwordField3.val();
 
-    clear();
+        clear();
 
-    // Executes ajax call only when fields are filled, and checkbox is checked.
-    if(validateFields()) {
-        if (checkUserAgreement()) {
-            $.ajax({
-                type: 'POST',
-                url: hostAdress + "/user/add",
-                dataType: 'json',
-                data: {'email': email, 'first_name': first_name, 'last_name': last_name, 'password': password},
-                success: function (data) {
-                },
-                statusCode: {
-                    201: function (data) {
-                        window.location.href = "login.html";
-                    }
-                },
-                error: function (err) {
-                    if(err.status == 409) {
-                        showAlreadyExistsAlert();
+        // Executes ajax call only when fields are filled, and checkbox is checked.
+        if(validateFields()) {
+            if (checkUserAgreement()) {
+                $.ajax({
+                    type: 'POST',
+                    url: hostAdress + "/user/add",
+                    dataType: 'json',
+                    data: {'email': email, 'first_name': first_name, 'last_name': last_name, 'password': password},
+                    success: function (data) {
+                    },
+                    statusCode: {
+                        201: function (data) {
+                            window.location.href = "login.html";
+                        }
+                    },
+                    error: function (err) {
+                        if(err.status == 409) {
+                            showAlreadyExistsAlert();
 
-                    }else{
-                        showErrorExistsAlert();
+                        }else{
+                            showErrorExistsAlert();
+                        }
+                        console.log("Error creating admin: " + err.message);
                     }
-                    console.log("Error creating admin: " + err.message);
-                }
-            });
+                });
+            }
         }
-    }
+
 });
 
 
