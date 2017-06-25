@@ -70,8 +70,7 @@ function initializeNotification(){
 }
 
 function notifyPopupClick() {
-    // TODO Go to evaluations
-    alert("test");
+    loadPageFromJS("evaluatie");
 }
 
 

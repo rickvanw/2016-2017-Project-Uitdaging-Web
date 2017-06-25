@@ -222,7 +222,7 @@ function getQuestions() {
             'authorization': jwt
         },
         data: JSON.stringify(exercises),
-        url: "http://localhost:8000" + "/evaluation/evaluations",
+        url: hostAdress + "/evaluation/evaluations",
         dataType: 'text',
         statusCode: {
             201: function () {
