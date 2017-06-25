@@ -9,6 +9,10 @@ function userInteraction() {
     getBeginDate();
 }
 
+/**
+ * Function that shows the list of evaluations a user has
+ * @param data
+ */
 function showEvaluations(data) {
     $('#evaluation-container').append("<ul class='evaluationlist'></ul>");
     data.forEach(function (evaluations, index) {
@@ -30,10 +34,21 @@ function showEvaluations(data) {
     });
 }
 
+/**
+ * Function returns true if time1 is later than time2
+ * @param time1
+ * @param time2
+ * @returns {boolean}
+ */
 function compareTime(time1, time2) {
     return (time1) > (time2);
 }
 
+/**
+ * Gets a date to be the right format
+ * @param date
+ * @returns {string|*}
+ */
 function getRightDate(date){
     date = new Date(date);
     var y = date.getFullYear();
@@ -44,6 +59,9 @@ function getRightDate(date){
     return date;
 }
 
+/**
+ * Ajax call for getting treatment data
+ */
 function getBeginDate() {
     var request = $.ajax({
         type: 'GET',
