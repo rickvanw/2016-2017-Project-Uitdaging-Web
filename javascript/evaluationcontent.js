@@ -10,12 +10,6 @@ $(document).ready(function () {
 function userInteraction () {
     console.log("hoihoieshofisehoifhseoifhesi");
     getEvaluation();
-    // $('#neckbutton').off("click").on("click", function (e) {
-    //     e.stopImmediatePropagation();
-    //     $(this).css('background-color', '#4A90E2');
-    //     var vraag1 = document.getElementById('vraag1');
-    //     $(vraag1).style.display = 'block';
-    // });
 }
 
 function openEvaluation(data){
